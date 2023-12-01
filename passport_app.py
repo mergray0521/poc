@@ -1,5 +1,5 @@
 import streamlit as st
-import snowflake.connector 
+pip install "snowflake-connector-python"
 
 streamlit.title ('Welcome to Passport')
 streamlit.header('Create Token Schema')
