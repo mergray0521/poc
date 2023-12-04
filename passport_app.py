@@ -36,4 +36,14 @@ if __name__ == "__main__":
     main()
 
 
+try:
+        # Insert the form data into Snowflake
+        query = f"INSERT INTO token_schemas (token_name, fungibility, ip, token_admin, metadata) VALUES ('{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
+        my_cursor.execute(query)
+        my_cnx.commit()
+        st.success("Data successfully inserted into Snowflake database!")
+    except Exception as e:
+        st.error(f"Error inserting data into Snowflake: {e}")
+
+
   
