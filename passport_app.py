@@ -3,8 +3,8 @@ import pandas
 import requests
 import snowflake.connector
 
-    # Connect to Snowflake
-    my_cnx = connect_to_snowflake()
+# Connect to Snowflake
+my_cnx = connect_to_snowflake()
 
     
 
