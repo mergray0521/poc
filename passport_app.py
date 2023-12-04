@@ -42,7 +42,7 @@ try:
         my_cursor.execute(query)
         my_cnx.commit()
         st.success("Data successfully inserted into Snowflake database!")
-    except Exception as e:
+except Exception as e:
         st.error(f"Error inserting data into Snowflake: {e}")
 
 
