@@ -1,2 +1,3 @@
-git clone <https://github.com/snowflakedb/snowflake-connector-python.git>
+git clone https://github.com/snowflakedb/snowflake-connector-python.git
+
 
