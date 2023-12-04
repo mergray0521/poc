@@ -1,9 +1,9 @@
-import streamlit
+import streamlit as st
 import snowflake.connector
 
 
-streamlit.title('My Passport')
-streamlit.header('Create Token Schema')
+st.title('My Passport')
+st.header('Create Token Schema')
 
 
   
