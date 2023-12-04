@@ -13,7 +13,7 @@ def main():
     token_name = st.text_input("Token Name", "")
     fungibility = st.selectbox("Fungibility", ["Fungible", "Non-Fungible", "Semi-Fungible"])
     ip = st.text_input("IP", ["HTTYD", "HHN", "CINEPHILE", "TOOTHSOME"])
-    token_admin = st.text_input("Token Admin", ["Miach", "Steve", Mere"])
+    token_admin = st.text_input("Token Admin", ["Micah", "Steve", "Mere"])
     metadata = st.text_area("Metadata", "")
 
     # Submit button
