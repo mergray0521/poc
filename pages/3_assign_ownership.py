@@ -8,12 +8,9 @@ st.title("Assign Token Ownership")
 
 def assign_ownership(token_id, identity_id):
   ownership_query = f"INSERT INTO ownership_db.token_ownership (token_id, owner_id) VALUES ('{token_id}', {identity_id})"
-
-# Execute the query
-my_cur.execute(ownership_query)
-my_cnx.commit()
-
-st.success(f"Ownership assigned! Token ID {token_id} is now owned by {identity_id}.")
+  my_cur.execute(ownership_query)
+  my_cnx.commit() 
+  st.success(f"Ownership assigned! Token ID {token_id} is now owned by {identity_id}.")
 
 st.title("Assign Ownership")
 
