@@ -5,8 +5,9 @@ st.set_page_config(
     page_title="Create Token Schema"
 )
 
+st.write("You have entered", st.session_state["my_input"])
+
 st.title('Create Token Schema')
-st.sidebar.success("Select a page above.")
 
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
