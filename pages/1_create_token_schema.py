@@ -15,7 +15,7 @@ def main():
 
     # Create input fields for token information
     token_schema_id = st.number_input("Token Schema ID", value = none)
-    token_name = st.text_input("Token Name", "")
+    token_name = st.text_area("Token Name", "")
     fungibility = st.selectbox("Fungibility", ["Fungible", "Non-Fungible", "Semi-Fungible"])
     ip = st.selectbox("IP", ["HTTYD", "HHN", "CINEPHILE", "TOOTHSOME"])
     token_admin = st.selectbox("Token Admin", ["Micah", "Steve", "Mere"])
