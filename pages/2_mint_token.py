@@ -6,5 +6,9 @@ st.title("Mint Token")
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 
-def main():
-    st.header("Select Token Schema")
+my_cur.execute("select * from token_schemas")
+my_data_rows = my_cur.fetchall()
+st.header("Select Token Schema")
+streamlit.dataframe(my_data_rows)
+
+
