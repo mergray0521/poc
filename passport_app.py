@@ -4,7 +4,12 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 
+st.set_page_config(
+    page_title="Create Token Schema"
+)
+
 st.title('Create Token Schema')
+st.sidebar.success("Select a page above.")
 
 def main():
     st.header("Token Information Form")
