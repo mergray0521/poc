@@ -1,6 +1,9 @@
 import streamlit as st
 import snowflake.connector
 
+my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+
 st.title("Assign Token Ownership")
 
 def assign_ownership(token_id, identity_id):
