@@ -14,7 +14,7 @@ def main():
     st.header("Token Information Form")
 
     # Create input fields for token information
-    token_schema_id = st.number_input("Token Schema ID", step= int, "")
+    token_schema_id = st.number_input("Token Schema ID", "")
     token_name = st.text_input("Token Name", "")
     fungibility = st.selectbox("Fungibility", ["Fungible", "Non-Fungible", "Semi-Fungible"])
     ip = st.selectbox("IP", ["HTTYD", "HHN", "CINEPHILE", "TOOTHSOME"])
