@@ -9,6 +9,6 @@ my_cur = my_cnx.cursor()
 my_cur.execute("select * from token_schemas")
 my_data_rows = my_cur.fetchall()
 st.header("Select Token Schema")
-streamlit.dataframe(my_data_rows)
+st.dataframe(my_data_rows)
 
 
