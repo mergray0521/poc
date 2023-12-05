@@ -1,5 +1,5 @@
 import streamlit as st
-import snowflake.connecter
+import snowflake.connector
 
 st.title("Assign Token Ownership")
 
