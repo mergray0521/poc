@@ -8,6 +8,10 @@ st.set_page_config(
 st.title('My Passport')
 st.sidebar.success("Select a page above.")
 
+admin_pages = ["1_create_token_schema.py", "2_mint_token.py", "3_assign_ownership.py", "4_display_tokens.py", "5_earned_token.py", "6_update_metadata.py"]
+user_pages = ["4_display_tokens.py", "5_earned_token.py", "6_update_metadata.py"]
+
+
 if "my_input" not in st.session_state:
         st.session_state["my_input"] = ""
 
