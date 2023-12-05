@@ -2,7 +2,7 @@ import streamlit as st
 import snowflake.connector
 from urllib.error import URLError
 
-def token_schema(schema_name):
+def token_schemas(schema_name):
     # Assume "inventory_db" is the name of the different database
     query = f"SELECT * FROM inventory_db.{schema_name}"
     my_cur.execute(query)
