@@ -11,12 +11,12 @@ st.sidebar.success("Select a page above.")
 admin_pages = ["1_create_token_schema.py", "2_mint_token.py", "3_assign_ownership.py", "4_display_tokens.py", "5_earned_token.py", "6_update_metadata.py"]
 user_pages = ["4_display_tokens.py", "5_earned_token.py", "6_update_metadata.py"]
 
-
-if "my_input" not in st.session_state:
-        st.session_state["my_input"] = ""
-if "role" not in st.session_state:
-    st.session_state.role = ""
-
+# Function to get or create session state
+def get_session_state():
+    if not hasattr(st.session_state, "role"):
+        st.session_state.role = None
+    return st.session_state
+    
 # Home Page
 def home_page():
     st.title("Home Page")
