@@ -1,5 +1,6 @@
 import streamlit as st
 import snowflake.connector
+from urllib.error import URLError
 
 st.title("Mint Token")
 
