@@ -2,6 +2,13 @@ import streamlit as st
 import snowflake.connector
 from urllib.error import URLError
 
+def token_schema(schema_name):
+    # Assume "inventory_db" is the name of the different database
+    query = f"SELECT * FROM inventory_db.{schema_name}"
+    my_cur.execute(query)
+    result_data = my_cur.fetchall()
+    return result_data
+
 st.title("Mint Token")
 
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
