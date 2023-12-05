@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
 try:
         # Insert the form data into Snowflake
-        query = f"INSERT INTO token_schemas (token_id, token_name, fungibility, ip, token_admin, metadata) VALUES ('{token_id}','{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
+        query = f"INSERT INTO token_schemas (token_id, token_name, fungibility, ip, token_admin, metadata) VALUES ('12','monster', 'non-fungible', 'HHN', 'steve', 'color')"
         my_cursor.execute(query)
         my_cnx.commit()
         st.success("Data successfully inserted into Snowflake database!")
