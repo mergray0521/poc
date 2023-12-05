@@ -1,5 +1,6 @@
 import streamlit as st
 import snowflake.connector
+from urllib.error import URLError
 
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 my_cur = my_cnx.cursor()
