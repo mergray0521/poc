@@ -17,7 +17,7 @@ try:
     if not schema_choice:
         st.error("Please select a token schema to proceed.")
     else:
-        back_from_function = token_schema(schema_choice)
+        back_from_function = token_schemas(schema_choice)
         st.dataframe(back_from_function)
 
 except URLError as e:
