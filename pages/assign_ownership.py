@@ -1,5 +1,5 @@
 import streamlit as st
 import snowflake.connecter
 
-st.title("My Passport")
+st.title("Assign Token Ownership")
 
