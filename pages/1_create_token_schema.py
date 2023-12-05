@@ -7,7 +7,7 @@ st.set_page_config(
 
 st.title('Create Token Schema')
 
-my_cnx = snowflake.connector.connect(**st.secrets["token_schema_db"])
+my_cnx = snowflake.connector.connect(**st.secrets["token_schemas"])
 my_cur = my_cnx.cursor()
 
 def main():
