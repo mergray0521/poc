@@ -11,7 +11,7 @@ def token_schemas(schema_name):
 
 st.title("Mint Token")
 
-my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
+my_cnx = snowflake.connector.connect(**st.secrets["test2"])
 my_cur = my_cnx.cursor()
 
 my_cur.execute("select token_name from token_schemas")
