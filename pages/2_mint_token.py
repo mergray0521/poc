@@ -16,7 +16,7 @@ my_cur = my_cnx.cursor()
 
 my_cur.execute("select token_name from token_schemas")
 my_data_rows = my_cur.fetchall()
-st.header("Select Token Schema:")
+st.header("Current Token Schemas:")
 st.dataframe(my_data_rows)
 
 try:
