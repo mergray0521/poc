@@ -14,7 +14,7 @@ def main():
     st.header("Token Information Form")
 
     # Create input fields for token information
-    TOKEN_SCHEMA_ID = st.text_input("Token ID", "")
+    token_schema_id = st.text_input("Token ID", "")
     token_name = st.text_input("Token Name", "")
     fungibility = st.selectbox("Fungibility", ["Fungible", "Non-Fungible", "Semi-Fungible"])
     ip = st.selectbox("IP", ["HTTYD", "HHN", "CINEPHILE", "TOOTHSOME"])
@@ -25,7 +25,7 @@ def main():
     if st.button("Submit"):
         # Process the form data (you can replace this with your logic)
         result = {
-            "Token Id": TOKEN_SCHEMA_ID,
+            "Token Id": token_schema_id,
             "Token Name": token_name,
             "Fungibility": fungibility,
             "IP": ip,
@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
 try:
         # Insert the form data into Snowflake
-        query = f"INSERT INTO token_schemas (TOKEN_SCHEMA_ID, token_name, fungibility, ip, token_admin, metadata) VALUES ('{TOKEN_SCHEMA_ID}','{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
+        query = f"INSERT INTO token_schemas (TOKEN_SCHEMA_ID, token_name, fungibility, ip, token_admin, metadata) VALUES ('{token_schema_id}','{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
         my_cur.execute(query)
         my_cnx.commit()
         st.success("Data successfully inserted into Snowflake database!")
