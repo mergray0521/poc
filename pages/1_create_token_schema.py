@@ -39,8 +39,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-sys.exit()
-
 try:
         # Insert the form data into Snowflake
         query = f"INSERT INTO token_schemas (token_name, fungibility, ip, token_admin, metadata) VALUES ('{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
