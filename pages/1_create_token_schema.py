@@ -14,6 +14,7 @@ def main():
     st.header("Token Information Form")
 
     # Create input fields for token information
+    token_id = st.text_input("Token ID", "")
     token_name = st.text_input("Token Name", "")
     fungibility = st.selectbox("Fungibility", ["Fungible", "Non-Fungible", "Semi-Fungible"])
     ip = st.selectbox("IP", ["HTTYD", "HHN", "CINEPHILE", "TOOTHSOME"])
@@ -24,6 +25,7 @@ def main():
     if st.button("Submit"):
         # Process the form data (you can replace this with your logic)
         result = {
+            "Token Id": token_id,
             "Token Name": token_name,
             "Fungibility": fungibility,
             "IP": ip,
