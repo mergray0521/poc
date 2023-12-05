@@ -13,15 +13,15 @@ st.header("The current token schemas include:")
 st.dataframe(my_data_rows)
 
 try:
-    schema_choice = streamlit.text_input('Which schema would you like to add a token to?')
+    schema_choice = st.text_input('Which schema would you like to add a token to?')
     if not schema_choice:
-        streamlit.error("Please select a token schema to proceed.")
+        st.error("Please select a token schema to proceed.")
     else:
         back_from_function = token_schema(schema_choice)
-        streamlit.dataframe(back_from_function)
+        st.dataframe(back_from_function)
 
 except URLError as e:
-  streamlit.error()
+  st.error()
 
 
 
