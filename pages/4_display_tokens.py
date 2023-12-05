@@ -1,4 +1,4 @@
 import streamlit as st
-import snowflake.connect
+import snowflake.connector
 
 st.title("Display Tokens")
