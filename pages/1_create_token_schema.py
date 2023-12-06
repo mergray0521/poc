@@ -42,6 +42,8 @@ if __name__ == "__main__":
     main()
     
     try:
+        st.write(token_schema_id)
+    
         # Insert the form data into Snowflake
         query = f"INSERT INTO token_schemas (TOKEN_NAME, FUNGIBILITY, IP, TOKEN_ADMIN, METADATA) VALUES ('{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
         my_cur.execute(query)
