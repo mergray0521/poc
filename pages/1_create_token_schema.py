@@ -41,7 +41,8 @@ def main():
         my_cur.execute(query)
         my_cnx.commit()
 
-
+if __name__ == "__main__":
+    main()
         
 
        # try:
