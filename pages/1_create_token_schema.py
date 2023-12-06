@@ -40,6 +40,7 @@ def main():
     
 if __name__ == "__main__":
     main()
+    st.write(token_schema_id)
     
     try:
         st.write(token_schema_id)
