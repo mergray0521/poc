@@ -37,6 +37,12 @@ def main():
         st.success("Form submitted successfully!")
         st.write("Result:")
         st.write(result)
+        query = f"INSERT INTO token_schemas (TOKEN_NAME, FUNGIBILITY, IP, TOKEN_ADMIN, METADATA) VALUES ('{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
+        my_cur.execute(query)
+        my_cnx.commit()
+
+
+        
 
        # try:
             # st.write(token_schema_id)
