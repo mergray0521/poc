@@ -38,15 +38,15 @@ def main():
         st.write("Result:")
         st.write(result)
 
-        try:
-            st.write(token_schema_id)
+       # try:
+            # st.write(token_schema_id)
         
             # Insert the form data into Snowflake
-            query = f"INSERT INTO token_schemas (TOKEN_NAME, FUNGIBILITY, IP, TOKEN_ADMIN, METADATA) VALUES ('{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
-            my_cur.execute(query)
-            my_cnx.commit()
-        except Exception as e:
-            st.error(f"Error inserting data into Snowflake: {e}")
+        query = f"INSERT INTO token_schemas (TOKEN_NAME, FUNGIBILITY, IP, TOKEN_ADMIN, METADATA) VALUES ('{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
+        my_cur.execute(query)
+        my_cnx.commit()
+      #  except Exception as e:
+          #  st.error(f"Error inserting data into Snowflake: {e}")
 
     
 # if __name__ == "__main__":
