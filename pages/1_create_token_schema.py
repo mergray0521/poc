@@ -44,7 +44,7 @@ if __name__ == "__main__":
 try:
         # Insert the form data into Snowflake
         my_cur.execute("INSERT INTO token_schemas (TOKEN_SCHEMA_ID, TOKEN_NAME, FUNGIBILITY, IP, TOKEN_ADMIN, METADATA) VALUES ('{token_schema_id}','{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
-            my_cnx.commit()
-            st.success("Data successfully inserted into Snowflake database!")
+        my_cnx.commit()
+        st.success("Data successfully inserted into Snowflake database!")
 except Exception as e:
         st.error(f"Error inserting data into Snowflake: {e}")
