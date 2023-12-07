@@ -22,14 +22,14 @@ def main():
         materials = st.text_input("Materials", "")
         color = st.selectbox("IP", ["Green", "Black", "Silver", "Red", "Brown"])
             
-            # Submit button
-            if st.button("Submit"):
+        # Submit button
+        if st.button("Submit"):
                     
-                # Insert the form data into Snowflake
-                query = f"INSERT INTO avatar_wearables (TOKEN_ID,TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{type}', '{materials}', '{color}')"
-                my_cur.execute(query)
-                my_cnx.commit()
-                st.success("New token minted!")
+            # Insert the form data into Snowflake
+            query = f"INSERT INTO avatar_wearables (TOKEN_ID,TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{type}', '{materials}', '{color}')"
+            my_cur.execute(query)
+            my_cnx.commit()
+            st.success("New token minted!")
             
 if __name__ == "__main__":
     main()
