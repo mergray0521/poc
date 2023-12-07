@@ -28,20 +28,20 @@ if st.button("Submit"):
 
       # Display the columns for the selected table
         for token_schema, columns in columns_dict.items():
-        st.success(f"Columns for {avatar_wearables}:")
-        st.write(columns)
-
-        # Placeholder for the dynamic query using the selected token_schema
-        # Replace this with your actual logic to retrieve data based on the selected token_schema
-        query = f"SELECT * FROM {token_schema}"
-        my_cur.execute(query)
-        result = my_cur.fetchall()
-
-        # Display the result in Streamlit
-        if result:
-            st.success(f"Data for {token_schema}:")
-            tokens_df = pd.DataFrame(result, columns=columns)
-            st.dataframe(tokens_df)
+            st.success(f"Columns for {avatar_wearables}:")
+            st.write(columns)
+    
+            # Placeholder for the dynamic query using the selected token_schema
+            # Replace this with your actual logic to retrieve data based on the selected token_schema
+            query = f"SELECT * FROM {token_schema}"
+            my_cur.execute(query)
+            result = my_cur.fetchall()
+    
+            # Display the result in Streamlit
+            if result:
+                st.success(f"Data for {token_schema}:")
+                tokens_df = pd.DataFrame(result, columns=columns)
+                st.dataframe(tokens_df)
 
 
 
