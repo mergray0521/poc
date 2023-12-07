@@ -17,27 +17,27 @@ if __name__ == "__main__":
     main()
     
 
-def second():
-    st.header("Create New Token")
-    
-    # Create input fields for token information
-    token_id = st.number_input("Token ID", min_value=606, max_value=1000, value=606, step=1)
-    type = st.text_input("Token Type", "")
-    materials = st.text_input("Materials", "")
-    color = st.selectbox("IP", ["Green", "Black", "Silver", "Red", "Brown"])
-    
-    # Submit button
-    if st.button("Submit"):
+        def second():
+            st.header("Create New Token")
             
-        # Insert the form data into Snowflake
-        query = f"INSERT INTO avatar_wearables (TOKEN_ID,TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{type}', '{materials}', '{color}')"
-        my_cur.execute(query)
-        my_cnx.commit()
-        st.success("New token minted!")
-    
-    if __name__ == "__second__":
-        second()
-    
+            # Create input fields for token information
+            token_id = st.number_input("Token ID", min_value=606, max_value=1000, value=606, step=1)
+            type = st.text_input("Token Type", "")
+            materials = st.text_input("Materials", "")
+            color = st.selectbox("IP", ["Green", "Black", "Silver", "Red", "Brown"])
+            
+            # Submit button
+            if st.button("Submit"):
+                    
+                # Insert the form data into Snowflake
+                query = f"INSERT INTO avatar_wearables (TOKEN_ID,TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{type}', '{materials}', '{color}')"
+                my_cur.execute(query)
+                my_cnx.commit()
+                st.success("New token minted!")
+            
+            if __name__ == "__second__":
+                second()
+            
     
     
     
