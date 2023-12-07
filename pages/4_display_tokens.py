@@ -16,7 +16,7 @@ if st.button("Submit"):
         # Query the token_ownership table
         query = f"SELECT token_id FROM token_ownership WHERE owner_id = '{user_id}'"
         my_cur.execute(query)
-        result = cursor.fetchall()
+        result = my_cur.fetchall()
     
         # Display the result in Streamlit
         if result:
