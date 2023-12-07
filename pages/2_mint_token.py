@@ -1,12 +1,17 @@
 import streamlit as st
 import snowflake.connector
 
+def fetch_token_columns(token_schemas):
+    columns_dict = {}
 
-def fetch_token_columns(avatar_wearables):
-    query = f"DESCRIBE TABLE {avatar_wearables}"
-    my_cur.execute(query)
-    result_data = my_cur.fetchall()
-    return [column[0] for column in result_data]
+    for token_schema in token_schemas:
+        query = f"DESCRIBE TABLE {token_schema}"
+        my_cur.execute(query)
+        result_data = my_cur.fetchall()
+        columns = [column[0] for column in result_data]
+        columns_dict[token_schema] = columns
+
+    return columns_dict
 
 st.title("Select Token Schema")
 
@@ -17,11 +22,12 @@ token_schema_options = ["avatar wearables", "dragon egg", "egg feathers", "egg n
 token_schema = st.selectbox("Token Schema", token_schema_options)
 
 if st.button("Submit"):
-    if token_schema:
+  if selected_token_schema:
         # Fetch columns for the selected table
-        columns = fetch_token_columns(avatar_wearables)
+        columns_dict = fetch_token_columns([selected_token_schema])
 
-        # Display the columns
+      # Display the columns for the selected table
+        for token_schema, columns in columns_dict.items():
         st.success(f"Columns for {avatar_wearables}:")
         st.write(columns)
 
