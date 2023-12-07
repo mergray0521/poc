@@ -10,7 +10,7 @@ def fetch_token_schemas():
     query = "SELECT * FROM inventory_db"  
     my_cur.execute(query)
     result_data = my_cur.fetchall()
-    return [schema[0] for schema in result_data]
+    return [table[1] for table in result_data]
 
 # Call the function to get token schemas
 schema_options = fetch_token_schemas()
