@@ -45,7 +45,8 @@ if st.button("Submit"):
                 tokens_df = pd.DataFrame(result, columns=columns)
                 st.dataframe(tokens_df)
 
-
+except URLError as e:
+    st.error("An error occurred:", e)
 
 
 
