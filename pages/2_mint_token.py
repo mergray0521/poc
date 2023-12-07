@@ -16,12 +16,13 @@ def fetch_token_columns(token_schemas):
 
 st.title("Select Token Schema")
 
+token_schema_options = ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"]
+selected_token_schema = st.selectbox("Token Schema", token_schema_options)
+
 if st.button("Submit"):
     my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
     my_cur = my_cnx.cursor()
 
-    token_schema_options = ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"]
-    selected_token_schema = st.selectbox("Token Schema", token_schema_options)
 
     if selected_token_schema:
         # Fetch columns for the selected table
