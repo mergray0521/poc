@@ -14,9 +14,6 @@ def assign_ownership(token_id, identity_id):
 
 st.title("Assign Ownership")
 
-my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-
 inventory_query = "SELECT token_id FROM inventory_db.avatar_wearables"
 identity_query = "SELECT user_id FROM identity_db.user_identity"
 
