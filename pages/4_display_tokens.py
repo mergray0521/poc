@@ -39,4 +39,4 @@ if user_id:
     # Close Snowflake connection
     conn.close()
 
-T
+
