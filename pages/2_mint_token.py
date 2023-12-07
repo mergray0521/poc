@@ -14,7 +14,7 @@ def main():
         my_cur = my_cnx.cursor()
 
 if __name__ == "__main__":
-main()
+    main()
     
 
 def second():
