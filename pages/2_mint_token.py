@@ -1,6 +1,5 @@
 import streamlit as st
 import snowflake.connector
-from urllib.error import URLError
 import pandas as pd
 
 def fetch_token_columns(token_schemas):
@@ -45,10 +44,6 @@ if st.button("Submit"):
                 st.success(f"Data for {token_schema}:")
                 tokens_df = pd.DataFrame(result, columns=columns)
                 st.dataframe(tokens_df)
-
-except URLError as e:
-    st.error("An error occurred:", e)
-
 
 
 
