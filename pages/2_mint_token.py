@@ -2,48 +2,38 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 
-def fetch_token_columns(token_schemas):
-    columns_dict = {}
-
-    for token_schema in token_schemas:
-        query = f"DESCRIBE TABLE {token_schema}"
-        my_cur.execute(query)
-        result_data = my_cur.fetchall()
-        columns = [column[0] for column in result_data]
-        columns_dict[token_schema] = columns
-
-    return columns_dict
+def fetch_avatar_wearables_columns():
+    query = "DESCRIBE TABLE avatar_wearables"
+    my_cur.execute(query)
+    result_data = my_cur.fetchall()
+    return [column[0] for column in result_data]
 
 st.title("Select Token Schema")
-
-token_schema_options = ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"]
-selected_token_schema = st.selectbox("Token Schema", token_schema_options)
 
 if st.button("Submit"):
     my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
     my_cur = my_cnx.cursor()
 
+    # Fetch columns for the avatar_wearables table
+    columns = fetch_avatar_wearables_columns()
 
-    if selected_token_schema:
-        # Fetch columns for the selected table
-        columns_dict = fetch_token_columns([selected_token_schema])
+    # Display the columns for the avatar_wearables table
+    st.success("Columns for avatar_wearables:")
+    st.write(columns)
 
-        # Display the columns for the selected table
-        for token_schema, columns in columns_dict.items():
-            st.success(f"Columns for {token_schema}:")
-            st.write(columns)
+    # Placeholder for the dynamic query using the avatar_wearables table
+    # Replace this with your actual logic to retrieve data based on the avatar_wearables table
+    query = "SELECT * FROM avatar_wearables"
+    my_cur.execute(query)
+    result = my_cur.fetchall()
 
-            # Placeholder for the dynamic query using the selected token_schema
-            # Replace this with your actual logic to retrieve data based on the selected token_schema
-            query = f"SELECT * FROM {token_schema}"
-            my_cur.execute(query)
-            result = my_cur.fetchall()
+    # Display the result in Streamlit
+    if result:
+        st.success("Data for avatar_wearables:")
+        tokens_df = pd.DataFrame(result, columns=columns)
+        st.dataframe(tokens_df)
 
-            # Display the result in Streamlit
-            if result:
-                st.success(f"Data for {token_schema}:")
-                tokens_df = pd.DataFrame(result, columns=columns)
-                st.dataframe(tokens_df)
+
 
 
 
