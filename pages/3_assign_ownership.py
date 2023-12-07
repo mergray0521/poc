@@ -6,23 +6,26 @@ my_cur = my_cnx.cursor()
 
 st.title("Assign Token Ownership")
 
-inventory_query = "SELECT token_id FROM inventory_db.avatar_wearables"
-identity_query = "SELECT user_id FROM identity_db.user_identity"
+# Get user input
+token_id = st.text_input("Token ID:")
+owner_id = st.text_input("Owner ID:")
+quantity = st.text_input("Quantity:")
 
-try:
-    # Get token IDs from the 'inventory_db'
-    token_ids = my_cur.execute(inventory_query).fetchall()
-    token_id_options = [str(token[0]) for token in token_ids]
-
-    # Get user identities from the 'identity_db'
-    identity_ids = my_cur.execute(identity_query).fetchall()
-    identity_id_options = [str(user[0]) for user in identity_ids]
-
-    # Dropdowns for token ID and user identity
-    token_id = st.selectbox("Select Token ID:", token_id_options)
-    identity_id = st.selectbox("Select User Identity:", identity_id_options)
-
-    # Assign Ownership button
+# Check if all fields are filled
+if token_id and owner_id and quantity:
     if st.button("Assign Ownership"):
-        assign_ownership(token_id, user_identity)
+        try:
+            # Your SQL query to update the ownership table
+            query = f"UPDATE TOKEN_OWNERSHIP SET OWNER_ID = '{owner_id}', Quantity = {quantity} WHERE TOKEN_ID = '{token_id}'"
+            
+            # Execute the query
+            my_cur.execute(query)
+
+            # Commit the changes
+            my_cnx.commit()
+
+            st.success("Ownership updated successfully!")
+
+        except Exception as e:
+            st.error(f"Error updating ownership: {str(e)}")
 
