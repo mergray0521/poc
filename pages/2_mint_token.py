@@ -4,7 +4,7 @@ from urllib.error import URLError
 
 st.title("Mint Token")
 
-my_cnx = snowflake.connector.connect(**st.secrets["token_schemas", "inventory_db"])
+my_cnx = snowflake.connector.connect(**st.secrets["inventory_db"])
 my_cur = my_cnx.cursor()
 
 # Query token schema options
