@@ -14,7 +14,7 @@ def token_schemas():
     return result_data
 
 # Call the function to get schema options
-schema_options = inventory_db.{schema_name}
+schema_options = "SELECT * FROM inventory_db.{schema_name}"
 
 # Create dropdown
 selected_schema = st.selectbox("Select Token Schema", [schema[0] for schema in schema_options])
