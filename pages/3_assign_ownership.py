@@ -20,6 +20,10 @@ def main():
 
 # Function to update ownership in Snowflake
 def update_ownership(token_id, owner_id, quantity):
+
+    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+    my_cur = my_cnx.cursor()
+    
     try:
         # Your SQL query to update the ownership table
         query = f"UPDATE TOKEN_OWNERSHIP SET OWNER_ID = '{owner_id}', Quantity = {quantity} WHERE TOKEN_ID = '{token_id}'"
@@ -34,6 +38,5 @@ def update_ownership(token_id, owner_id, quantity):
         if my_cnx:
             my_cnx.close()
 
-# Run the app
 if __name__ == "__main__":
     main()
