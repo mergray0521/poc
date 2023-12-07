@@ -1,4 +1,4 @@
-import streamlit as st
+cimport streamlit as st
 import snowflake.connector
 import pandas as pd
 
@@ -9,7 +9,7 @@ def main():
     token_schema_options = ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"]
     selected_token_schema = st.selectbox("Token Schema", token_schema_options)
     
-    if st.button("Submit"):
+    if st.button("Search"):
         my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
         my_cur = my_cnx.cursor()
 
