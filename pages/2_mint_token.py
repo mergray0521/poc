@@ -1,5 +1,6 @@
 import streamlit as st
 import snowflake.connector
+from urllib.error import URLError
 import pandas as pd
 
 def fetch_token_columns(token_schemas):
