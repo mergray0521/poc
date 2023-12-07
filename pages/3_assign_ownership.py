@@ -14,10 +14,9 @@ def main():
     quantity = st.text_input("Quantity:")
 
     # Check if all fields are filled
-    if token_id and owner_id and quantity:
-        if st.button("Assign Ownership"):
-            # Call the function to update ownership in Snowflake
-            update_ownership(token_id, owner_id, quantity)
+    if st.button("Assign Ownership"):
+        # Call the function to update ownership in Snowflake
+        update_ownership(token_id, owner_id, quantity)
 
 # Function to update ownership in Snowflake
 def update_ownership(token_id, owner_id, quantity):
