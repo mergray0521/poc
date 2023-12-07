@@ -23,7 +23,7 @@ def main():
         color = st.selectbox("IP", ["Green", "Black", "Silver", "Red", "Brown"])
             
         # Submit button
-        if st.button("Submit"):
+        if st.button("Mint"):
                     
             # Insert the form data into Snowflake
             query = f"INSERT INTO avatar_wearables (TOKEN_ID,TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{type}', '{materials}', '{color}')"
