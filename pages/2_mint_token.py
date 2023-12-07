@@ -7,15 +7,16 @@ st.title("Mint Token")
 my_cnx = snowflake.connector.connect(**st.secrets["inventory_db"])
 my_cur = my_cnx.cursor()
 
-# Query token schema options
-def token_schemas(schema_name):
-  schema_options = f"SELECT * FROM inventory_db.{schema_name}"
-  my_cur.execute(query)
-  result_data = my_cur.fetchall()
-  return result_data
+def token_schemas():
+    query = "SELECT * FROM inventory_db.{schema_name}"  # Update with your actual query
+    my_cur.execute(query)
+    result_data = my_cur.fetchall()
+    return result_data
 
-selected_schema = st.selectbox("Select Token Schema", schema_options)
+# Call the function to get schema options
+schema_options = inventory_db.{schema_name}
 
-
+# Create dropdown
+selected_schema = st.selectbox("Select Token Schema", [schema[0] for schema in schema_options])
 
 
