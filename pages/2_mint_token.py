@@ -3,7 +3,7 @@ import snowflake.connector
 
 st.title("Mint Token")
 
-my_cnx = snowflake.connector.connect(**st.secrets["inventory_db"])
+my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
 my_cur = my_cnx.cursor()
 
 def fetch_token_schemas():
@@ -18,3 +18,6 @@ schema_options = fetch_token_schemas()
 # Create dropdown
 selected_schema = st.selectbox("Select Token Schema", schema_options)
 
+if __name__ == "__main__":
+    main()
+        
