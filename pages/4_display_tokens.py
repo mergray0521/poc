@@ -14,7 +14,7 @@ if user_id:
 
     # Query the token_ownership table
     query = f"SELECT token_id FROM token_ownership WHERE owner_id = '{user_id}'"
-    with conn.cursor() as cursor:
+    with my_cur
         cursor.execute(query)
         result = cursor.fetchall()
 
