@@ -18,11 +18,11 @@ token_schema = st.selectbox("Token Schema", token_schema_options)
 
 if st.button("Submit"):
     if token_schema:
-        # Fetch columns for the selected token_schema
-        columns = fetch_token_columns(token_schema)
+        # Fetch columns for the selected table
+        columns = fetch_token_columns(avatar_wearables)
 
         # Display the columns
-        st.success(f"Columns for {token_schema}:")
+        st.success(f"Columns for {avatar_wearables}:")
         st.write(columns)
 
         # Placeholder for the dynamic query using the selected token_schema
