@@ -2,35 +2,41 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 
-st.title("Select Token Schema")
-
-token_schema_options = ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"]
-selected_token_schema = st.selectbox("Token Schema", token_schema_options)
-
-if st.button("Submit"):
-    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
-    my_cur = my_cnx.cursor()
-
-    def main():
-        st.header("Create New Token")
+def main():
     
-        # Create input fields for token information
-        token_id = st.number_input("Token ID", min_value=606, max_value=1000, value=606, step=1)
-        type = st.text_input("Token Type", "")
-        materials = st.text_input("Materials", "")
-        color = st.selectbox("IP", ["Green", "Black", "Silver", "Red", "Brown"])
+    st.title("Select Token Schema")
     
-        # Submit button
-        if st.button("Submit"):
+    token_schema_options = ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"]
+    selected_token_schema = st.selectbox("Token Schema", token_schema_options)
+    
+    if st.button("Submit"):
+        my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+        my_cur = my_cnx.cursor()
+
+if __name__ == "__main__":
+main()
+    
+
+def second():
+    st.header("Create New Token")
+    
+    # Create input fields for token information
+    token_id = st.number_input("Token ID", min_value=606, max_value=1000, value=606, step=1)
+    type = st.text_input("Token Type", "")
+    materials = st.text_input("Materials", "")
+    color = st.selectbox("IP", ["Green", "Black", "Silver", "Red", "Brown"])
+    
+    # Submit button
+    if st.button("Submit"):
             
-            # Insert the form data into Snowflake
-            query = f"INSERT INTO avatar_wearables (TOKEN_ID,TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{type}', '{materials}', '{color}')"
-            my_cur.execute(query)
-            my_cnx.commit()
-            st.success("New token minted!")
+        # Insert the form data into Snowflake
+        query = f"INSERT INTO avatar_wearables (TOKEN_ID,TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{type}', '{materials}', '{color}')"
+        my_cur.execute(query)
+        my_cnx.commit()
+        st.success("New token minted!")
     
-    if __name__ == "__main__":
-        main()
+    if __name__ == "__second__":
+        second()
     
     
     
