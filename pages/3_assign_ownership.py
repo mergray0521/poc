@@ -3,7 +3,7 @@ import snowflake.connector
 
 def main():
 
-    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+    my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
     my_cur = my_cnx.cursor()
     
     st.title("Assign Token Ownership")
@@ -21,7 +21,7 @@ def main():
 # Function to update ownership in Snowflake
 def update_ownership(token_id, owner_id, quantity):
 
-    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+    my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
     my_cur = my_cnx.cursor()
     
     try:
