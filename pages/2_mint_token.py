@@ -13,11 +13,7 @@ def main():
         my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
         my_cur = my_cnx.cursor()
 
-if __name__ == "__main__":
-    main()
     
-
-        def second():
             st.header("Create New Token")
             
             # Create input fields for token information
@@ -35,8 +31,8 @@ if __name__ == "__main__":
                 my_cnx.commit()
                 st.success("New token minted!")
             
-            if __name__ == "__second__":
-                second()
+if __name__ == "__main__":
+    main()
             
     
     
