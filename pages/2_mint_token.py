@@ -17,6 +17,6 @@ def token_schemas():
 schema_options = st.selectbox("Token Schemas", ["dragon_egg", "egg_nests", "egg_feathers", "trained_dragon", "sketchbook", "avatar_wearables", "weapons", "healing_herbs", "star_maps", "points"] )
 
 # Create dropdown
-selected_schema = st.selectbox("Select Token Schema", [schema[0] for schema in schema_options])
+selected_schema = st.selectbox("Select Token Schema", tokenschemas())
 
 
