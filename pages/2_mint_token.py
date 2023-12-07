@@ -14,7 +14,7 @@ def token_schemas(schema_name):
   result_data = my_cur.fetchall()
   return result_data
 
-selected_schema = st.selectbox("Select Token Schema", [schema[0] for schema in schema_options])
+selected_schema = st.selectbox("Select Token Schema", schema_options)
 
 
 
