@@ -13,7 +13,6 @@ def main():
         my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
         my_cur = my_cnx.cursor()
 
-    
         st.header("Create New Token")
             
         # Create input fields for token information
@@ -22,7 +21,6 @@ def main():
         materials = st.text_input("Materials", "")
         color = st.selectbox("IP", ["Green", "Black", "Silver", "Red", "Brown"])
             
-        # Submit button
         if st.button("Mint"):
                     
             # Insert the form data into Snowflake
