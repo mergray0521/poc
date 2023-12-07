@@ -25,12 +25,6 @@ def update_ownership(token_id, owner_id, quantity):
         # Your SQL query to update the ownership table
         query = f"UPDATE TOKEN_OWNERSHIP SET OWNER_ID = '{owner_id}', Quantity = {quantity} WHERE TOKEN_ID = '{token_id}'"
 
-        # Execute the query
-        my_cur.execute(query)
-
-        # Commit the changes
-        my_cnx.commit()
-
         st.success("Ownership updated successfully!")
 
     except Exception as e:
