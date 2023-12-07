@@ -1,15 +1,13 @@
 import streamlit as st
 import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
-my_cur = my_cnx.cursor()
-
-st.title("Assign Token Ownership")
-
 # Function to update ownership in Snowflake
 def update_ownership(token_id, owner_id, quantity):
     try:
 
+        my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
+        my_cur = my_cnx.cursor()
+        
         # Your SQL query to update the ownership table
         query = f"UPDATE TOKEN_OWNERSHIP SET OWNER_ID = '{owner_id}', Quantity = {quantity} WHERE TOKEN_ID = '{token_id}'"
 
