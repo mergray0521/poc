@@ -14,8 +14,8 @@ if user_id:
 
     # Query the token_ownership table
     query = f"SELECT token_id FROM token_ownership WHERE owner_id = '{user_id}'"
-        my_cur.execute(query)
-        result = cursor.fetchall()
+    my_cur.execute(query)
+    result = cursor.fetchall()
 
     # Display the result in Streamlit
     if result:
