@@ -1,6 +1,13 @@
 import streamlit as st
 import snowflake.connector
 
+
+def fetch_token_columns(avatar_wearables):
+    query = f"DESCRIBE TABLE {avatar_wearables}"
+    my_cur.execute(query)
+    result_data = my_cur.fetchall()
+    return [column[0] for column in result_data]
+
 st.title("Select Token Schema")
 
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
