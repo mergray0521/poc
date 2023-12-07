@@ -14,13 +14,13 @@ def main():
         my_cur = my_cnx.cursor()
 
     
-            st.header("Create New Token")
+        st.header("Create New Token")
             
-            # Create input fields for token information
-            token_id = st.number_input("Token ID", min_value=606, max_value=1000, value=606, step=1)
-            type = st.text_input("Token Type", "")
-            materials = st.text_input("Materials", "")
-            color = st.selectbox("IP", ["Green", "Black", "Silver", "Red", "Brown"])
+        # Create input fields for token information
+        token_id = st.number_input("Token ID", min_value=606, max_value=1000, value=606, step=1)
+        type = st.text_input("Token Type", "")
+        materials = st.text_input("Materials", "")
+        color = st.selectbox("IP", ["Green", "Black", "Silver", "Red", "Brown"])
             
             # Submit button
             if st.button("Submit"):
