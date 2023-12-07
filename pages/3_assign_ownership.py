@@ -2,6 +2,10 @@ import streamlit as st
 import snowflake.connector
 
 def main():
+
+    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+    my_cur = my_cnx.cursor()
+    
     st.title("Assign Token Ownership")
 
     # Get user input
