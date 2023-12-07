@@ -34,5 +34,3 @@ try:
     if st.button("Assign Ownership"):
         assign_ownership(token_id, user_identity)
 
-except URLError as e:
-    st.error("An error occurred:", e)
