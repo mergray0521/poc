@@ -8,9 +8,9 @@ st.title('Update Metadata Page')
 token_id = st.text_input('Enter Token ID:')
 if st.button('Search'):
     # Fetch data from Snowflake based on token_id
-    cursor = conn.cursor()
+    my_cnx.commit()
     query = f"SELECT * FROM avatar_wearables WHERE token_id = '{token_id}'"
-    cursor.execute(query)
+    my_cur.execute(query)
     data = cursor.fetchone()
 
     # Display data
