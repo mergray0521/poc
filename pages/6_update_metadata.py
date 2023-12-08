@@ -4,7 +4,7 @@ import snowflake.connector
 # Streamlit UI
 st.title('Update Metadata Page')
 
-my_cnx = snowflake.connector.connect(**st.secrets["token_schemas"])
+my_cnx = snowflake.connector.connect(**st.secrets["inventory_db"])
 my_cur = my_cnx.cursor()
 
 # Search by Token ID
