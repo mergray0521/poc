@@ -1,14 +1,14 @@
 import streamlit as st
 import snowflake.connector
 
-st.title("Update or Add Metadata")
+# Streamlit UI
+st.title('Update Metadata Page')
 
 # Search by Token ID
 token_id = st.text_input('Enter Token ID:')
 if st.button('Search'):
     # Fetch data from Snowflake based on token_id
-    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
-    my_cur = my_cnx.cursor()
+    cursor = conn.cursor()
     query = f"SELECT * FROM avatar_wearables WHERE token_id = '{token_id}'"
     cursor.execute(query)
     data = cursor.fetchone()
@@ -25,6 +25,7 @@ if st.button('Search'):
         if st.button('Save'):
             # Update the row in Snowflake with the new values
             # Write the update query here
+            pass  # placeholder for the update logic
 
     else:
         st.write('Token ID not found')
