@@ -25,7 +25,7 @@ if st.button('Search'):
         st.write('Edit Data:')
         # Add input fields for each column you want to edit
 
-        for column_name, column_value in zip(cursor.description, data):
+        for column_name, column_value in zip(my_cur.description, data):
             col_name = column_name[0]  # Extract the column name from the cursor description
             new_value = st.text_input(f'Edit {col_name}', value=column_value)
 
