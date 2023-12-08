@@ -3,14 +3,12 @@ import snowflake.connector
 
 st.title("Update or Add Metadata")
 
-my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
-my_cur = my_cnx.cursor()
-    
 # Search by Token ID
 token_id = st.text_input('Enter Token ID:')
 if st.button('Search'):
     # Fetch data from Snowflake based on token_id
-    cursor = conn.cursor()
+    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+    my_cur = my_cnx.cursor()
     query = f"SELECT * FROM avatar_wearables WHERE token_id = '{token_id}'"
     cursor.execute(query)
     data = cursor.fetchone()
