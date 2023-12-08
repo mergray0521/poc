@@ -14,7 +14,7 @@ if st.button('Search'):
     query = f"SELECT * FROM avatar_wearables WHERE token_id = '{token_id}'"
     my_cur.execute(query)
     my_cnx.commit()
-    data = cursor.fetchone()
+    data = my_cur.fetchone()
 
     # Display data
     if data:
