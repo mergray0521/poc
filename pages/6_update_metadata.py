@@ -4,6 +4,9 @@ import snowflake.connector
 # Streamlit UI
 st.title('Update Metadata Page')
 
+my_cnx = snowflake.connector.connect(**st.secrets["token_schemas"])
+my_cur = my_cnx.cursor()
+
 # Search by Token ID
 token_id = st.text_input('Enter Token ID:')
 if st.button('Search'):
