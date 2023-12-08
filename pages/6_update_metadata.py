@@ -3,8 +3,8 @@ import snowflake.connector
 
 st.title("Update or Add Metadata")
 
-    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
-    my_cur = my_cnx.cursor()
+my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+my_cur = my_cnx.cursor()
     
 # Search by Token ID
 token_id = st.text_input('Enter Token ID:')
