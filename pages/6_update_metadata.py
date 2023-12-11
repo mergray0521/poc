@@ -1,47 +1,37 @@
-import streamlit as st
+import pandas as pd
+import json
 import snowflake.connector
-
-# Streamlit UI
-st.title('Update Metadata Page')
+import streamlit as st
+from snowflake.snowpark import Session
+import time
 
 # Snowflake connection
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
 my_cur = my_cnx.cursor()
 
-# Search by Token ID
-token_id = st.text_input('Enter Token ID:')
-if st.button('Search'):
-    # Fetch data from Snowflake based on token_id
-    query = f"SELECT * FROM avatar_wearables WHERE token_id = '{token_id}'"
-    my_cur.execute(query)
-    data = my_cur.fetchone()
+st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
+st.title("Update Metadata Table")
 
-    # Display data
-    if data:
-        st.write('Current Data:')
-        st.table(data)
+def get_dataset():
+    # load messages df
+    df = session.table("avatar_wearables")
 
-        # Edit and Save
-        st.write('Edit Data:')
-        updated_values = {}  # Store updated values in a dictionary
+    return df
 
-        for column_name, column_value in zip(my_cur.description, data):
-            col_name = column_name[0]  # Extract the column name from the cursor description
-            new_value = st.text_input(f'Edit {col_name}', value=str(column_value))
-            updated_values[col_name] = new_value
+dataset = get_dataset()
 
-        if st.button('Save'):
-            # Update the row in Snowflake with the new values
-            update_query = f"UPDATE avatar_wearables SET "
-            update_query += ", ".join([f"{key} = '{value}'" for key, value in updated_values.items()])
-            update_query += f" WHERE token_id = '{token_id}'"
+with st.form("data_editor_form"):
+    st.caption("Edit the dataframe below")
+    edited = st.experimental_data_editor(dataset, use_container_width=True, num_rows="dynamic")
+    submit_button = st.form_submit_button("Submit")
 
-            try:
-                my_cur.execute(update_query)
-                my_cnx.commit()
-                st.success('Data updated successfully!')
-            except Exception as e:
-                st.error(f"Error updating data in Snowflake: {e}")
-
-    else:
-        st.write('Token ID not found')
+if submit_button:
+    try:
+        #Note the quote_identifiers argument for case insensitivity
+        session.write_pandas(edited, "avatar_wearables", overwrite=True, quote_identifiers=False)
+        st.success("Table updated")
+        time.sleep(5)
+    except:
+        st.warning("Error updating table")
+    #display success message for 5 seconds and update the table to reflect what is in Snowflake
+    st.experimental_rerun()
