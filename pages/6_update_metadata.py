@@ -11,9 +11,9 @@ st.title("Snowflake Table Editor ❄️")
 st.caption("This is a demo of the `st.experimental_data_editor`.")
 
 def get_dataset():
-    # load messages df
-    df = my_cnx.table("AVATAR_WEARABLES")
-
+    # Replace the next line with a SQL query to fetch the data
+    query = "SELECT * FROM AVATAR_WEARABLES"
+    df = pd.read_sql(query, my_cnx)
     return df
 
 dataset = get_dataset()
@@ -25,12 +25,13 @@ with st.form("data_editor_form"):
 
 if submit_button:
     try:
-        #Note the quote_identifiers argument for case insensitivity
+        # Note the quote_identifiers argument for case insensitivity
         my_cnx.write_pandas(edited, "AVATAR_WEARABLES", overwrite=True, quote_identifiers=False)
         st.success("Table updated")
     except:
         st.warning("Error updating table")
     st.experimental_rerun()
+
 
 
 
