@@ -39,6 +39,8 @@ if st.button('Search'):
             update_query += ", ".join([f"{key} = '{value}'" for key, value in updated_values.items()])
             update_query += f" WHERE token_id = '{token_id}'"
 
+            print("Update Query:", update_query)  # Add this line to print the query
+
             my_cur.execute(update_query)
             my_cnx.commit()
 
