@@ -10,8 +10,8 @@ my_cur = my_cnx.cursor()
 # Search by Token ID
 token_id = st.text_input('Enter Token ID:')
 if st.button('Search'):
-    # Fetch data from Snowflake based on token_id
-    query = f"SELECT * FROM avatar_wearables WHERE token_id = '{token_id}'"
+    # Fetch data from Snowflake based on token_id with explicit type casting
+    query = f"SELECT CAST(token_id AS VARCHAR), CAST(type AS VARCHAR), CAST(materials AS VARCHAR), CAST(color AS VARCHAR) FROM avatar_wearables WHERE token_id = '{token_id}'"
     my_cur.execute(query)
     my_cnx.commit()
     data = my_cur.fetchone()
