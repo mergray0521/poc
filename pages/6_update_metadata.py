@@ -1,10 +1,7 @@
-import json
 import streamlit as st
-import time
 import snowflake.connector
 import pandas as pd
 from snowflake.connector.pandas_tools import write_pandas
-from sqlalchemy import create_engine
 
 # Snowflake connection
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
@@ -35,12 +32,13 @@ if submit_button:
         # Write the edited cells back to Snowflake for the "avatar_wearables" table
         write_pandas(my_cnx, edited_cells_old_format, 'avatar_wearables', if_exists='replace')
         st.success("Table updated")
-        time.sleep(5)
     except Exception as e:
         st.warning(f"Error updating table: {e}")
 
-    # Display success message for 5 seconds and update the table to reflect what is in Snowflake
-    st.rerun()
+    # Display success message and update the table to reflect what is in Snowflake
+    st.success("Data saved in Snowflake!")
+    st.experimental_rerun()
+
 
 
 
