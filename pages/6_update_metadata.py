@@ -1,7 +1,5 @@
 import streamlit as st
 import snowflake.connector
-import pandas as pd
-from snowflake.connector.pandas_tools import write_pandas
 
 # Snowflake connection
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
@@ -9,7 +7,10 @@ my_cur = my_cnx.cursor()
 
 # Load data from Snowflake
 query = "SELECT * FROM avatar_wearables"
-df = pd.read_sql(query, my_cnx)
+my_cur.execute(query)
+columns = [col[0] for col in my_cur.description]
+rows = my_cur.fetchall()
+df = pd.DataFrame(rows, columns=columns)
 
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
 st.title("Snowflake Table Editor ❄️")
@@ -28,20 +29,17 @@ if submit_button:
             for row in edited
             for col in edited[row]
         }
-        
+
         # Write the edited cells back to Snowflake for the "avatar_wearables" table
-        write_pandas(my_cnx, edited_cells_old_format, 'avatar_wearables', if_exists='replace')
+        for key, value in edited_cells_old_format.items():
+            row, col = map(int, key.split(":"))
+            my_cur.execute(f"UPDATE avatar_wearables SET {col} = %s WHERE row_id = %s", (value, row))
+        
+        my_cnx.commit()
         st.success("Table updated")
     except Exception as e:
         st.warning(f"Error updating table: {e}")
 
     # Display success message and update the table to reflect what is in Snowflake
     st.success("Data saved in Snowflake!")
-    st.experimental_rerun()
-
-
-
-
-
-
-
+    st.rerun()
