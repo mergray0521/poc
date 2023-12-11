@@ -1,8 +1,6 @@
 import pandas as pd
 import json
 import streamlit as st
-import time
-from snowflake.snowpark import Session
 
 my_cnx = snowflake.connector.connect(**st.secrets["token_schemas"])
 my_cur = my_cnx.cursor()
@@ -27,12 +25,10 @@ with st.form("data_editor_form"):
 if submit_button:
     try:
         #Note the quote_identifiers argument for case insensitivity
-        session.write_pandas(edited, "AVATAR_WEARABLES", overwrite=True, quote_identifiers=False)
+        my_cur.write_pandas(edited, "AVATAR_WEARABLES", overwrite=True, quote_identifiers=False)
         st.success("Table updated")
-        time.sleep(5)
     except:
         st.warning("Error updating table")
-    #display success message for 5 seconds and update the table to reflect what is in Snowflake
     st.experimental_rerun()
 
 
