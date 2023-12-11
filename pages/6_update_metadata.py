@@ -29,7 +29,6 @@ if st.button('Search'):
 
         for column_name, column_value in zip(my_cur.description, data):
             col_name = column_name[0]  # Extract the column name from the cursor description
-            # Add data type casting as needed
             new_value = st.text_input(f'Edit {col_name}', value=str(column_value))
             updated_values[col_name] = new_value
 
@@ -41,10 +40,12 @@ if st.button('Search'):
 
             print("Update Query:", update_query)  # Add this line to print the query
 
-            my_cur.execute(update_query)
-            my_cnx.commit()
-
-            st.success('Data updated successfully!')
+            try:
+                my_cur.execute(update_query)
+                my_cnx.commit()
+                st.success('Data updated successfully!')
+            except Exception as e:
+                st.error(f"Error updating data in Snowflake: {e}")
 
     else:
         st.write('Token ID not found')
