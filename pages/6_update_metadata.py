@@ -1,6 +1,7 @@
 import pandas as pd
 import json
 import streamlit as st
+import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
 my_cur = my_cnx.cursor()
