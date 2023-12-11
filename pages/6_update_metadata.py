@@ -9,7 +9,8 @@ my_cur = my_cnx.cursor()
 
 # Streamlit configuration
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
-st.title("Update Metadata")
+st.title("Snowflake Table Editor ❄️")
+st.caption("This is a demo of the `st.data_editor`.")
 
 # Function to get dataset from Snowflake
 def get_dataset():
@@ -32,11 +33,9 @@ with st.form("data_editor_form"):
 if submit_button:
     try:
         # Update the Snowflake table with the edited data
-        for index, row in edited.iterrows():
-            set_clause = ", ".join(f"{col} = '{row[col]}'" for col in edited.columns)
-            query = f"UPDATE AVATAR_WEARABLES SET {set_clause} WHERE your_condition_column = 'your_condition_value'"
-            my_cur.execute(query)
-        
+        my_cur.execute("DELETE FROM AVATAR_WEARABLES")  # Clear the existing data in the table
+        my_cnx.commit()
+        my_cur.copy_pandas_to_table(edited, "AVATAR_WEARABLES", overwrite=True)
         st.success("Table updated")
     except Exception as e:
         st.warning(f"Error updating table: {e}")
