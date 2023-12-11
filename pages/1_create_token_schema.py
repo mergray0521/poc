@@ -1,41 +1,51 @@
 import streamlit as st
 import snowflake.connector
-import pandas as pd
-from snowflake.connector.pandas_tools import write_pandas
 
-# Snowflake connection
-my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+st.set_page_config(
+    page_title="Create Token Schema"
+)
+
+st.title('Create Token Schema')
+
+my_cnx = snowflake.connector.connect(**st.secrets["token_schemas"])
 my_cur = my_cnx.cursor()
 
-# Load data from Snowflake
-query = "SELECT * FROM avatar_wearables"
-df = pd.read_sql(query, my_cnx)
+def main():
+    st.header("Token Information Form")
 
-st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
-st.title("Snowflake Table Editor ❄️")
-st.caption("This is a demo of the `st.data_editor`.")
+    # Create input fields for token information
+    token_schema_id = st.number_input("Token Schema ID", min_value=11, max_value=1000, value=11, step=1)
+    token_name = st.text_input("Token Name", "")
+    fungibility = st.selectbox("Fungibility", ["Fungible", "Non-Fungible", "Semi-Fungible"])
+    ip = st.selectbox("IP", ["HTTYD", "HHN", "CINEPHILE", "TOOTHSOME"])
+    token_admin = st.selectbox("Token Admin", ["Micah", "Steve", "Mere"])
+    metadata = st.text_area("Metadata", "")
 
-with st.form("data_editor_form"):
-    st.caption("Edit the dataframe below")
-    edited = st.data_editor(df, use_container_width=True, num_rows="dynamic")
-    submit_button = st.form_submit_button("Submit")
+    # Submit button
+    if st.button("Submit"):
+        # Process the form data (you can replace this with your logic)
+        result = {
+            "Token Id": token_schema_id,
+            "Token Name": token_name,
+            "Fungibility": fungibility,
+            "IP": ip,
+            "Token Admin": token_admin,
+            "Metadata": metadata
+            }
+    
+        # Display the result
+        st.success("Form submitted successfully!")
+        st.write("Result:")
+        st.write(result)
 
-if submit_button:
-    try:
-        # Convert the edited format to the old format for compatibility
-        edited_cells_old_format = {
-            f"{row}:{col}": edited[row][col]
-            for row in edited
-            for col in edited[row]
-        }
+        # Insert the form data into Snowflake
+        query = f"INSERT INTO token_schemas (TOKEN_SCHEMA_ID,TOKEN_NAME, FUNGIBILITY, IP, TOKEN_ADMIN, METADATA) VALUES ('{token_schema_id}','{token_name}', '{fungibility}', '{ip}', '{token_admin}', '{metadata}')"
+        my_cur.execute(query)
+        my_cnx.commit()
+        st.success("Data saved in snowflake!")
+
+if __name__ == "__main__":
+    main()
         
-        # Write the edited cells back to Snowflake for the "avatar_wearables" table
-        write_pandas(my_cnx, edited_cells_old_format, 'avatar_wearables', if_exists='replace')
-        st.success("Table updated")
-    except Exception as e:
-        st.warning(f"Error updating table: {e}")
 
-    # Display success message and update the table to reflect what is in Snowflake
-    st.success("Data saved in Snowflake!")
-    st.experimental_rerun()
-
+  
