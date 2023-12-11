@@ -9,7 +9,8 @@ my_cur = my_cnx.cursor()
 
 # Streamlit configuration
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
-st.title("Update Metadata")
+st.title("Snowflake Table Editor ❄️")
+st.caption("This is a demo of the `st.data_editor`.")
 
 # Function to get dataset from Snowflake
 def get_dataset():
@@ -37,13 +38,17 @@ if submit_button:
         # Identify the rows that have been edited
         edited_rows = pd.merge(existing_data, edited, how="outer", indicator=True).query("_merge == 'right_only'").drop('_merge', axis=1)
 
-        # Update only the edited rows in Snowflake
+        # Prepare the SQL statements for updating edited rows
+        sql_statements = []
         for index, row in edited_rows.iterrows():
             set_clause = ", ".join(f"{col} = '{row[col]}'" for col in edited_rows.columns)
             query = f"UPDATE AVATAR_WEARABLES SET {set_clause} WHERE token_id = '{row['token_id']}'"
-            my_cur.execute(query)
+            sql_statements.append(query)
+
+        # Execute multiple SQL statements in a single call
+        my_cur.execute("\n".join(sql_statements))
+        my_cnx.commit()
 
         st.success("Table updated")
     except Exception as e:
         st.warning(f"Error updating table: {e}")
-
