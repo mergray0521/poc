@@ -8,7 +8,7 @@ my_cur = my_cnx.cursor()
 
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
 st.title("Snowflake Table Editor ❄️")
-st.caption("This is a demo of the `st.experimental_data_editor`.")
+st.caption("This is a demo of the `st.data_editor`.")
 
 def get_dataset():
     # Replace the next line with a SQL query to fetch the data
@@ -20,7 +20,7 @@ dataset = get_dataset()
 
 with st.form("data_editor_form"):
     st.caption("Edit the dataframe below")
-    edited = st.experimental_data_editor(dataset, use_container_width=True, num_rows="dynamic")
+    edited = st.data_editor(dataset, use_container_width=True, num_rows="dynamic")
     submit_button = st.form_submit_button("Submit")
 
 if submit_button:
