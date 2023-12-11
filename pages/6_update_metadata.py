@@ -1,9 +1,10 @@
 import json
 import streamlit as st
 import time
-import pandas as pd
 import snowflake.connector
+import pandas as pd
 from snowflake.connector.pandas_tools import write_pandas
+from sqlalchemy import create_engine
 
 # Snowflake connection
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
@@ -39,7 +40,8 @@ if submit_button:
         st.warning(f"Error updating table: {e}")
 
     # Display success message for 5 seconds and update the table to reflect what is in Snowflake
-    st.experimental_rerun()
+    st.rerun()
+
 
 
 
