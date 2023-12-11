@@ -41,7 +41,14 @@ if submit_button:
                 edited_copy[col] = pd.to_numeric(edited_copy[col], errors='coerce')
 
         # Update only the edited rows in Snowflake
-        my_cur.copy_pandas_to_table(edited_copy, 'AVATAR_WEARABLES', overwrite=True)
+        for index, row in edited_copy.iterrows():
+            set_clauses = [f"{col} = {row[col]}" if pd.notna(row[col]) else f"{col} = NULL" for col in edited_copy.columns]
+            set_clause = ", ".join(set_clauses)
+            token_id = row.get('token_id', '')
+            
+            if token_id:
+                query = f"UPDATE AVATAR_WEARABLES SET {set_clause} WHERE token_id = '{token_id}'"
+                my_cur.execute(query)
 
         my_cnx.commit()
 
