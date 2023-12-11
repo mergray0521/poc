@@ -22,7 +22,7 @@ def update_ownership_database(user_id, token_id):
 
 # Main Streamlit app
 def main():
-    st.title("Flying Harness Token Page")
+    st.title("Earned Token")
 
     # Display pop-up notification
     st.success("Congratulations! You earned a new Flying Harness token!")
