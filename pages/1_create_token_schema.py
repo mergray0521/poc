@@ -12,7 +12,7 @@ query = "SELECT * FROM avatar_wearables"
 df = pd.read_sql(query, my_cnx)
 
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
-st.title("Snowflake Table Editor ❄️")
+st.title("Update Metadata")
 st.caption("This is a demo of the `st.data_editor`.")
 
 with st.form("data_editor_form"):
