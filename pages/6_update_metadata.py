@@ -1,5 +1,6 @@
 import streamlit as st
 import snowflake.connector
+import pandas as pd
 
 # Snowflake connection
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
