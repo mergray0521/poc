@@ -15,9 +15,9 @@ st.caption("This is a demo of the `st.experimental_data_editor`.")
 # Function to get dataset from Snowflake
 def get_dataset():
     query = "SELECT * FROM AVATAR_WEARABLES"
-    session.execute(query)
-    result = session.fetchall()
-    df = pd.DataFrame(result, columns=[desc[0] for desc in session.description])
+    my_cur.execute(query)
+    result = my_cur.fetchall()
+    df = pd.DataFrame(result, columns=[desc[0] for desc in my_cur.description])
     return df
 
 # Get the dataset
@@ -36,7 +36,7 @@ if submit_button:
         for index, row in edited.iterrows():
             set_clause = ", ".join(f"{col} = '{row[col]}'" for col in edited.columns)
             query = f"UPDATE AVATAR_WEARABLES SET {set_clause} WHERE your_condition_column = 'your_condition_value'"
-            session.execute(query)
+            my_cur.execute(query)
         
         st.success("Table updated")
     except Exception as e:
