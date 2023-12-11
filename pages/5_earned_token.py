@@ -4,13 +4,14 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["token_schemas"])
 my_cur = my_cnx.cursor()
 
-# Function to fetch token data from the database
-def fetch_token_data(token_id, type):
+def fetch_token_data(token_id, token_type):
+    # Your code to fetch data from Snowflake database
+    # Replace this with your actual implementation
     token_data = {
         'image_url': 'path/to/token_image.png',
-        'type': flying_harness,
+        'type': token_type,
         'materials': 'aerium_fabric',
-        'color': 'brown'
+        'color': 'fabric'
     }
     return token_data
 
