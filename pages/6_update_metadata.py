@@ -13,7 +13,7 @@ rows = my_cur.fetchall()
 df = pd.DataFrame(rows, columns=columns)
 
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
-st.title("Snowflake Table Editor ❄️")
+st.title("Updata Metadata")
 st.caption("This is a demo of the `st.data_editor`.")
 
 with st.form("data_editor_form"):
