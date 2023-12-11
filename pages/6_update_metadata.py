@@ -41,7 +41,7 @@ if submit_button:
         # Update only the edited rows in Snowflake
         for index, row in edited_rows.iterrows():
             set_clause = ", ".join(f"{col} = '{row[col]}'" for col in edited_rows.columns)
-            token_id = row['token_id']
+            token_id = row.get('token_id', '')
             query = f"UPDATE AVATAR_WEARABLES SET {set_clause} WHERE token_id = '{token_id}'"
             my_cur.execute(query)
 
@@ -50,4 +50,3 @@ if submit_button:
         st.success("Table updated")
     except Exception as e:
         st.warning(f"Error updating table: {e}")
-
