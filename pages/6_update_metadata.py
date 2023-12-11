@@ -1,37 +1,46 @@
 import pandas as pd
 import json
-import snowflake.connector
 import streamlit as st
-from snowflake.snowpark import Session
-import time
+import snowflake.connector
 
 # Snowflake connection
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
 my_cur = my_cnx.cursor()
 
+# Streamlit configuration
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
-st.title("Update Metadata Table")
+st.title("Snowflake Table Editor ❄️")
+st.caption("This is a demo of the `st.experimental_data_editor`.")
 
+# Function to get dataset from Snowflake
 def get_dataset():
-    # load messages df
-    df = session.table("avatar_wearables")
-
+    query = "SELECT * FROM AVATAR_WEARABLES"
+    session.execute(query)
+    result = session.fetchall()
+    df = pd.DataFrame(result, columns=[desc[0] for desc in session.description])
     return df
 
+# Get the dataset
 dataset = get_dataset()
 
+# Display the editable data editor form
 with st.form("data_editor_form"):
     st.caption("Edit the dataframe below")
     edited = st.experimental_data_editor(dataset, use_container_width=True, num_rows="dynamic")
     submit_button = st.form_submit_button("Submit")
 
+# Upon submitting changes
 if submit_button:
     try:
-        #Note the quote_identifiers argument for case insensitivity
-        session.write_pandas(edited, "avatar_wearables", overwrite=True, quote_identifiers=False)
+        # Update the Snowflake table with the edited data
+        for index, row in edited.iterrows():
+            set_clause = ", ".join(f"{col} = '{row[col]}'" for col in edited.columns)
+            query = f"UPDATE AVATAR_WEARABLES SET {set_clause} WHERE your_condition_column = 'your_condition_value'"
+            session.execute(query)
+        
         st.success("Table updated")
-        time.sleep(5)
-    except:
-        st.warning("Error updating table")
-    #display success message for 5 seconds and update the table to reflect what is in Snowflake
+    except Exception as e:
+        st.warning(f"Error updating table: {e}")
+
+    # Update the table to reflect changes in Snowflake
     st.experimental_rerun()
