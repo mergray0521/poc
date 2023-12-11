@@ -8,6 +8,8 @@ def main():
     
     token_schema_options = ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"]
     selected_token_schema = st.selectbox("Token Schema", token_schema_options)
+
+    mint = False  # Initialize mint variable outside the form
     
     if st.button("Search"):
         my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
