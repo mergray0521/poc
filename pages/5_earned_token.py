@@ -4,7 +4,9 @@ import snowflake.connector
 st.title("Earned Token")
 st.header("Congratulations you have earned a flying harness!") 
 
-
+def main():
+    st.header("Flying Harness")
+  
 
 
 
