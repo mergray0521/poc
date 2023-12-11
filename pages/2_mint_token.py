@@ -24,6 +24,8 @@ def main():
             materials = st.text_input('Materials', "")
             color = st.selectbox('Color', ["Green", "Black", "Silver", "Red", "Brown"]) 
             mint = st.form_submit_button('Mint')
+
+            st.write("Mint button clicked:", mint)  # Add this line for debugging
       
             if mint:            
                 # Insert the form data into Snowflake
