@@ -2,6 +2,7 @@ import json
 import streamlit as st
 import time
 import pandas as pd
+import snowflake.connector
 from snowflake.connector.pandas_tools import write_pandas
 
 # Snowflake connection
