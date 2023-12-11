@@ -32,30 +32,16 @@ with st.form("data_editor_form"):
 # Upon submitting changes
 if submit_button:
     try:
-        # Fetch the existing data from Snowflake
-        existing_data = get_dataset()
+        # Create a copy of the edited dataframe to avoid modifying the original dataframe
+        edited_copy = edited.copy()
 
-        # Identify the rows that have been edited
-        edited_rows = pd.merge(existing_data, edited, how="outer", indicator=True).query("_merge == 'right_only'").drop('_merge', axis=1)
+        # Convert empty values in numeric columns to NaN
+        for col in edited_copy.columns:
+            if pd.api.types.is_numeric_dtype(edited_copy[col]):
+                edited_copy[col] = pd.to_numeric(edited_copy[col], errors='coerce')
 
         # Update only the edited rows in Snowflake
-        for index, row in edited_rows.iterrows():
-            set_clauses = []
-            token_id = row.get('token_id', '')
-            
-            # Build set clauses handling empty values for numeric columns
-            for col in edited_rows.columns:
-                value = row[col]
-                if pd.api.types.is_numeric_dtype(edited_rows[col]) and pd.isna(value):
-                    set_clauses.append(f"{col} = NULL")
-                else:
-                    set_clauses.append(f"{col} = '{value}'")
-
-            set_clause = ", ".join(set_clauses)
-
-            if token_id:
-                query = f"UPDATE AVATAR_WEARABLES SET {set_clause} WHERE token_id = '{token_id}'"
-                my_cur.execute(query)
+        my_cur.copy_pandas_to_table(edited_copy, 'AVATAR_WEARABLES', overwrite=True)
 
         my_cnx.commit()
 
