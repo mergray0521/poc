@@ -12,7 +12,7 @@ query = "SELECT * FROM avatar_wearables"
 df = pd.read_sql(query, my_cnx)
 
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
-st.title("Update Metadata")
+st.title("Snowflake Table Editor ❄️")
 st.caption("This is a demo of the `st.data_editor`.")
 
 with st.form("data_editor_form"):
@@ -38,3 +38,4 @@ if submit_button:
     # Display success message and update the table to reflect what is in Snowflake
     st.success("Data saved in Snowflake!")
     st.experimental_rerun()
+
