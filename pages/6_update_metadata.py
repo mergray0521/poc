@@ -30,7 +30,7 @@ if submit_button:
         st.success("Table updated")
     except:
         st.warning("Error updating table")
-    st.experimental_rerun()
+    st.rerun()
 
 
 
