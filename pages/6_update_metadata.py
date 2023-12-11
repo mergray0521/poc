@@ -12,7 +12,7 @@ my_cur = my_cnx.cursor()
 
 # Load data from Snowflake
 query = "SELECT * FROM avatar_wearables"
-df = pd.read_sql(query, conn)
+df = pd.read_sql(query, my_cnx)
 
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
 st.title("Snowflake Table Editor ❄️")
