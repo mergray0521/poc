@@ -35,7 +35,7 @@ if submit_button:
         # Update the Snowflake table with the edited data
         my_cur.execute("DELETE FROM AVATAR_WEARABLES")  # Clear the existing data in the table
         my_cnx.commit()
-        my_cur.copy_pandas_to_table(edited, "AVATAR_WEARABLES", overwrite=True)
+        my_cur.write_pandas(edited, "AVATAR_WEARABLES", overwrite=True, quote_identifiers=True)
         st.success("Table updated")
     except Exception as e:
         st.warning(f"Error updating table: {e}")
