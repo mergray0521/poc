@@ -12,7 +12,7 @@ st.caption("This is a demo of the `st.experimental_data_editor`.")
 
 def get_dataset():
     # load messages df
-    df = my_cur.table("AVATAR_WEARABLES")
+    df = my_cnx.table("AVATAR_WEARABLES")
 
     return df
 
@@ -26,7 +26,7 @@ with st.form("data_editor_form"):
 if submit_button:
     try:
         #Note the quote_identifiers argument for case insensitivity
-        my_cur.write_pandas(edited, "AVATAR_WEARABLES", overwrite=True, quote_identifiers=False)
+        my_cnx.write_pandas(edited, "AVATAR_WEARABLES", overwrite=True, quote_identifiers=False)
         st.success("Table updated")
     except:
         st.warning("Error updating table")
