@@ -25,14 +25,23 @@ if st.button('Search'):
         st.write('Edit Data:')
         # Add input fields for each column you want to edit
 
+        updated_values = {}  # Store updated values in a dictionary
+
         for column_name, column_value in zip(my_cur.description, data):
             col_name = column_name[0]  # Extract the column name from the cursor description
             new_value = st.text_input(f'Edit {col_name}', value=column_value)
+            updated_values[col_name] = new_value
 
         if st.button('Save'):
             # Update the row in Snowflake with the new values
-            # Write the update query here
-            pass  # placeholder for the update logic
+            update_query = f"UPDATE avatar_wearables SET "
+            update_query += ", ".join([f"{key} = '{value}'" for key, value in updated_values.items()])
+            update_query += f" WHERE token_id = '{token_id}'"
+
+            my_cur.execute(update_query)
+            my_cnx.commit()
+
+            st.success('Data updated successfully!')
 
     else:
         st.write('Token ID not found')
