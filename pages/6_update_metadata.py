@@ -4,16 +4,17 @@ import snowflake.connector
 # Streamlit UI
 st.title('Update Metadata Page')
 
-my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+# Snowflake connection
+connection_params = st.secrets["INVENTORY_DB"]
+my_cnx = snowflake.connector.connect(**connection_params)
 my_cur = my_cnx.cursor()
 
 # Search by Token ID
 token_id = st.text_input('Enter Token ID:')
 if st.button('Search'):
-    # Fetch data from Snowflake based on token_id with explicit type casting
-    query = f"SELECT CAST(token_id AS VARCHAR), CAST(type AS VARCHAR), CAST(materials AS VARCHAR), CAST(color AS VARCHAR) FROM avatar_wearables WHERE token_id = '{token_id}'"
+    # Fetch data from Snowflake based on token_id
+    query = f"SELECT * FROM avatar_wearables WHERE token_id = '{token_id}'"
     my_cur.execute(query)
-    my_cnx.commit()
     data = my_cur.fetchone()
 
     # Display data
@@ -23,8 +24,6 @@ if st.button('Search'):
 
         # Edit and Save
         st.write('Edit Data:')
-        # Add input fields for each column you want to edit
-
         updated_values = {}  # Store updated values in a dictionary
 
         for column_name, column_value in zip(my_cur.description, data):
@@ -37,8 +36,6 @@ if st.button('Search'):
             update_query = f"UPDATE avatar_wearables SET "
             update_query += ", ".join([f"{key} = '{value}'" for key, value in updated_values.items()])
             update_query += f" WHERE token_id = '{token_id}'"
-
-            print("Update Query:", update_query)  # Add this line to print the query
 
             try:
                 my_cur.execute(update_query)
