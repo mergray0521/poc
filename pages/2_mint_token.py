@@ -24,7 +24,7 @@ def main():
             mint = st.form_submit_button('Mint')
       
          
-        if st.form_submit_button:           
+        if mint:           
             # Insert the form data into Snowflake
             query = f"INSERT INTO avatar_wearables (TOKEN_ID,TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{type}', '{materials}', '{color}')"
             my_cur.execute(query)
@@ -33,6 +33,7 @@ def main():
             
 if __name__ == "__main__":
     main()
+
 
 
 
