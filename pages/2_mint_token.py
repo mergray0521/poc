@@ -20,7 +20,7 @@ def main():
             token_id = st.number_input('Token ID"', min_value=606, max_value=1000, value=606, step=1)
             type = st.text_input('Token Type', "")
             materials = st.text_input('Materials', "")
-            color = st.selectbox('IP', ["Green", "Black", "Silver", "Red", "Brown"]) 
+            color = st.selectbox('Color', ["Green", "Black", "Silver", "Red", "Brown"]) 
             mint = st.form_submit_button('Mint')
          
         if st.form_submit_button:           
