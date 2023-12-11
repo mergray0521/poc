@@ -2,6 +2,8 @@ import streamlit as st
 import snowflake.connector
 
 st.title("Earned Token")
+st.header("Congratulations you have earned a flying harness!") 
+
 
 
 
