@@ -18,7 +18,7 @@ USING (SELECT {token_id} AS "TOKEN_ID",
               '{type}' AS "TYPE",
               '{materials}' AS "MATERIALS",
               '{color}' AS "COLOR") AS source
-ON target."token_id" = avatar_wearables."token_id"
+ON avatar_Wearables."token_id" = avatar_wearables."token_id"
 WHEN MATCHED THEN
   UPDATE SET "TOKEN_ID" = avatar_wearables."TOKEN_NAME",
              "TYPE" = avatar_wearables."TYPE",
