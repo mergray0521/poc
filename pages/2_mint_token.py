@@ -17,7 +17,7 @@ def main():
             
         # Create form for token information
         with st.form("mint_token"):
-            token_id = st.number_input('Token ID"', min_value=606, max_value=1000, value=606, step=1)
+            token_id = st.number_input('Token ID', min_value=606, max_value=1000, value=606, step=1)
             type = st.text_input('Token Type', "")
             materials = st.text_input('Materials', "")
             color = st.selectbox('Color', ["Green", "Black", "Silver", "Red", "Brown"]) 
