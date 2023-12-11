@@ -29,7 +29,8 @@ if st.button('Search'):
 
         for column_name, column_value in zip(my_cur.description, data):
             col_name = column_name[0]  # Extract the column name from the cursor description
-            new_value = st.text_input(f'Edit {col_name}', value=column_value)
+            # Add data type casting as needed
+            new_value = st.text_input(f'Edit {col_name}', value=str(column_value))
             updated_values[col_name] = new_value
 
         if st.button('Save'):
