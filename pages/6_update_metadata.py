@@ -18,15 +18,14 @@ USING (SELECT {token_id} AS "TOKEN_ID",
               '{type}' AS "TYPE",
               '{materials}' AS "MATERIALS",
               '{color}' AS "COLOR") AS source
-ON avatar_Wearables."token_id" = avatar_wearables."token_id"
+ON target."TOKEN_ID" = source."TOKEN_ID"
 WHEN MATCHED THEN
-  UPDATE SET "TOKEN_ID" = avatar_wearables."TOKEN_NAME",
-             "TYPE" = avatar_wearables."TYPE",
-             "MATERIALS" = avatar_wearables."MATERIALS",
-             "COLOR" = avatar_wearables."COLOR",
+  UPDATE SET "TYPE" = COALESCE(source."TYPE", target."TYPE"),
+             "MATERIALS" = COALESCE(source."MATERIALS", target."MATERIALS"),
+             "COLOR" = COALESCE(source."COLOR", target."COLOR")
 WHEN NOT MATCHED THEN
   INSERT ("TOKEN_ID", "TYPE", "MATERIALS", "COLOR")
-  VALUES (avatar_wearables."TOKEN_ID", avatar_wearables."TYPE", avatar_wearables."MATERIALS", avatar_wearables."COLOR" );
+  VALUES (source."TOKEN_ID", source."TYPE", source."MATERIALS", source."COLOR");
 '''
 
 # Execute the MERGE query
