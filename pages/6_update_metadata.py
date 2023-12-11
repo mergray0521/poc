@@ -62,4 +62,3 @@ if submit_button:
         st.success("Table updated")
     except Exception as e:
         st.warning(f"Error updating table: {e}")
-
