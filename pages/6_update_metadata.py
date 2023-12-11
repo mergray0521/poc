@@ -2,7 +2,7 @@ import pandas as pd
 import json
 import streamlit as st
 
-my_cnx = snowflake.connector.connect(**st.secrets["token_schemas"])
+my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
 my_cur = my_cnx.cursor()
 
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
