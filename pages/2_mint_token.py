@@ -8,8 +8,6 @@ def main():
     
     token_schema_options = ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"]
     selected_token_schema = st.selectbox("Token Schema", token_schema_options)
-
-    mint = False  # Initialize mint variable outside the form
     
     if st.button("Search"):
         my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
@@ -24,16 +22,17 @@ def main():
             materials = st.text_input('Materials', "")
             color = st.selectbox('Color', ["Green", "Black", "Silver", "Red", "Brown"]) 
             mint = st.form_submit_button('Mint')
-
-            st.write("Mint button clicked:", mint)  # Add this line for debugging
       
-            if mint:            
-                # Insert the form data into Snowflake
-                query = f"INSERT INTO avatar_wearables (TOKEN_ID, TYPE, MATERIALS, COLOR) VALUES ('{token_id}', '{type}', '{materials}', '{color}')"
-                my_cur.execute(query)
-                my_cnx.commit()
-                st.success("New token minted!")
+         
+        if st.form_submit_button:           
+            # Insert the form data into Snowflake
+            query = f"INSERT INTO avatar_wearables (TOKEN_ID,TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{type}', '{materials}', '{color}')"
+            my_cur.execute(query)
+            my_cnx.commit()
+            st.success("New token minted!")
             
 if __name__ == "__main__":
     main()
+
+
 
