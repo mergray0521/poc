@@ -1,57 +1,38 @@
-import pandas as pd
 import json
 import streamlit as st
-import snowflake.connector
+import time
+import pandas as pd
+from snowflake.connector.pandas_tools import write_pandas
 
 # Snowflake connection
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
 my_cur = my_cnx.cursor()
 
-# Streamlit configuration
+
+# Load data from Snowflake
+query = "SELECT * FROM avatar_wearables"
+df = pd.read_sql(query, conn)
+
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
 st.title("Snowflake Table Editor ❄️")
-st.caption("This is a demo of the `st.data_editor`.")
+st.caption("This is a demo of the `st.experimental_data_editor`.")
 
-# Function to get dataset from Snowflake
-def get_dataset():
-    query = "SELECT * FROM AVATAR_WEARABLES"
-    my_cur.execute(query)
-    result = my_cur.fetchall()
-    df = pd.DataFrame(result, columns=[desc[0] for desc in my_cur.description])
-    return df
-
-# Get the dataset
-dataset = get_dataset()
-
-# Display the editable data editor form
 with st.form("data_editor_form"):
     st.caption("Edit the dataframe below")
-    edited = st.data_editor(dataset, use_container_width=True)
+    edited = st.experimental_data_editor(df, use_container_width=True, num_rows="dynamic")
     submit_button = st.form_submit_button("Submit")
 
-# Upon submitting changes
 if submit_button:
     try:
-        # Create a copy of the edited dataframe to avoid modifying the original dataframe
-        edited_copy = edited.copy()
-
-        # Convert empty values in numeric columns to NaN
-        for col in edited_copy.columns:
-            if pd.api.types.is_numeric_dtype(edited_copy[col]):
-                edited_copy[col] = pd.to_numeric(edited_copy[col], errors='coerce')
-
-        # Update only the edited rows in Snowflake
-        for index, row in edited_copy.iterrows():
-            set_clauses = [f"{col} = {row[col]}" if pd.notna(row[col]) else f"{col} = NULL" for col in edited_copy.columns]
-            set_clause = ", ".join(set_clauses)
-            token_id = row.get('token_id', '')
-            
-            if token_id:
-                query = f"UPDATE AVATAR_WEARABLES SET {set_clause} WHERE token_id = '{token_id}'"
-                my_cur.execute(query)
-
-        my_cnx.commit()
-
+        # Write the edited dataframe back to Snowflake for the "avatar_wearables" table
+        write_pandas(conn, edited, 'avatar_wearables', if_exists='replace')
         st.success("Table updated")
+        time.sleep(5)
     except Exception as e:
         st.warning(f"Error updating table: {e}")
+
+    # Display success message for 5 seconds and update the table to reflect what is in Snowflake
+    st.experimental_rerun()
+
+
+
