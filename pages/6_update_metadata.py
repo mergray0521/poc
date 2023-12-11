@@ -34,9 +34,10 @@ if submit_button:
         # Write the edited cells back to Snowflake for the "avatar_wearables" table
         for key, value in edited_cells_old_format.items():
             row, col = map(int, key.split(":"))
-            update_query = f"UPDATE avatar_wearables SET {columns[col]} = %s WHERE row_id = %s"
-            my_cur.execute(update_query, (value, row))
-        
+            if columns[col] != 'row_id':  # Skip updating the 'row_id' column
+                update_query = f"UPDATE avatar_wearables SET {columns[col]} = %s WHERE row_id = %s"
+                my_cur.execute(update_query, (value, row))
+
         my_cnx.commit()
         st.success("Table updated")
     except Exception as e:
@@ -46,3 +47,4 @@ if submit_button:
     # Display success message and update the table to reflect what is in Snowflake
     st.success("Data saved in Snowflake!")
     st.rerun()
+
