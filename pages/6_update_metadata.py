@@ -7,8 +7,8 @@ my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
 my_cur = my_cnx.cursor()
 
 st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
-st.title("Snowflake Table Editor ❄️")
-st.caption("This is a demo of the `st.data_editor`.")
+st.title("Update Token Metadata")
+st.caption("Click on any field to edit metadata.")
 
 def get_dataset():
     # Replace the next line with a SQL query to fetch the data
