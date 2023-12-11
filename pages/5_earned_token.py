@@ -6,13 +6,11 @@ my_cur = my_cnx.cursor()
 
 # Function to fetch token data from the database
 def fetch_token_data(token_id, type):
-    # Your code to fetch data from Snowflake database
-    # Replace this with your actual implementation
     token_data = {
         'image_url': 'path/to/token_image.png',
-        'type': token_type,
+        'type': flying_harness,
         'materials': 'aerium_fabric',
-        'color': 'fabric'
+        'color': 'brown'
     }
     return token_data
 
