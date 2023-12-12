@@ -2,13 +2,13 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 
-# Connect to Snowflake
-my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
-my_cur = my_cnx.cursor()
-
 def main():
     
     st.title("Mint Token")
+
+    # Connect to Snowflake
+    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+    my_cur = my_cnx.cursor()
 
     # form 1 for token schema selection
     with st.form("Token Schema"):
