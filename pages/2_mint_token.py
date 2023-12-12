@@ -17,7 +17,7 @@ def main():
 
         # form 2 for token information
         with st.form("Mint Token"):
-            token_id = st.number_input('Token ID"', min_value=606, max_value=1000, value=606, step=1)
+            token_id = st.number_input('Token ID', min_value=606, max_value=1000, value=606, step=1)
             type = st.text_input('Token Type', "")
             materials = st.text_input('Materials', "")
             color = st.selectbox('Color', ["Green", "Black", "Silver", "Red", "Brown"]) 
@@ -28,7 +28,7 @@ def main():
                 query = f"INSERT INTO avatar_wearables (TOKEN_ID,TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{type}', '{materials}', '{color}')"
                 my_cur.execute(query)
                 my_cnx.commit()
-                st.success("New token minted!")
+                st.success(f"Form 1 submitted with input: {token_id, type, materials, color}")
             
 if __name__ == "__main__":
     main()
