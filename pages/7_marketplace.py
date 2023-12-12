@@ -6,6 +6,7 @@ st.header("Token Marketplace")
 token_1 = "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain"
 token_2 = "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png"
 token_3 = "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain"
+token_4 = "https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain"
 
 # Create three columns
 col1, col2, col3 = st.columns(3)
@@ -14,6 +15,9 @@ col1, col2, col3 = st.columns(3)
 col1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
 col1.text("1,000 points")
 col1.button("Purchase My Say")
+col1.image(token_4, caption="Minion Glasses", use_column_width=True, width=300)
+col1.text("2,000 points")
+col1.button("Purchase Glasses")
 
 col2.image(token_2, caption="My Way Token", use_column_width=True, width=50)
 col2.text("2,000 points")
