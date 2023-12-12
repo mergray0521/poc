@@ -9,7 +9,7 @@ with st.form("token_schema"):
     if not search and not st.session_state.get("Search"):
         st.stop()
     st.session_state["Search"] = True
-    st.success(f"Form 1 submitted with input: {token_schema}")
+    st.success(f"Token schema submitted with: {token_schema}")
 
 
 with st.form("mint_token"):
@@ -22,4 +22,4 @@ with st.form("mint_token"):
     if not mint:
         st.stop()
     st.session_state["Mint"] = False
-    st.success(f"Form 2 submitted with input: {token_id}")
+    st.success(f"New Token Created: {token_id}")
