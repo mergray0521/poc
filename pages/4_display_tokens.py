@@ -19,25 +19,23 @@ if st.button("Submit"):
             FROM token_ownership to
             JOIN token_images ti ON to.token_id = ti.token_id
             WHERE to.owner_id = '{user_id}'
-"""
+        """
     
-        # Display the result in Streamlit
+        
         if result:
-            # Display the result in Streamlit
-if result:
-    st.success(f"Tokens for User ID {user_id}:")
-
-    # Create a three-column layout
-    col1, col2, col3 = st.columns(3)
-
-    for token_id, image_url in result:
-        # Display image and caption in each column
-        with col1:
-            st.image(image_url, caption=f"Token ID: {token_id}", use_column_width=True)
-        # Repeat for col2 and col3
-else:
-    st.warning(f"No tokens found for User ID {user_id}")
-    
+            st.success(f"Tokens for User ID {user_id}:")
+        
+            # Create a three-column layout
+            col1, col2, col3 = st.columns(3)
+        
+            for token_id, image_url in result:
+                # Display image and caption in each column
+                with col1:
+                    st.image(image_url, caption=f"Token ID: {token_id}", use_column_width=True)
+                # Repeat for col2 and col3
+        else:
+            st.warning(f"No tokens found for User ID {user_id}")
+            
     
 
 
