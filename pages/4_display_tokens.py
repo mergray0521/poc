@@ -34,7 +34,7 @@ if st.button("Submit"):
             st.success(f"Tokens for User ID {user_id}:")
 
             # Create a three-column layout
-            col1, col2, col3 = st.beta_columns(3)
+            col1, col2, col3 = st.columns(3)
 
             for token_id in result:
                 if token_id in token_images:
