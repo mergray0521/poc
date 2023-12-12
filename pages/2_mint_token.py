@@ -19,7 +19,17 @@ with st.form("mint_token"):
     materials = st.text_input('Materials', "")
     color = st.selectbox('Color', ["Green", "Black", "Silver", "Red", "Brown"]) 
     mint = st.form_submit_button(label="Mint")
-    if not mint:
+    if not mint and not st.session_state.get("Mint):
         st.stop()
-    st.session_state["Mint"] = False
-    st.success(f"New Token Created: {token_id}")
+
+    #Connect to Snowflake
+    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+    my_cur = my_cnx.cursor()
+
+    # Insert the form data into Snowflake
+    query = f"INSERT INTO avatar_wearables (TOKEN_ID, TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{token_type}', '{materials}', '{color}')"
+    my_cur.execute(query)
+    my_cnx.commit()
+    
+    st.session_state["Mint"] = True
+    st.success(f"New Token Created and saved to Snowflake: {token_id}")
