@@ -1,13 +1,16 @@
 import streamlit as st
-import snowflake.connector
 
-st.title("Marketplace")
-
+# Sample image URLs
 token_1 = "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain"
 token_2 = "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png"
 token_3 = "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain"
 
-st.image(token_1, caption="Token: X", use_column_width=True, width=100)
-st.image(token_2, caption="Token: X", use_column_width=True, width=100)
-st.image(token_3, caption="Token: X", use_column_width=True, width=100)
+# Create three columns
+col1, col2, col3 = st.columns(3)
+
+# Display images in columns
+col1.image(token_1, caption="Token: X", use_column_width=True, width=100)
+col2.image(token_2, caption="Token: X", use_column_width=True, width=100)
+col3.image(token_3, caption="Token: X", use_column_width=True, width=100)
+
 
