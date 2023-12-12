@@ -9,7 +9,7 @@ st.header("Earned Token")
 st.text ("Congratulations! You earned a new Flying Harness token!")
 
 image_url = "https://insidethemagic.net/wp-content/uploads/2017/05/Screen-Shot-2017-05-05-at-3.44.38-PM.jpg"
-st.image(image_url, caption="Image from the web", use_column_width=True)
+st.image(image_url, caption="Token: Flying Harness", use_column_width=True)
 
 
 
