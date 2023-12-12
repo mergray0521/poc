@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**st.secrets["token_schemas"])
+my_cnx = snowflake.connector.connect(**st.secrets["token_ownership"])
 my_cur = my_cnx.cursor()
 
 st.header("Earned Token") 
