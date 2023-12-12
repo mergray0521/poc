@@ -19,7 +19,7 @@ with st.form("mint_token"):
     materials = st.text_input('Materials', "")
     color = st.selectbox('Color', ["Green", "Black", "Silver", "Red", "Brown"]) 
     mint = st.form_submit_button(label="Mint")
-    if not mint and not st.session_state.get("Mint):
+    if not mint and not st.session_state.get("Mint"):
         st.stop()
 
     #Connect to Snowflake
