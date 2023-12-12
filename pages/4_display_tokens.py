@@ -32,7 +32,7 @@ if st.button("Submit"):
             }
 
             # Display images and captions in three columns
-            cols = st.beta_columns(3)
+            cols = st.columns(3)
             for index, row in tokens_df.iterrows():
                 token_id = row["Token ID"]
                 
