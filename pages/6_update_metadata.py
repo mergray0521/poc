@@ -9,7 +9,7 @@ st.title("Update Metadata")
 # Form for searching token
 with st.form("search_token"):
     st.header("Select Token ID")
-    search_token = st.number_input('Token ID', min_value=606, max_value=1000, value=606, step=1)
+    search_token = st.number_input('Token ID', min_value=600, max_value=1000, value=600, step=1)
     search = st.form_submit_button(label="Search")
     if not search and not st.session_state.get("Search"):
         st.stop()
