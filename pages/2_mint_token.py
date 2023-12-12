@@ -1,4 +1,3 @@
-import streamlit as st
 import snowflake.connector
 import pandas as pd
 
@@ -32,10 +31,4 @@ def main():
             st.success("New token minted!")
             
 if __name__ == "__main__":
-            
-
-
-
-
-
-
+    main()
