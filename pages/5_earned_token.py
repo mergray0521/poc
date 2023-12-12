@@ -1,22 +1,19 @@
 import streamlit as st
-from streamlit_modal import Modal
+import pandas as pd
 import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**st.secrets["token_schemas"])
 my_cur = my_cnx.cursor()
 
 st.header("Earned Token") 
+st.text ("Congratulations! You earned a new Flying Harness token!")
 
-modal = Modal(key="Demo Key",title="test")
-for col in st.columns(8):
-    with col:
-        open_modal = st.button(label='button')
-        if open_modal:
-            with modal.container():
-                st.markdown('testtesttesttesttesttesttesttest')
+image_url = "https://insidethemagic.net/wp-content/uploads/2017/05/Screen-Shot-2017-05-05-at-3.44.38-PM.jpg"
+st.image(image_url, caption="Image from the web", use_column_width=True)
 
 
 
+        
 
 
 
