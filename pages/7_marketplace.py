@@ -12,14 +12,14 @@ col1, col2, col3 = st.columns(3)
 
 # Display images in columns
 col1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
-col1.text("Cost: $10")
+col1.text("1,000 points")
 col1.button("Purchase My Say")
 
 col2.image(token_2, caption="My Way Token", use_column_width=True, width=50)
-col2.text("Cost: $5")
+col2.text("2,000 points")
 col2.button("Purchase My Way")
 
 col3.image(token_3, caption="My Day Token", use_column_width=True, width=50)
-col3.text("Cost: $8")
+col3.text("3,000 points")
 col3.button("Purchase My Day")
 
