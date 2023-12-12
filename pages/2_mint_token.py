@@ -9,7 +9,7 @@ with st.form("token_schema"):
     if not search and not st.session_state.get("Search"):
         st.stop()
     st.session_state["Search"] = True
-    st.write("1")
+    st.success(f"Form 1 submitted with input: {token_schema}")
 
 
 with st.form("mint_token"):
