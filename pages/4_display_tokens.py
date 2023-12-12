@@ -20,6 +20,8 @@ if st.button("Submit"):
             JOIN token_images ti ON to.token_id = ti.token_id
             WHERE to.owner_id = '{user_id}'
         """
+        my_cur.execute(query)
+        result = my_cur.fetchall()
     
         
         if result:
