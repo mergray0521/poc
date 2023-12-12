@@ -1,37 +1,38 @@
-import pandas as pd
-import json
 import streamlit as st
 import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
-my_cur = my_cnx.cursor()
-
-st.set_page_config(layout="centered", page_title="Data Editor", page_icon="🧮")
 st.title("Update Token Metadata")
-st.caption("Click on any field to edit metadata.")
+with st.form("select_token"):
+    st.header("Select Token")
+    selected_token = st.selectbox('Token', ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"])
+    search = st.form_submit_button(label="Search")
+    if not search and not st.session_state.get("Search"):
+        st.stop()
+    st.session_state["Search"] = True
+    st.success(f"Token schema submitted with: {token_schema}")
 
-def get_dataset():
-    # Replace the next line with a SQL query to fetch the data
-    query = "SELECT * FROM AVATAR_WEARABLES"
-    df = pd.read_sql(query, my_cnx)
-    return df
 
-dataset = get_dataset()
+with st.form("mint_token"):
+    st.header("Create New Token")
+    token_id = st.number_input('Token ID', min_value=606, max_value=1000, value=606, step=1)
+    token_type = st.text_input('Token Type', "")
+    materials = st.text_input('Materials', "")
+    color = st.selectbox('Color', ["Green", "Black", "Silver", "Red", "Brown"]) 
+    mint = st.form_submit_button(label="Mint")
+    if not mint and not st.session_state.get("Mint"):
+        st.stop()
 
-with st.form("data_editor_form"):
-    st.caption("Edit the dataframe below")
-    edited = st.data_editor(dataset, use_container_width=True, num_rows="dynamic")
-    submit_button = st.form_submit_button("Submit")
+    #Connect to Snowflake
+    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+    my_cur = my_cnx.cursor()
 
-if submit_button:
-    try:
-        # Note the quote_identifiers argument for case insensitivity
-        my_cnx.write_pandas(edited, "AVATAR_WEARABLES", overwrite=True, quote_identifiers=False)
-        st.success("Table updated")
-    except:
-        st.warning("Error updating table")
-    st.rerun()
-
+    # Insert the form data into Snowflake
+    query = f"INSERT INTO avatar_wearables (TOKEN_ID, TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{token_type}', '{materials}', '{color}')"
+    my_cur.execute(query)
+    my_cnx.commit()
+    
+    st.session_state["Mint"] = True
+    st.success(f"New Token Created and saved to Snowflake: {token_id}")
 
 
 
