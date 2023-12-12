@@ -37,18 +37,19 @@ if st.button("Submit"):
             col1, col2, col3 = st.columns(3)
 
             for token_id in result:
+                token_id = token_tuple[0]
                 if token_id in token_images:
                     # Display image and caption in each column
                     with col1:
-                        st.image(token_images["Token_103"], caption=f"Token ID: 103", use_column_width=True)
-                        st.image(token_images["Token_204"], caption=f"Token ID: 204", use_column_width=True)
-                        st.image(token_images["Token_305"], caption=f"Token ID: 305", use_column_width=True)
+                        st.image(token_images["Token_103"], caption=f"Token ID: {103}", use_column_width=True)
+                        st.image(token_images["Token_204"], caption=f"Token ID: {204}", use_column_width=True)
+                        st.image(token_images["Token_305"], caption=f"Token ID: {305}", use_column_width=True)
                     with col2:
-                        st.image(token_images["Token_404"], caption=f"Token ID: 404", use_column_width=True)
-                        st.image(token_images["Token_602"], caption=f"Token ID: 602", use_column_width=True)
+                        st.image(token_images["Token_404"], caption=f"Token ID: {404}", use_column_width=True)
+                        st.image(token_images["Token_602"], caption=f"Token ID: {602}", use_column_width=True)
                     with col3:
-                        st.image(token_images["Token_703"], caption=f"Token ID: 703", use_column_width=True)
-                        st.image(token_images["Token_605"], caption=f"Token ID: 605", use_column_width=True)
+                        st.image(token_images["Token_703"], caption=f"Token ID: {703}", use_column_width=True)
+                        st.image(token_images["Token_605"], caption=f"Token ID: {605}", use_column_width=True)
                 else:
                     st.warning(f"No image found for Token ID {token_id}")
         else:
