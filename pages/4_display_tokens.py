@@ -37,7 +37,7 @@ if st.button("Submit"):
             col1, col2, col3 = st.columns(3)
 
             for token_id in result:
-                token_id = token_tuple[0]
+                token_id = token_id_tuple[0]
                 if token_id in token_images:
                     # Display image and caption in each column
                     with col1:
