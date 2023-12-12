@@ -2,7 +2,7 @@ import streamlit as st
 import snowflake.connector
 import pandas as pd
 
- # Connect to Snowflake
+# Connect to Snowflake
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
 my_cur = my_cnx.cursor()
 
@@ -32,7 +32,6 @@ def main():
                 query = f"INSERT INTO avatar_wearables (TOKEN_ID, TYPE, MATERIALS, COLOR) VALUES ('{token_id}','{token_type}', '{materials}', '{color}')"
                 my_cur.execute(query)
                 my_cnx.commit()
-                st.success(f"Form 2 submitted with input: {token_id, token_type, materials, color}")
             
 if __name__ == "__main__":
     main()
