@@ -18,6 +18,6 @@ if st.button("Assign Ownership"):
     query = f"INSERT INTO token_ownership (TOKEN_ID, OWNER_ID, QUANTITY) VALUES ('{token_id}','{owner_id}', '{quantity}')"
     my_cur.execute(query)
     my_cnx.commit()
-
+    
     st.success(f"New ownership assigned for: {token_id}")
         
