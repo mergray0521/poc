@@ -19,7 +19,7 @@ with st.form("search_token"):
 # Form for updating token metadata
 with st.form("update_metadata"):
     st.header("Update Token Metadata")
-    token_id = st.number_input('Token ID', min_value=606, max_value=1000, value=606, step=1)
+    token_id = st.number_input('Token ID', min_value=600, max_value=1000, value=600, step=1)
     token_type = st.text_input('Token Type', "")
     materials = st.text_input('Materials', "")
     color = st.selectbox('Color', ["Green", "Black", "Silver", "Red", "Brown"]) 
