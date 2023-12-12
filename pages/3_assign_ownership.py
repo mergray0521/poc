@@ -1,8 +1,5 @@
 import streamlit as st
 import snowflake.connector
-
-my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
-my_cur = my_cnx.cursor()
     
 st.title("Assign Token Ownership")
 
@@ -14,7 +11,7 @@ quantity = st.text_input("Quantity:")
 # Check if all fields are filled
 if st.button("Assign Ownership"):
     #Connect to Snowflake
-    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+    my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
     my_cur = my_cnx.cursor()
 
     # Insert the form data into Snowflake
