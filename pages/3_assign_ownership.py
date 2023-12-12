@@ -19,5 +19,5 @@ if st.button("Assign Ownership"):
     my_cur.execute(query)
     my_cnx.commit()
     
-    st.success(f"New ownership assigned for: {token_id}")
+    st.success(f"Ownership assigned for token: {token_id}")
         
