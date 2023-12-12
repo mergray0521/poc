@@ -7,7 +7,7 @@ def main():
     st.title("Mint Token")
 
     # form 1 for token schema selection
-    with st.form ("Token Schema")
+    with st.form ("Token Schema"):
         st.header("Token Schema")
         token_schema = st.selectbos('Token Schema', [""avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"]
         search = st.form_submit_button("Search")
