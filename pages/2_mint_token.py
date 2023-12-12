@@ -3,8 +3,8 @@ import snowflake.connector
 import pandas as pd
 
  # Connect to Snowflake
-    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
-    my_cur = my_cnx.cursor()
+my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+my_cur = my_cnx.cursor()
 
 def main():
     
