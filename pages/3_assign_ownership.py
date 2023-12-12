@@ -1,42 +1,26 @@
 import streamlit as st
 import snowflake.connector
 
-def main():
-
-    my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
-    my_cur = my_cnx.cursor()
+my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
+my_cur = my_cnx.cursor()
     
-    st.title("Assign Token Ownership")
+st.title("Assign Token Ownership")
 
-    # Get user input
-    token_id = st.text_input("Token ID:")
-    owner_id = st.text_input("Owner ID:")
-    quantity = st.text_input("Quantity:")
+# Get user input
+token_id = st.text_input("Token ID:")
+owner_id = st.text_input("Owner ID:")
+quantity = st.text_input("Quantity:")
 
-    # Check if all fields are filled
-    if st.button("Assign Ownership"):
-        # Call the function to update ownership in Snowflake
-        update_ownership(token_id, owner_id, quantity)
-
-# Function to update ownership in Snowflake
-def update_ownership(token_id, owner_id, quantity):
-
-    my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
+# Check if all fields are filled
+if st.button("Assign Ownership"):
+    #Connect to Snowflake
+    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
     my_cur = my_cnx.cursor()
-    
-    try:
-        # Your SQL query to update the ownership table
-        query = f"UPDATE TOKEN_OWNERSHIP SET OWNER_ID = '{owner_id}', Quantity = {quantity} WHERE TOKEN_ID = '{token_id}'"
 
-        st.success("Ownership updated successfully!")
+    # Insert the form data into Snowflake
+    query = f"INSERT INTO token_ownership (TOKEN_ID, OWNER_ID, QUANTITY) VALUES ('{token_id}','{owner_id}', '{quantity}')"
+    my_cur.execute(query)
+    my_cnx.commit()
 
-    except Exception as e:
-        st.error(f"Error updating ownership: {str(e)}")
-
-    finally:
-        # Close the connection
-        if my_cnx:
-            my_cnx.close()
-
-if __name__ == "__main__":
-    main()
+    st.success(f"New ownership assigned for: {token_id}")
+        
