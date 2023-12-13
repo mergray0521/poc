@@ -1,9 +1,9 @@
 import streamlit as st
 import snowflake.connector
 
-admin = st.toggle('Activate feature')
+on = st.toggle('Activate feature')
 
-if admin:
+if on:
     st.write('Feature activated!')
 
 st.set_page_config(
