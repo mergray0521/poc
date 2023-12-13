@@ -17,5 +17,5 @@ if st.button("Collect"):
     my_cnx.commit()
     st.success(f"50 points added to user {3}'s wallet")
     
-    if collect:
+    if st.button:
         st.switch_page("7_Marketplace")
