@@ -16,7 +16,7 @@ if st.button("Collect"):
     query = f"INSERT INTO token_ownership (TOKEN_ID, OWNER_ID, QUANTITY) VALUES ('{605}','{3}', '{1}')"
     my_cur.execute(query)
     my_cnx.commit()
-    st.success(f"Flying harness token added to user {3}'s wallet")
+    st.success(f"Minion Mayhem token added to user {3}'s wallet")
 
 
 
