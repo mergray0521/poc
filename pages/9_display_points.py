@@ -19,4 +19,13 @@ if st.button("Submit"):
         my_cur.execute(query)
         result = my_cur.fetchall()
 
+ # Display the result in Streamlit
+    if result:
+        st.success(f"Tokens for User ID {user_id}:")
+        tokens_df = pd.DataFrame(result, columns=["Token ID"])
+        st.dataframe(tokens_df)
+    else:
+        st.warning(f"No tokens found for User ID {user_id}")
 
+    # Close Snowflake connection
+    conn.close()
