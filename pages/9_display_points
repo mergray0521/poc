@@ -18,3 +18,5 @@ if st.button("Submit"):
         query = f"SELECT point_quantity FROM point_ownership WHERE user_id = '{user_id}'"
         my_cur.execute(query)
         result = my_cur.fetchall()
+
+
