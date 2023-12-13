@@ -16,4 +16,4 @@ if st.button("Collect"):
     my_cur.execute(query)
     my_cnx.commit()
     st.success(f"50 points added to user {3}'s wallet")
-    st.text("Proceed to marketplace page to redeem")
+    st.text("Proceed to marketplace page to redeem") 
