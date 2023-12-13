@@ -27,5 +27,3 @@ if st.button("Submit"):
     else:
         st.warning(f"No tokens found for User ID {user_id}")
 
-    # Close Snowflake connection
-    conn.close()
