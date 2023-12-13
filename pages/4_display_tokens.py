@@ -27,8 +27,7 @@ if st.button("Submit"):
             image_urls = {
                 103: "https://t3.ftcdn.net/jpg/03/40/50/48/360_F_340504802_pm6pOI5JAGJhNVLTntkGnX2S9oFe7Ncn.jpg",
                 204: "https://cdn-icons-png.flaticon.com/512/5169/5169269.png",
-                305: "https://i.pinimg.com/736x/58/92/f0/5892f0f20598882750a70dda52078ab0.jpg",
-                # Add more as needed
+                305: "https://i.pinimg.com/736x/58/92/f0/5892f0f20598882750a70dda52078ab0.jpg"
             }
 
             # Display images and captions in three columns
