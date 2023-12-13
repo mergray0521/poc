@@ -15,7 +15,7 @@ user_id = st.text_input("Enter User ID:")
 if st.button("Submit"):
     if user_id:
         # Query the point_ownership table
-        query = f"SELECT point_quantity FROM point_ownership WHERE user_id = '{user_id}'
+        query = f"SELECT point_quantity FROM point_ownership WHERE user_id = '{user_id}'"
         my_cur.execute(query)
         result = my_cur.fetchall()
 
