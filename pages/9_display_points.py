@@ -21,9 +21,9 @@ if st.button("Submit"):
 
  # Display the result in Streamlit
     if result:
-        st.success(f"Tokens for User ID {user_id}:")
+        st.success(f"Points for User ID {user_id}:")
         tokens_df = pd.DataFrame(result, columns=["Token ID"])
         st.dataframe(tokens_df)
     else:
-        st.warning(f"No tokens found for User ID {user_id}")
+        st.warning(f"No points found for User ID {user_id}")
 
