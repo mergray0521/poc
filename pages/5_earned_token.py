@@ -6,7 +6,7 @@ my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
 st.header("Earned New Token") 
-st.text(“Congrats on recruiting your team of Minions! Here is your Minion Mayhem Badge!”)
+st.text("Congrats on recruiting your team of Minions! Here is your Minion Mayhem Badge!")
 
 image_url = "https://i.ytimg.com/vi/H-7_dOS5z9s/maxresdefault.jpg"
 st.image(image_url, caption="Token: Minion Mayhem", use_column_width=True)
