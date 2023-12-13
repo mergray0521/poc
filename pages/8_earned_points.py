@@ -1,5 +1,5 @@
 import streamlit as st
-import pandas as pd
+from streamlit_extras.switch_page_button import switch_page
 import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
@@ -17,3 +17,7 @@ if st.button("Collect"):
     my_cur.execute(query)
     my_cnx.commit()
     st.success(f"50 points added to user {3}'s wallet")
+
+def example():
+    if collect:
+        switch_page("7_Marketplace")
