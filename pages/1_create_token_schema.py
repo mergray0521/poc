@@ -1,11 +1,6 @@
 import streamlit as st
 import snowflake.connector
 
-on = st.toggle('Activate feature')
-
-if on:
-    st.write('Feature activated!')
-
 st.set_page_config(
     page_title="Create Token Schema"
 )
