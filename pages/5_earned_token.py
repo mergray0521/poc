@@ -5,11 +5,11 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
-st.header("Earned Token") 
-st.text("Congratulations! You earned a new Flying Harness token!")
+st.header("Earned New Token") 
+st.text(“Congrats on recruiting your team of Minions! Here is your Minion Mayhem Badge!”)
 
-image_url = "https://insidethemagic.net/wp-content/uploads/2017/05/Screen-Shot-2017-05-05-at-3.44.38-PM.jpg"
-st.image(image_url, caption="Token: Flying Harness", use_column_width=True)
+image_url = "https://i.ytimg.com/vi/H-7_dOS5z9s/maxresdefault.jpg"
+st.image(image_url, caption="Token: Minion Mayhem", use_column_width=True)
 
 if st.button("Collect"):
     # Insert the form data into Snowflake
