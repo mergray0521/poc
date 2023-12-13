@@ -1,0 +1,4 @@
+insert streamlit as st
+insert snowflake-connector
+
+st.title("Display Points")
