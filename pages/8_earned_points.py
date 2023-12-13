@@ -17,7 +17,6 @@ if st.button("Collect"):
     my_cur.execute(query)
     my_cnx.commit()
     st.success(f"50 points added to user {3}'s wallet")
-
-def example():
-    if collect:
-        switch_page("7_Marketplace")
+    
+        if collect:
+            switch_page("7_Marketplace")
