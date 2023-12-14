@@ -2,12 +2,12 @@ import streamlit as st
 
 st.header("Token Marketplace")
 
-with st.container():
-   st.write("This is inside the container")
+container = st.container(border=True)
+container.write("This is inside the container")
+st.write("This is outside the container")
 
-   # You can call any Streamlit command, including custom components:
-   st.bar_chart(np.random.randn(50, 3))
-   
+# Now insert some more in the container
+container.write("This is inside too")
 
 st.write("This is outside the container")
 
