@@ -14,17 +14,17 @@ token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=Img
 col1, col2, col3 = st.columns(3)
 
 # Display images in containers within columns
-with col1.container():
+with col1.container(border=True):
     col1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
     col1.text("1,000 points")
     col1.button("Purchase My Say")
 
-with col1.container():
+with col1.container(border=True):
     col1.image(token_4, caption="Minion Glasses", use_column_width=True, width=300)
     col1.text("2,000 points")
     col1.button("Purchase Glasses")
 
-with col2.container():
+with col2.container(border=True):
     col2.image(token_2, caption="My Way Token", use_column_width=True, width=50)
     col2.text("2,000 points")
     col2.button("Purchase My Way")
