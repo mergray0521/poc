@@ -1,7 +1,18 @@
 import streamlit as st
 
-# Apply the CSS file to Streamlit
-st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
+# GitHub repository details
+github_repo = "mergray0521/poc"
+css_file_path = "pages/style.css"
+
+# Construct the raw URL for the CSS file
+raw_url = f'https://raw.githubusercontent.com/{github_repo}/main/{css_file_path}'
+
+# Fetch the CSS content from GitHub
+response = requests.get(raw_url)
+css_content = response.text
+
+# Apply the CSS to Streamlit
+st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
 
 st.header("Token Marketplace")
 
