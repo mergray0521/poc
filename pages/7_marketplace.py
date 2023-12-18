@@ -58,4 +58,3 @@ with col3:
     col3.text("3,000 points")
     col3.button("Purchase Dragon", key="purchase_dragon", help="my-button")
     st.markdown('</div>', unsafe_allow_html=True)
-
