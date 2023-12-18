@@ -1,11 +1,17 @@
+import requests
 import streamlit as st
 
-with open(<link rel="style.css" type="text/css" href="https://github.com/mergray0521.github.io/poc/pages/styles.css">) as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+css_url = "https://github.com/mergray0521.github.io/poc/pages/styles.css"
+
+# Fetch the CSS content from the URL
+response = requests.get(css_url)
+css_content = response.text
+
+# Apply the CSS to Streamlit
+st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Temperature", "70 °F", "1.2 °F")
 col2.metric("Wind", "9 mph", "-8%")
 col3.metric("Humidity", "86%", "4%")
-
 
