@@ -27,7 +27,7 @@ num_columns = 3
 
 # Loop over columns and apply styling
 for i in range(num_columns):
-    col = st.column()
+    col = st.columns()
 
     # Adjust the content inside the div according to your styling
     col.markdown(f'<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">Content for Column {i+1}</div>', unsafe_allow_html=True)
