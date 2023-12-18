@@ -1,6 +1,6 @@
 import streamlit as st
 
-with open(poc/pages/"style.css") as f:
+with open(<link rel="style.css" type="text/css" href="https://github.com/mergray0521.github.io/poc/pages/styles.css">) as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
