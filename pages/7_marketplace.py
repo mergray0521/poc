@@ -36,16 +36,20 @@ for i, col in enumerate(cols):
     # Access data for the current column
     current_data = data[i]
 
+    # Apply existing markdown styling
+    col.markdown(f'<div class="css-1r6slb0" style="width:{box_width}px; height:{box_height}px;">', unsafe_allow_html=True)
+
     # Display image
     col.image(current_data["image_url"], width=box_width, caption=f"Image {i+1}")
 
     # Display description
-    col.write(current_data["description"])
+    col.markdown(f'<div class="description">{current_data["description"]}</div>', unsafe_allow_html=True)
 
     # Display button
     if col.button(f"Button {i+1}"):
         # Action to perform when the button is clicked
         st.write(f"Button {i+1} clicked!")
 
-# You can customize the content of each box based on your specific requirements.
+    # Close the div
+    col.markdown('</div>', unsafe_allow_html=True)
 
