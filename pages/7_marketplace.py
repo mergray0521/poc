@@ -34,7 +34,7 @@ data = [
         "token_cost": "2,000 points",
     },
     {
-        "image_url": ""https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain",
+        "image_url": "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain",
         "button_label": "Button 3",
         "token_name": "My Say Token",
         "token_cost": "3,000 points",
