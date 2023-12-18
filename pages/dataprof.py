@@ -24,19 +24,17 @@ col1 = st.columns(1)[0]
 
 # Customize content for column 1
 col1.markdown(f'<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">Content for Column 1</div>', unsafe_allow_html=True)
-col1.metric("Metric 1", "Value 1", "Change 1%")
 
 # Column 2
 col2 = st.columns(1)[0]
 
 # Customize content for column 2
 col2.markdown(f'<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">Content for Column 2</div>', unsafe_allow_html=True)
-col2.metric("Metric 2", "Value 2", "Change 2%")
 
 # Column 3
 col3 = st.columns(1)[0]
 
 # Customize content for column 3
 col3.markdown(f'<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">Content for Column 3</div>', unsafe_allow_html=True)
-col3.metric("Metric 3", "Value 3", "Change 3%")
+
 
