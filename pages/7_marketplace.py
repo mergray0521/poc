@@ -41,23 +41,51 @@ data = [
     },
 ]
 
-# Create a row with multiple columns
-cols = st.beta_columns(len(data))
+# Column 1
+col1 = st.columns(1)[0]
 
-# Loop over data and apply styling
-for i, col in enumerate(cols):
-    # Access data for the current column
-    current_data = data[i]
-
-    # Customize content for the column
-    content = f'''
-    <div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">
-        <img src="{current_data["image_url"]}" style="max-width:100%; height:auto;" />
-        <div class="caption">
-            <p>{current_data["token_name"]}</p>
-            <p>{current_data["token_cost"]}</p>
-        </div>
-        <button>{current_data["button_label"]}</button>
+# Customize content for column 1
+content1 = f'''
+<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">
+    <img src="{data[0]["image_url"]}" style="max-width:100%; height:auto;" />
+    <div class="caption">
+        <p>{data[0]["token_name"]}</p>
+        <p>{data[0]["token_cost"]}</p>
     </div>
-    '''
-    col.markdown(content, unsafe_allow_html=True)
+    <button>{data[0]["button_label"]}</button>
+</div>
+'''
+col1.markdown(content1, unsafe_allow_html=True)
+
+# Column 2
+col2 = st.columns(1)[0]
+
+# Customize content for column 2
+content2 = f'''
+<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">
+    <img src="{data[1]["image_url"]}" style="max-width:100%; height:auto;" />
+    <div class="caption">
+        <p>{data[1]["token_name"]}</p>
+        <p>{data[1]["token_cost"]}</p>
+    </div>
+    <button>{data[1]["button_label"]}</button>
+</div>
+'''
+col2.markdown(content2, unsafe_allow_html=True)
+
+# Column 3
+col3 = st.columns(1)[0]
+
+# Customize content for column 3
+content3 = f'''
+<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">
+    <img src="{data[2]["image_url"]}" style="max-width:100%; height:auto;" />
+    <div class="caption">
+        <p>{data[2]["token_name"]}</p>
+        <p>{data[2]["token_cost"]}</p>
+    </div>
+    <button>{data[2]["button_label"]}</button>
+</div>
+'''
+col3.markdown(content3, unsafe_allow_html=True)
+     
