@@ -20,25 +20,25 @@ col1, col2, col3 = st.columns(3)
 with col1.container(style='my-container'):
     col1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
     col1.text("1,000 points")
-    col1.button("Purchase My Say", class="my-button")
+    col1.button("Purchase My Say")
 
     col1.image(token_4, caption="Minion Glasses", use_column_width=True, width=300)
     col1.text("2,000 points")
-    col1.button("Purchase Glasses", class="my-button")
+    col1.button("Purchase Glasses")
 
 with col2.container(style='my-container'):
     col2.image(token_2, caption="My Way Token", use_column_width=True, width=50)
     col2.text("2,000 points")
-    col2.button("Purchase My Way", class="my-button")
+    col2.button("Purchase My Way")
 
     col2.image(token_5, caption="Park Pass", use_column_width=True, width=50)
     col2.text("4,000 points")
-    col2.button("Purchase Pass", class="my-button")
+    col2.button("Purchase Pass")
 
 with col3.container(style='my-container'):
     col3.image(token_3, caption="My Day Token", use_column_width=True, width=50)
     col3.text("3,000 points")
-    col3.button("Purchase My Day", class="my-button")
+    col3.button("Purchase My Day")
 
     col3.image(token_6, caption="Dragon", use_column_width=True, width=50)
     col3.text("3,000 points")
