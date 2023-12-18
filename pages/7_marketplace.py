@@ -30,7 +30,7 @@ col1, col2, col3 = st.columns(3)
 
 # Display images in containers within columns
 with col1:
-    st.markdown('<div class="my-container">', unsafe_allow_html=True)
+    st.markdown('<div class="css-1r6slb0.e1tzin5v2>', unsafe_allow_html=True)
     st.image(token_1, caption="My Say Token", use_column_width=True, width=300)
     st.text("1,000 points")
     st.button("Purchase My Say", key="purchase_my_say", help="my-button")
@@ -40,7 +40,7 @@ with col1:
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<div class="my-container">', unsafe_allow_html=True)
+    st.markdown('<div class=css-1r6slb0.e1tzin5v2>', unsafe_allow_html=True)
     st.image(token_2, caption="My Way Token", use_column_width=True, width=50)
     st.text("2,000 points")
     st.button("Purchase My Way", key="purchase_my_way", help="my-button")
@@ -50,7 +50,7 @@ with col2:
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col3:
-    st.markdown('<div class="my-container">', unsafe_allow_html=True)
+    st.markdown('<div class=css-1r6slb0.e1tzin5v2>', unsafe_allow_html=True)
     st.image(token_3, caption="My Day Token", use_column_width=True, width=50)
     st.text("3,000 points")
     st.button("Purchase My Day", key="purchase_my_day", help="my-button")
