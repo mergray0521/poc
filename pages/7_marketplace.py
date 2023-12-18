@@ -17,30 +17,32 @@ token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=Img
 col1, col2, col3 = st.columns(3)
 
 # Display images in containers within columns
-with col1.container(style='my-container'):
+with col1:
+    st.markdown('<div class="my-container">', unsafe_allow_html=True)
     col1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
     col1.text("1,000 points")
-    col1.button("Purchase My Say")
-
+    col1.button("Purchase My Say", class="my-button")
     col1.image(token_4, caption="Minion Glasses", use_column_width=True, width=300)
     col1.text("2,000 points")
-    col1.button("Purchase Glasses")
+    col1.button("Purchase Glasses", class="my-button")
+    st.markdown('</div>', unsafe_allow_html=True)
 
-with col2.container(style='my-container'):
+with col2:
+    st.markdown('<div class="my-container">', unsafe_allow_html=True)
     col2.image(token_2, caption="My Way Token", use_column_width=True, width=50)
     col2.text("2,000 points")
-    col2.button("Purchase My Way")
-
+    col2.button("Purchase My Way", class="my-button")
     col2.image(token_5, caption="Park Pass", use_column_width=True, width=50)
     col2.text("4,000 points")
-    col2.button("Purchase Pass")
+    col2.button("Purchase Pass", class="my-button")
+    st.markdown('</div>', unsafe_allow_html=True)
 
-with col3.container(style='my-container'):
+with col3:
+    st.markdown('<div class="my-container">', unsafe_allow_html=True)
     col3.image(token_3, caption="My Day Token", use_column_width=True, width=50)
     col3.text("3,000 points")
-    col3.button("Purchase My Day")
-
+    col3.button("Purchase My Day", class="my-button")
     col3.image(token_6, caption="Dragon", use_column_width=True, width=50)
     col3.text("3,000 points")
-    col3.button("Purchase Dragon")
-
+    col3.button("Purchase Dragon", class="my-button")
+    st.markdown('</div>', unsafe_allow_html=True)
