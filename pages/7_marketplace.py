@@ -1,6 +1,8 @@
 import requests
 import streamlit as st
 
+st.header("Token Marketplace")
+
 # GitHub repository details
 github_repo = "mergray0521/poc"
 css_file_path = "pages/style.css"
