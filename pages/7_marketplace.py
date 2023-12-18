@@ -21,9 +21,24 @@ box_height = 200
 
 # Sample data (replace with your actual data)
 data = [
-    {"image_url": "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain", "button_label": "Button 1"},
-    {"image_url": "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png", "button_label": "Button 2"},
-    {"image_url": "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain", "button_label": "Button 3"},
+    {
+        "image_url": "https://example.com/image1.jpg",
+        "button_label": "Button 1",
+        "token_name": "My Way Token",
+        "token_cost": "1,000 points",
+    },
+    {
+        "image_url": "https://example.com/image2.jpg",
+        "button_label": "Button 2",
+        "token_name": "My Day Token",
+        "token_cost": "2,000 points",
+    },
+    {
+        "image_url": "https://example.com/image3.jpg",
+        "button_label": "Button 3",
+        "token_name": "My Say Token",
+        "token_cost": "3,000 points",
+    },
 ]
 
 # Column 1
@@ -33,6 +48,10 @@ col1 = st.columns(1)[0]
 content1 = f'''
 <div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">
     <img src="{data[0]["image_url"]}" style="max-width:100%; height:auto;" />
+    <div class="caption">
+        <p>{data[0]["token_name"]}</p>
+        <p>{data[0]["token_cost"]}</p>
+    </div>
     <button>{data[0]["button_label"]}</button>
 </div>
 '''
@@ -45,6 +64,10 @@ col2 = st.columns(1)[0]
 content2 = f'''
 <div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">
     <img src="{data[1]["image_url"]}" style="max-width:100%; height:auto;" />
+    <div class="caption">
+        <p>{data[1]["token_name"]}</p>
+        <p>{data[1]["token_cost"]}</p>
+    </div>
     <button>{data[1]["button_label"]}</button>
 </div>
 '''
@@ -57,9 +80,11 @@ col3 = st.columns(1)[0]
 content3 = f'''
 <div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">
     <img src="{data[2]["image_url"]}" style="max-width:100%; height:auto;" />
+    <div class="caption">
+        <p>{data[2]["token_name"]}</p>
+        <p>{data[2]["token_cost"]}</p>
+    </div>
     <button>{data[2]["button_label"]}</button>
 </div>
 '''
 col3.markdown(content3, unsafe_allow_html=True)
-
-
