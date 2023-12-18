@@ -12,7 +12,7 @@ st.image(image_url, caption="+50 points", use_column_width=True)
 
 if st.button("Collect"):
     # Insert the form data into Snowflake
-    query = f"INSERT INTO token_ownership (TOKEN_ID, OWNER_ID, QUANTITY) VALUES ('{605}','{3}', '{1}')"
+    query = f"INSERT INTO point_ownership (USER_ID, QUANTITY) VALUES ('{3}','{50}')"
     my_cur.execute(query)
     my_cnx.commit()
     st.success(f"50 points added to user {3}'s wallet")
