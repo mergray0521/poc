@@ -17,7 +17,10 @@ st.markdown(f'<style>{css_code}</style>', unsafe_allow_html=True)
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown('<div class="css-1r6slb0 e1tzin5v2">', "Temperature", "70" "1.2", unsafe_allow_html=True)
+    st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
+    st.markdown("Temperature")
+    # Additional content for col1
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
     st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
