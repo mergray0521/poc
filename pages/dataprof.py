@@ -15,13 +15,18 @@ css_content = response.text
 # Apply the CSS to Streamlit
 st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
 
-# Individual styling for each column
-col1, col2, col3 = st.columns(3)
+# Number of columns
+num_columns = 3
 
-col1.markdown('<div class="css-1r6slb0 e1tzin5v2">Temperature: 70 °F, Change: 1.2 °F</div>', unsafe_allow_html=True)
+# Set explicit width and height for the gray boxes
+box_width = 200
+box_height = 150
 
-col2.markdown('<div class="css-1r6slb0 e1tzin5v2">Wind: 9 mph, Change: -8%</div>', unsafe_allow_html=True)
+# Loop over columns and apply styling
+for i in range(num_columns):
+    col = st.column()
+    col.markdown(f'<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">Content for Column {i+1}</div>', unsafe_allow_html=True)
+    col.metric(f"Metric {i+1}", f"Value {i+1}", f"Change {i+1}%")
 
-col3.markdown('<div class="css-1r6slb0 e1tzin5v2">Humidity: 86%, Change: 4%</div>', unsafe_allow_html=True)
 
 
