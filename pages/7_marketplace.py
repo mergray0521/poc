@@ -26,9 +26,9 @@ cols = st.columns(num_columns)
 
 # Sample data (replace with your actual data)
 data = [
-    {"image_url": "https://example.com/image1.jpg", "description": "Description 1"},
-    {"image_url": "https://example.com/image2.jpg", "description": "Description 2"},
-    {"image_url": "https://example.com/image3.jpg", "description": "Description 3"},
+    {"image_url": "https://example.com/image1.jpg", "description": "Token 1"},
+    {"image_url": "https://example.com/image2.jpg", "description": "Token 2"},
+    {"image_url": "https://example.com/image3.jpg", "description": "Token 3"},
 ]
 
 # Loop over columns and apply styling
@@ -37,7 +37,7 @@ for i, col in enumerate(cols):
     current_data = data[i]
 
     # Apply existing markdown styling
-    col.markdown(f'<div class="css-1r6slb0" style="width:{box_width}px; height:{box_height}px;">', unsafe_allow_html=True)
+    col.markdown(f'<div class="css-1r6slb0.e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">', unsafe_allow_html=True)
 
     # Display image
     col.image(current_data["image_url"], width=box_width, caption=f"Image {i+1}")
