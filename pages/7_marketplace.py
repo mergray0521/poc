@@ -26,7 +26,8 @@ token_5 = "https://mickeystravel.com/site/universal/files/2016/06/Universal-Orla
 token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain"
 
 # Create three columns
-col1, col2, col3 = st.columns(3)
+# col1, col2, col3 = st.columns(3)
+c1, c2, c3 = st.columns(3)
 c4, c5, c6 = st.columns([6,3,2]) #just to highlight these are different cols
 with st.container():     
     c1.write("c1")     
