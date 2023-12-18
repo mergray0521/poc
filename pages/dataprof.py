@@ -18,13 +18,10 @@ st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
 # Individual styling for each column
 col1, col2, col3 = st.columns(3)
 
-col1.markdown('<div class="css-1r6slb0 e1tzin5v2">Styled content for Temperature</div>', unsafe_allow_html=True)
-col1.metric("Temperature", "70 °F", "1.2 °F")
+col1.markdown('<div class="css-1r6slb0 e1tzin5v2">Temperature: 70 °F, Change: 1.2 °F</div>', unsafe_allow_html=True)
 
-col2.markdown('<div class="css-1r6slb0 e1tzin5v2">Styled content for Wind</div>', unsafe_allow_html=True)
-col2.metric("Wind", "9 mph", "-8%")
+col2.markdown('<div class="css-1r6slb0 e1tzin5v2">Wind: 9 mph, Change: -8%</div>', unsafe_allow_html=True)
 
-col3.markdown('<div class="css-1r6slb0 e1tzin5v2">Styled content for Humidity</div>', unsafe_allow_html=True)
-col3.metric("Humidity", "86%", "4%")
+col3.markdown('<div class="css-1r6slb0 e1tzin5v2">Humidity: 86%, Change: 4%</div>', unsafe_allow_html=True)
 
 
