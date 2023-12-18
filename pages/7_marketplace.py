@@ -30,15 +30,14 @@ token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=Img
 c1, c2, c3 = st.columns(3)
 c4, c5, c6 = st.columns(3) #just to highlight these are different cols
 with st.container():     
-    c1.write("c1") 
     c1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
     c1.text("1,000 points")
     c1.button("Purchase My Say", key="purchase_my_say", help="my-button")
-    c1.image(token_4, caption="Minion Glasses", use_column_width=True, width=300)
-    c1.text("2,000 points")
 
-    
-    c2.write("c2")     
+    c2.write("c2")
+    c2.image(token_4, caption="Minion Glasses", use_column_width=True, width=300)
+    c2.text("2,000 points")
+    c2.button("Purchase Glasses", key="purchase_glasses", help="my-button")
     c3.write("c3") 
 with st.container():     
     c4.write("c4")     
