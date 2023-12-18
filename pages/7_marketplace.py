@@ -26,9 +26,9 @@ cols = st.columns(num_columns)
 
 # Sample data (replace with your actual data)
 data = [
-    {"image_url": "https://example.com/image1.jpg", "description": "Token 1"},
-    {"image_url": "https://example.com/image2.jpg", "description": "Token 2"},
-    {"image_url": "https://example.com/image3.jpg", "description": "Token 3"},
+    {"image_url": "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain", "description": "Token 1"},
+    {"image_url": "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.pn", "description": "Token 2"},
+    {"image_url": "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain", "description": "Token 3"},
 ]
 
 # Loop over columns and apply styling
