@@ -1,10 +1,19 @@
 import streamlit as st
 import streamlit.components.v1 as com
 
-with open('style.css') as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+with open("style.css") as source:
+    design= source.read()
 
-col1, col2, col3 = st.columns(3)
-col1.metric("Temperature", "70 °F", "1.2 °F")
-col2.metric("Wind", "9 mph", "-8%")
-col3.metric("Humidity", "86%", "4%")
+com.html(f"""
+<div>
+<style>
+{design}
+</style>
+<h1 class="heading">
+This is my heading
+</h1>
+<p>
+paragraph lalalla
+</p>
+</div>
+""", height=600)
