@@ -22,19 +22,19 @@ box_height = 200
 # Sample data (replace with your actual data)
 data = [
     {
-        "image_url": "https://example.com/image1.jpg",
+        "image_url": "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain",
         "button_label": "Button 1",
         "token_name": "My Way Token",
         "token_cost": "1,000 points",
     },
     {
-        "image_url": "https://example.com/image2.jpg",
+        "image_url": "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png",
         "button_label": "Button 2",
         "token_name": "My Day Token",
         "token_cost": "2,000 points",
     },
     {
-        "image_url": "https://example.com/image3.jpg",
+        "image_url": ""https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain",
         "button_label": "Button 3",
         "token_name": "My Say Token",
         "token_cost": "3,000 points",
