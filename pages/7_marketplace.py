@@ -42,5 +42,5 @@ with col3.container(style='my-container'):
 
     col3.image(token_6, caption="Dragon", use_column_width=True, width=50)
     col3.text("3,000 points")
-    col3.button("Purchase Dragon", class="my-button")
+    col3.button("Purchase Dragon")
 
