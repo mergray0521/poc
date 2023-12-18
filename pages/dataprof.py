@@ -2,7 +2,7 @@ import requests
 import streamlit as st
 
 # GitHub repository details
-github_repo = "mergray0521/poc"
+github_repo = "mergray0521/poc/main"
 css_file_path = "pages/style.css"
 
 # Construct the raw URL for the CSS file
