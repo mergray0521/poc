@@ -13,8 +13,24 @@ css_code = """
 # Apply the CSS to Streamlit
 st.markdown(f'<style>{css_code}</style>', unsafe_allow_html=True)
 
+# Streamlit app content
 col1, col2, col3 = st.columns(3)
-col1.metric("Temperature", "70 °F", "1.2 °F")
-col2.metric("Wind", "9 mph", "-8%")
-col3.metric("Humidity", "86%", "4%")
+
+with col1:
+    st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
+    col1.metric("Temperature", "70 °F", "1.2 °F")
+    # Additional metrics or content for col1
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with col2:
+    st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
+    col2.metric("Wind", "9 mph", "-8%")
+    # Additional metrics or content for col2
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with col3:
+    st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
+    col3.metric("Humidity", "86%", "4%")
+    # Additional metrics or content for col3
+    st.markdown('</div>', unsafe_allow_html=True)
 
