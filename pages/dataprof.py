@@ -1,7 +1,7 @@
 import requests
 import streamlit as st
 
-css_url = "https://github.com/mergray0521/poc/blob/main/pages/style.css"
+css_url = "https://raw.githubusercontent.com/mergray0521/poc/main/pages/style.css"
 
 # Fetch the CSS content from the URL
 response = requests.get(css_url)
