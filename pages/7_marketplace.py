@@ -1,93 +1,46 @@
-import requests
 import streamlit as st
+
+# Apply the CSS file to Streamlit
+st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
 
 st.header("Token Marketplace")
 
-# GitHub repository details
-github_repo = "mergray0521/poc"
-css_file_path = "pages/style.css"
+# Sample image URLs
+token_1 = "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain"
+token_2 = "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png"
+token_3 = "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain"
+token_4 = "https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain"
+token_5 = "https://mickeystravel.com/site/universal/files/2016/06/Universal-Orlando-base-Ticket.png"
+token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain"
 
-# Construct the raw URL for the CSS file
-raw_url = f'https://raw.githubusercontent.com/{github_repo}/main/{css_file_path}'
+# Create three columns
+col1, col2, col3 = st.columns(3)
 
-# Fetch the CSS content from GitHub
-response = requests.get(raw_url)
-css_content = response.text
+# Display images in containers within columns
+with col1.container(style='my-container'):
+    col1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
+    col1.text("1,000 points")
+    col1.button("Purchase My Say", class="my-button")
 
-# Apply the CSS to Streamlit
-st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
+    col1.image(token_4, caption="Minion Glasses", use_column_width=True, width=300)
+    col1.text("2,000 points")
+    col1.button("Purchase Glasses", class="my-button")
 
-# Set explicit width and height for the gray boxes
-box_width = 200
-box_height = 200
+with col2.container(style='my-container'):
+    col2.image(token_2, caption="My Way Token", use_column_width=True, width=50)
+    col2.text("2,000 points")
+    col2.button("Purchase My Way", class="my-button")
 
-# Sample data (replace with your actual data)
-data = [
-    {
-        "image_url": "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain",
-        "button_label": "Button 1",
-        "token_name": "My Way Token",
-        "token_cost": "1,000 points",
-    },
-    {
-        "image_url": "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png",
-        "button_label": "Button 2",
-        "token_name": "My Day Token",
-        "token_cost": "2,000 points",
-    },
-    {
-        "image_url": "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain",
-        "button_label": "Button 3",
-        "token_name": "My Say Token",
-        "token_cost": "3,000 points",
-    },
-]
+    col2.image(token_5, caption="Park Pass", use_column_width=True, width=50)
+    col2.text("4,000 points")
+    col2.button("Purchase Pass", class="my-button")
 
-# Column 1
-col1 = st.columns(1)[0]
+with col3.container(style='my-container'):
+    col3.image(token_3, caption="My Day Token", use_column_width=True, width=50)
+    col3.text("3,000 points")
+    col3.button("Purchase My Day", class="my-button")
 
-# Customize content for column 1
-content1 = f'''
-<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">
-    <img src="{data[0]["image_url"]}" style="max-width:100%; height:auto;" />
-    <div class="caption">
-        <p>{data[0]["token_name"]}</p>
-        <p>{data[0]["token_cost"]}</p>
-    </div>
-    <button>{data[0]["button_label"]}</button>
-</div>
-'''
-col1.markdown(content1, unsafe_allow_html=True)
+    col3.image(token_6, caption="Dragon", use_column_width=True, width=50)
+    col3.text("3,000 points")
+    col3.button("Purchase Dragon", class="my-button")
 
-# Column 2
-col2 = st.columns(1)[0]
-
-# Customize content for column 2
-content2 = f'''
-<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">
-    <img src="{data[1]["image_url"]}" style="max-width:100%; height:auto;" />
-    <div class="caption">
-        <p>{data[1]["token_name"]}</p>
-        <p>{data[1]["token_cost"]}</p>
-    </div>
-    <button>{data[1]["button_label"]}</button>
-</div>
-'''
-col2.markdown(content2, unsafe_allow_html=True)
-
-# Column 3
-col3 = st.columns(1)[0]
-
-# Customize content for column 3
-content3 = f'''
-<div class="css-1r6slb0 e1tzin5v2" style="width:{box_width}px; height:{box_height}px;">
-    <img src="{data[2]["image_url"]}" style="max-width:100%; height:auto;" />
-    <div class="caption">
-        <p>{data[2]["token_name"]}</p>
-        <p>{data[2]["token_cost"]}</p>
-    </div>
-    <button>{data[2]["button_label"]}</button>
-</div>
-'''
-col3.markdown(content3, unsafe_allow_html=True)
-     
