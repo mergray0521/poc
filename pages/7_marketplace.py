@@ -27,35 +27,46 @@ token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=Img
 
 # Create three columns
 col1, col2, col3 = st.columns(3)
+c4, c5, c6 = st.columns([6,3,2]) #just to highlight these are different cols
+with st.container():     
+    c1.write("c1")     
+    c2.write("c2")     
+    c3.write("c3") 
+with st.container():     
+    c4.write("c4")     
+    c5.write("c5")     
+    c6.write("c6")
+
+
 
 # Display images in containers within columns
-with col1:
-    with st.container():
-        st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
-        st.image(token_1, caption="My Say Token", use_column_width=True, width=300)
-        st.text("1,000 points")
-        st.button("Purchase My Say", key="purchase_my_say", help="my-button")
-        st.image(token_4, caption="Minion Glasses", use_column_width=True, width=300)
-        st.text("2,000 points")
-        st.button("Purchase Glasses", key="purchase_glasses", help="my-button")
-        st.markdown('</div>', unsafe_allow_html=True)
+# with col1:
+#     with st.container():
+#         st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
+#         st.image(token_1, caption="My Say Token", use_column_width=True, width=300)
+#         st.text("1,000 points")
+#         st.button("Purchase My Say", key="purchase_my_say", help="my-button")
+#         st.image(token_4, caption="Minion Glasses", use_column_width=True, width=300)
+#         st.text("2,000 points")
+#         st.button("Purchase Glasses", key="purchase_glasses", help="my-button")
+#         st.markdown('</div>', unsafe_allow_html=True)
 
-with col2:
-    st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
-    st.image(token_2, caption="My Way Token", use_column_width=True, width=50)
-    st.text("2,000 points")
-    st.button("Purchase My Way", key="purchase_my_way", help="my-button")
-    st.image(token_5, caption="Park Pass", use_column_width=True, width=50)
-    st.text("4,000 points")
-    st.button("Purchase Pass", key="purchase_pass", help="my-button")
-    st.markdown('</div>', unsafe_allow_html=True)
+# with col2:
+#     st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
+#     st.image(token_2, caption="My Way Token", use_column_width=True, width=50)
+#     st.text("2,000 points")
+#     st.button("Purchase My Way", key="purchase_my_way", help="my-button")
+#     st.image(token_5, caption="Park Pass", use_column_width=True, width=50)
+#     st.text("4,000 points")
+#     st.button("Purchase Pass", key="purchase_pass", help="my-button")
+#     st.markdown('</div>', unsafe_allow_html=True)
 
-with col3:
-    st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
-    st.image(token_3, caption="My Day Token", use_column_width=True, width=50)
-    st.text("3,000 points")
-    st.button("Purchase My Day", key="purchase_my_day", help="my-button")
-    st.image(token_6, caption="Dragon", use_column_width=True, width=50)
-    st.text("3,000 points")
-    st.button("Purchase Dragon", key="purchase_dragon", help="my-button")
-    st.markdown('</div>', unsafe_allow_html=True)
+# with col3:
+#     st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
+#     st.image(token_3, caption="My Day Token", use_column_width=True, width=50)
+#     st.text("3,000 points")
+#     st.button("Purchase My Day", key="purchase_my_day", help="my-button")
+#     st.image(token_6, caption="Dragon", use_column_width=True, width=50)
+#     st.text("3,000 points")
+#     st.button("Purchase Dragon", key="purchase_dragon", help="my-button")
+#     st.markdown('</div>', unsafe_allow_html=True)
