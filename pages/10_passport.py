@@ -44,3 +44,4 @@ for c in [c1, c2, c3, c4]:
                  <div class="Hotel Keys">
                     <p>Badges</p>
                 </div>
+            """
