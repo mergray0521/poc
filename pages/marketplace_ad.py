@@ -38,9 +38,9 @@ with st.container(border=True):
     c1.button("Purchase My Say", key="purchase_my_say", help="my-button")
 
     # Column/Token 2
-    c2.image(token_2, caption="My Way Token", use_column_width=True, width=50)
-    c2.markdown("2,000 points")
-    # c2.text("2,000 points")
+    c2.markdown("My Way Token")
+    c2.image(token_2, use_column_width=True, width=50)
+    c2.text("2,000 points")
     c2.button("Purchase My Way", key="purchase_my_way", help="my-button")
     # c2.markdown(f'<h1 style="color:#33ff33;background-color: #EEEEEE;border: 2px solid #CCCCCC;padding: 5% 5% 5% 10%;border-radius: 5px;height: 100px">{"ColorMeBlue text”"}</h1>', unsafe_allow_html=True)
     # Column/Token 3
