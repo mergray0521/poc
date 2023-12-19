@@ -21,13 +21,14 @@ cols = st.columns(5)
 # Define html_code outside the loop
 html_code = """
     <div class="custom-container">
-        <p>1,000 points</p>
+        1,000 points
     </div>
 
     <div class="custom-container">
-        <p>2,000 points</p>
+        2,000 points
     </div>
 """
+
 
 for col in cols:
     st.markdown(css_code, unsafe_allow_html=True)
