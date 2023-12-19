@@ -57,10 +57,24 @@ with st.container():
 
             html_code = """
                 <div class="custom-container">
-                    <img src="your_image_url" alt="My Say Token" class="custom-image">
+                    <img src="https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain" alt="My Say Token" class="custom-image">
                     <p>1,000 points</p>
                     <button class="custom-button">Purchase My Say</button>
                 </div>
+
+                <div class="custom-container">
+                    <img src="https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png" alt="My Say Token" class="custom-image">
+                    <p>1,000 points</p>
+                    <button class="custom-button">Purchase My Say</button>
+                </div>
+
+                <div class="custom-container">
+                    <img src="https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain" alt="My Say Token" class="custom-image">
+                    <p>1,000 points</p>
+                    <button class="custom-button">Purchase My Say</button>
+                </div>
+
+                
             """
             st.markdown(html_code, unsafe_allow_html=True)
 
