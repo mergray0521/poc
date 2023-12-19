@@ -60,15 +60,15 @@ if st.button("Submit"):
                 for col in [c1, c2, c3]:
                     for index, row in tokens_df.iterrows():
                         token_id = row["Token ID"]
+                        token=f"token{token_id}"
                         if col == c1:
                             with col:
-                                token=f"token{token_id}"
                                 if token in image_urls: 
                                     url=image_urls[token]                                 
                                     c1.markdown(css_code, unsafe_allow_html=True)
                                     html_code_col1 = """
                                         <div class="custom-container">
-                                            <img src={{ url }} class="custom-image">
+                                            <img src={{url}} class="custom-image">
                                             <p>Token ID: ' + token+ '</p>
                                         </div>
                                     """
@@ -77,16 +77,16 @@ if st.button("Submit"):
                                 # caption = f"Token ID: {token_id}"
                                 if col == c2:
                                     with col:
-                                        if f"token{token_id}" in image_urls:
+                                        if token in image_urls:
+                                            url=image_urls[token]
                                             c2.markdown(css_code, unsafe_allow_html=True)
                                             html_code_col2 = """
                                                 <div class="custom-container">
-                                                    <img src=image_urls[f"token{token_id}"] class="custom-image">
-                                                    <p>f"Token ID: {token_id}"</p>
-                                                    <button class="custom-button">Purchase My Way</button>
+                                                    <img src={{url}} class="custom-image">
+                                                    <p>Token ID: ' + token+ '</p>
                                                 </div>
                                             """
-                                            c1.markdown(html_code_col2, unsafe_allow_html=True)
+                                            c2.markdown(html_code_col2, unsafe_allow_html=True)
                     # with cols[index % 3]:
                     #     st.image(image_url, caption=caption, use_container_width=True)
                 else:
