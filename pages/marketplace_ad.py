@@ -1,12 +1,13 @@
 import requests
 import streamlit as st
-
+# color:#33ff33;background-color: #EEEEEE;border: 2px solid #CCCCCC;padding: 5% 5% 5% 10%;border-radius: 5px;
 st.header("Token Marketplace")
 css_code = """
     <style>
         .custom-container {
-            border: 2px solid #1f618d;
-            padding: 10px;
+            border: 2px solid #CCCCCC;
+            background-color: #EEEEEE
+            padding:  5% 5% 5% 10%;
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
