@@ -63,7 +63,7 @@ if st.button("Submit"):
                         tokenID=f"token{token_id}"
                         id=tokenID[slice(4, 7)]
                         
-                        st.text(token)
+                        st.text(tokenID)
                         st.text(id)
                         if token in image_urls:
                             url=image_urls[token] 
