@@ -10,7 +10,7 @@ css_code = """
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 100px;
+            height: 200px;
         }
 
         .custom-image {
