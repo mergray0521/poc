@@ -16,6 +16,7 @@ css_code = """
         .custom-image {
             width: 100%;
             border-radius: 5px;
+            height: 100px;
         }
 
         .custom-button {
@@ -38,7 +39,7 @@ with st.container():
                 html_code_token1 = """
                     <div class="custom-container">
                         <img src="https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain" alt="My Say Token" class="custom-image">
-                        <p>1,00000 points</p>
+                        <p>1,000 points</p>
                         <button class="custom-button">Purchase My Say</button>
                     </div>
                 """
