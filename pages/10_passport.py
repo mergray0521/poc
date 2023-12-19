@@ -15,18 +15,35 @@ css_code = """
     </style>
 """
 
-# Define html_code outside the loop
-html_code = """
+# First row with one container spanning both columns
+st.markdown(css_code, unsafe_allow_html=True)
+html_code_row1 = """
     <div class="custom-container">
-        1,000 points
-    </div>
-
-    <div class="custom-container">
-        2,000 points
+        <p>Top Box</p>
     </div>
 """
+st.markdown(html_code_row1, unsafe_allow_html=True)
 
+# Second row with two boxes, each taking up half the page (2 columns)
+html_code_row2 = """
+    <div class="custom-container">
+        <p>Left Box</p>
+    </div>
 
-for col in cols:
-    st.markdown(css_code, unsafe_allow_html=True)
-    st.markdown(html_code, unsafe_allow_html=True)
+    <div class="custom-container">
+        <p>Right Box</p>
+    </div>
+"""
+st.markdown(html_code_row2, unsafe_allow_html=True)
+
+# Third row with two boxes, each taking up half the page (2 columns)
+html_code_row3 = """
+    <div class="custom-container">
+        <p>Left Box</p>
+    </div>
+
+    <div class="custom-container">
+        <p>Right Box</p>
+    </div>
+"""
+st.markdown(html_code_row3, unsafe_allow_html=True)
