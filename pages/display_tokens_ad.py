@@ -62,13 +62,14 @@ if st.button("Submit"):
                         token_id = row["Token ID"]
                         if col == c1:
                             with col:
-                                if f"token{token_id}" in image_urls: 
-                                    url=image_urls[f"token{token_id}"]
+                                token=f"token{token_id}"
+                                if token in image_urls: 
+                                    url=image_urls[token]                                 
                                     c1.markdown(css_code, unsafe_allow_html=True)
                                     html_code_col1 = """
                                         <div class="custom-container">
                                             <img src={{ url }} class="custom-image">
-                                            <p>f"Token ID: {token_id}"</p>
+                                            <p>Token ID: ' + token+ '</p>
                                         </div>
                                     """
                                     c1.markdown(html_code_col1, unsafe_allow_html=True)
