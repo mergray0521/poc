@@ -1,8 +1,20 @@
-/* style.css */
-div.css-1r6slb0.e1tzin5v2 {
-    background-color: #EEEEEE;
-    border: 2px solid #CCCCCC;
-    padding: 5% 5% 5% 10%;
-    border-radius: 5px;
-    height: 100px;
-}
+css_code = """
+    <style>
+        .custom-container {
+            border: 2px solid #1f618d;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .custom-image {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .custom-button {
+            margin-top: 10px;
+        }
+    </style>
+"""
