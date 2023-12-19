@@ -33,14 +33,12 @@ c1, c2, c3 = st.columns(3)
 c4, c5, c6 = st.columns(3) #just to highlight these are different cols
 with st.container():   
     # Column/Token 1
-    c1.markdown("My Say Token")
-    c1.image(token_1, use_column_width=True, width=300)
+    c1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
     c1.text("1,000 points")
     c1.button("Purchase My Say", key="purchase_my_say", help="my-button")
 
     # Column/Token 2
-    c2.markdown("My Way Token")
-    c2.image(token_2, use_column_width=True, width=50)
+    c2.image(token_2, caption="My Way Token", use_column_width=True, width=50)
     c2.text("2,000 points")
     c2.button("Purchase My Way", key="purchase_my_way", help="my-button")
     # c2.markdown(f'<h1 style="color:#33ff33;background-color: #EEEEEE;border: 2px solid #CCCCCC;padding: 5% 5% 5% 10%;border-radius: 5px;height: 100px">{"ColorMeBlue text”"}</h1>', unsafe_allow_html=True)
