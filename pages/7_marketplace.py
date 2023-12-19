@@ -25,15 +25,33 @@ token_4 = "https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=Img
 token_5 = "https://mickeystravel.com/site/universal/files/2016/06/Universal-Orlando-base-Ticket.png"
 token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain"
 
-st.markdown(
-    '<div style="border: 2px solid #1f618d; padding: 10px; border-radius: 5px;">'
-    '<img src="https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain" alt="My Say Token" style="width: 100%; border-radius: 5px;">'
-    '<p style="text-align: center; margin-top: 10px;">1,000 points</p>'
-    '</div>',
-    unsafe_allow_html=True
-)
+css_code = """
+    <style>
+        .custom-container {
+            border: 2px solid #1f618d;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
 
-st.button("Purchase My Say", key="purchase_my_say", help="my-button")
+        .custom-image {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+"""
+
+html_code = """
+    <div class="custom-container">
+        <img src="your_image_url" alt="My Say Token" class="custom-image">
+        <p>1,000 points</p>
+        <button style="margin-top: 10px;">Purchase My Say</button>
+    </div>
+"""
+
+st.markdown(css_code, unsafe_allow_html=True)
+st.markdown(html_code, unsafe_allow_html=True)
+
 
 
 # # Create three columns
