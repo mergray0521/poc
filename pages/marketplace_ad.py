@@ -33,6 +33,7 @@ c1, c2, c3 = st.columns(3)
 c4, c5, c6 = st.columns(3) #just to highlight these are different cols
 with st.container():   
     # st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
+    c1.markdown(f'<div style="color:#33ff33;background-color: #EEEEEE;border: 2px solid #CCCCCC;padding: 5% 5% 5% 10%;border-radius: 5px;height: 100px"> c1.image(token_1, caption="My Say Token", use_column_width=True, width=300) </h1>', unsafe_allow_html=True)
     # Column/Token 1
     c1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
     c1.text("1,000 points")
