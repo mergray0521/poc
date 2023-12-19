@@ -64,7 +64,13 @@ with st.container(border=True):
     c6.text("3,000 points")
     c6.button("Purchase Dragon", key="purchase_dragon", help="my-button")
 
-
+css_body_container = f'''
+<style>
+    [data-testid="stSidebar"] + section [data-testid="stVerticalBlock"] div:nth-of-type({body})
+    [data-testid="stVerticalBlock"] {{background-color:rgba(175,238,238,.2)}}
+</style>
+'''
+st.markdown(css_body_container,unsafe_allow_html=True)
 
 # Display images in containers within columns
 # with col1:
