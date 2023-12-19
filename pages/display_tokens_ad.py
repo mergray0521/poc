@@ -54,7 +54,7 @@ if st.button("Submit"):
             c4, c5, c6 = st.columns(3)
             with st.container():
                 for col in [c1, c2, c3]:
-                    for row in tokens_df.iterrows():
+                    for index, row in tokens_df.iterrows():
                         token_id = row["Token ID"]
                         if col == c1:
                             with col:
