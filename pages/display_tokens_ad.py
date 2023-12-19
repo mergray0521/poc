@@ -6,6 +6,25 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
+css_code = """
+    <style>
+        .custom-container {
+            border: 2px solid #DCDCDC;
+            background: #DCDCDC;
+            padding:  5% 5% 5% 10%;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 10px;
+            height: 350px;
+        }
+
+        .custom-image {
+            width: 100%;
+            border-radius: 5px;
+            height: 150px;
+        }
+"""
+
 st.title("Display Tokens")
 
 # Input user ID
@@ -31,16 +50,38 @@ if st.button("Submit"):
             }
 
             # Display images and captions in three columns
-            cols = st.columns(3)
-            for index, row in tokens_df.iterrows():
-                token_id = row["Token ID"]
-                
-                if f"token{token_id}" in image_urls:
-                    image_url = image_urls[f"token{token_id}"]
-                    caption = f"Token ID: {token_id}"
-
-                    with cols[index % 3]:
-                        st.image(image_url, caption=caption, use_container_width=True)
+            c1, c2, c3 = st.columns(3)
+            c4, c5, c6 = st.columns(3)
+            with st.container():
+                for col in [c1, c2, c3]:
+                    for row in tokens_df.iterrows():
+                        token_id = row["Token ID"]
+                        if col == c1:
+                            with col:
+                                if f"token{token_id}" in image_urls: 
+                                    c1.markdown(css_code, unsafe_allow_html=True)
+                                    html_code_col1 = """
+                                        <div class="custom-container">
+                                            <img src=image_urls[f"token{token_id}"] class="custom-image">
+                                            <p>f"Token ID: {token_id}"</p>
+                                        </div>
+                                        """
+                                        c1.markdown(html_code_col1, unsafe_allow_html=True)
+                                # image_url = image_urls[f"token{token_id}"]
+                                # caption = f"Token ID: {token_id}"
+                                if col == c2:
+                                    with col:
+                                        if f"token{token_id}" in image_urls:
+                                            c2.markdown(css_code, unsafe_allow_html=True)
+                                            html_code_token2 = """
+                                                <div class="custom-container">
+                                                    <img src=image_urls[f"token{token_id}"] class="custom-image">
+                                                    <p>f"Token ID: {token_id}"</p>
+                                                    <button class="custom-button">Purchase My Way</button>
+                                                </div>
+                                            """
+                    # with cols[index % 3]:
+                    #     st.image(image_url, caption=caption, use_container_width=True)
                 else:
                     st.warning(f"No image URL found for Token ID: {token_id}")
 
