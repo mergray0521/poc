@@ -65,7 +65,7 @@ if st.button("Submit"):
                         
                         st.text(tokenID)
                         st.text(id)
-                        if id in image_urls:
+                        for id in image_urls.keys():
                             url=image_urls[id] 
                             st.text(url)
                             if col == c1:
