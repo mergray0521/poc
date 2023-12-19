@@ -43,7 +43,7 @@ css_code = """
 
 html_code = """
     <div class="custom-container">
-        <img src="your_image_url" alt="My Say Token" class="custom-image">
+        <img src="https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain" alt="My Say Token" class="custom-image">
         <p>1,000 points</p>
         <button style="margin-top: 10px;">Purchase My Say</button>
     </div>
