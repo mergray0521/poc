@@ -1,20 +1,6 @@
 import requests
 import streamlit as st
 
-# # GitHub repository details
-# github_repo = "mergray0521/poc"
-# css_file_path = "pages/style.css"
-
-# # Construct the raw URL for the CSS file
-# raw_url = f'https://raw.githubusercontent.com/{github_repo}/main/{css_file_path}'
-
-# # Fetch the CSS content from GitHub
-# response = requests.get(raw_url)
-# css_content = response.text
-
-# # Apply the CSS to Streamlit
-# st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
-
 st.header("Token Marketplace")
 
 # # Sample image URLs
@@ -24,7 +10,6 @@ st.header("Token Marketplace")
 # token_4 = "https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain"
 # token_5 = "https://mickeystravel.com/site/universal/files/2016/06/Universal-Orlando-base-Ticket.png"
 # token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain"
-
 
 css_code = """
     <style>
@@ -50,34 +35,27 @@ css_code = """
 with st.container():
     col1, col2, col3 = st.columns(3)
 
-    for col in [col1, col2, col3]:
-        with col:
+    tokens = [
+        {"token_1": "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain", "name": "My Say Token", "points": "1,000"},
+        {"token_2": "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png", "name": "My Way Token", "points": "2,000"},
+        {"token_3": "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain", "name": "My Day Token", "points": "3,000"},
+        {"token_4": "https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain", "name": "My Day Token", "points": "3,000"},
+        {"token_5": "https://mickeystravel.com/site/universal/files/2016/06/Universal-Orlando-base-Ticket.png", "name": "My Day Token", "points": "3,000"},
+        {"token_6": "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain", "name": "My Day Token", "points": "3,000"},
+    ]
+
+    for token in tokens:
+        with col1, col2, col3:
             st.markdown(css_code, unsafe_allow_html=True)
 
-            html_code = """
+            html_code = f"""
                 <div class="custom-container">
-                    <img src="https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain" alt="My Say Token" class="custom-image">
-                    <p>1,000 points</p>
-                    <button class="custom-button">Purchase My Say</button>
+                    <img src="{token['image_url']}" alt="{token['name']}" class="custom-image">
+                    <p>{token['points']} points</p>
+                    <button class="custom-button">Purchase {token['name']}</button>
                 </div>
-
-                <div class="custom-container">
-                    <img src="https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png" alt="My Way Token" class="custom-image">
-                    <p>2,000 points</p>
-                    <button class="custom-button">Purchase My Way</button>
-                </div>
-
-                <div class="custom-container">
-                    <img src="https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain" alt="My Day Token" class="custom-image">
-                    <p>3,000 points</p>
-                    <button class="custom-button">Purchase My Day</button>
-                </div>
-
-                
             """
             st.markdown(html_code, unsafe_allow_html=True)
-
-
 
 
 
