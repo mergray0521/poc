@@ -7,6 +7,6 @@ st.title("My Stuff")
 with st.container():
   st.text('Reedemables')
     
-col1, col2 = st.columns(2)
-col1.write('Points')
-col2.write('Badges')
+
+c1, c2, c3 = st.columns(3)
+c4, c5, c6 = st.columns(3) #just to highlight these are different cols
