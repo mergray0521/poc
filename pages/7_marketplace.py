@@ -11,7 +11,7 @@ css_code = """
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 500px;
+            height: 250px;
         }
 
         .custom-image {
