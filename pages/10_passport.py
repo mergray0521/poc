@@ -21,24 +21,25 @@ with st.container():
   st.text('Reedemables')
 
 with st.container():
-  c1, c2 = st.columns(2)
-  c3, c4 = st.columns(2) #just to highlight these are different cols
-for c in [c1, c2, c3, c4]:
-  with c:
-    st.markdown(css_code, unsafe_allow_html=True)
+    c1, c2 = st.columns(2)
+    c3, c4 = st.columns(2) #just to highlight these are different cols
+    
+    for c in [c1, c2, c3, c4]:
+      with c:
+        st.markdown(css_code, unsafe_allow_html=True)
 
   
-html_code = """
-    <div class="container">
-        <p>Points</p>
-    </div>
-    <div class="container">
-        <p>Badges</p>
-    </div>
-    <div class="Park Tickets">
-        <p>Badges</p>
-    </div>
-    <div class="Hotel Keys">
-        <p>Badges</p>
-    </div>
-"""
+        html_code = """
+            <div class="container">
+                <p>Points</p>
+            </div>
+            <div class="container">
+                <p>Badges</p>
+            </div>
+            <div class="Park Tickets">
+                <p>Badges</p>
+            </div>
+            <div class="Hotel Keys">
+                <p>Badges</p>
+            </div>
+        """
