@@ -7,11 +7,11 @@
     height: 100px;
 } */
 body {
-  background-color: lightgoldenrodyellow;
+  background-color:  #EEEEEE;
 }
 
 div[data-testid="stHorizontalBlock"] > {
-  background-color: #EEEEEE;
+    background-color: #EEEEEE;
     border: 2px solid #CCCCCC;
     padding: 5% 5% 5% 10%;
     border-radius: 5px;
