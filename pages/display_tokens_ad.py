@@ -60,8 +60,11 @@ if st.button("Submit"):
                 for col in [c1, c2, c3]:
                     for index, row in tokens_df.iterrows():
                         token_id = row["Token ID"]
-                        token=f"token{token_id}"
+                        tokenID=f"token{token_id}"
+                        id=tokenID[slice(4, 7)]
+                        
                         st.text(token)
+                        st.text(id)
                         if token in image_urls:
                             url=image_urls[token] 
                             if col == c1:
