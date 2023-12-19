@@ -32,7 +32,7 @@ token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=Img
 c1, c2, c3 = st.columns(3)
 c4, c5, c6 = st.columns(3) #just to highlight these are different cols
 with st.container():   
-    c1Img = c1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
+    c1Img = c1.image(token_1, use_column_width=True, width=300)
     # st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
     c1.markdown(f'<div style="color:#33ff33;background-color: #EEEEEE;border: 2px solid #CCCCCC;padding: 5% 5% 5% 10%;border-radius: 5px;height: 100px"> {c1Img} </h1>', unsafe_allow_html=True)
     # Column/Token 1
