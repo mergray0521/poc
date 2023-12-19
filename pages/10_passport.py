@@ -1,6 +1,4 @@
 import streamlit as st
-import pandas as pd
-import snowflake.connector
 
 st.title("My Stuff")
 
@@ -28,12 +26,10 @@ with st.container():
             html_code = """
                 <div class="custom-container">
                     <p>1,000 points</p>
-                    <button class="custom-button">Purchase My Say</button>
                 </div>
 
                 <div class="custom-container">
                     <p>2,000 points</p>
-                    <button class="custom-button">Purchase My Way</button>
                 </div>
 
                 
