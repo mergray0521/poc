@@ -15,24 +15,19 @@ css_code = """
     </style>
 """
 
-with st.container():
-    col1 = st.columns(1)
-    col2, col3 = st.columns(2)
-    col4, col5 = st.columns(2)
+# Use st.columns() without a with statement
+cols = st.columns(5)
 
-    for col in [col1, col2, col3, col4, col5]:
-        with col:
-            st.markdown(css_code, unsafe_allow_html=True)
+for col in cols:
+    st.markdown(css_code, unsafe_allow_html=True)
 
-            html_code = """
-                <div class="custom-container">
-                    <p>1,000 points</p>
-                </div>
+    html_code = """
+        <div class="custom-container">
+            <p>1,000 points</p>
+        </div>
 
-                <div class="custom-container">
-                    <p>2,000 points</p>
-                </div>
-
-                
-            """
-            st.markdown(html_code, unsafe_allow_html=True)
+        <div class="custom-container">
+            <p>2,000 points</p>
+        </div>
+    """
+    st.markdown(html_code, unsafe_allow_html=True)
