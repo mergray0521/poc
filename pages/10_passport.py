@@ -18,16 +18,17 @@ css_code = """
 # Use st.columns() without a with statement
 cols = st.columns(5)
 
+# Define html_code outside the loop
+html_code = """
+    <div class="custom-container">
+        <p>1,000 points</p>
+    </div>
+
+    <div class="custom-container">
+        <p>2,000 points</p>
+    </div>
+"""
+
 for col in cols:
     st.markdown(css_code, unsafe_allow_html=True)
-
-    html_code = """
-        <div class="custom-container">
-            <p>1,000 points</p>
-        </div>
-
-        <div class="custom-container">
-            <p>2,000 points</p>
-        </div>
-    """
     st.markdown(html_code, unsafe_allow_html=True)
