@@ -5,7 +5,6 @@ st.header("Token Marketplace")
 css_code = """
     <style>
         .custom-container {
-            border: 2px solid #DCDCDC;
             background-color: #DCDCDC
             padding:  5% 5% 5% 10%;
             border-radius: 5px;
