@@ -36,25 +36,25 @@ with st.container():
         {"image_url": "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain", "name": "My Day Token", "points": "3,000"},
     ]
 
-    tokens_per_row = 3
+        tokens_per_row = 3
 
-    for i in range(0, len(tokens), tokens_per_row):
-        row_tokens = tokens[i:i + tokens_per_row]
-
-        col1, col2, col3 = st.columns(3)
-
-        for col, token in zip([col1, col2, col3], row_tokens):
-            with col:
-                st.markdown(css_code, unsafe_allow_html=True)
-
-                html_code = f"""
-                    <div class="custom-container">
-                        <img src="{token['image_url']}" alt="{token['name']}" class="custom-image">
-                        <p>{token['points']} points</p>
-                        <button class="custom-button">Purchase {token['name']}</button>
-                    </div>
-                """
-                st.markdown(html_code, unsafe_allow_html=True)
-
-
-   
+        for i in range(0, len(tokens), tokens_per_row):
+            row_tokens = tokens[i:i + tokens_per_row]
+    
+            col1, col2, col3 = st.columns(3)
+    
+            for col, token in zip([col1, col2, col3], row_tokens):
+                with col:
+                    st.markdown(css_code, unsafe_allow_html=True)
+    
+                    html_code = f"""
+                        <div class="custom-container">
+                            <img src="{token['image_url']}" alt="{token['name']}" class="custom-image">
+                            <p>{token['points']} points</p>
+                            <button class="custom-button">Purchase {token['name']}</button>
+                        </div>
+                    """
+                    st.markdown(html_code, unsafe_allow_html=True)
+    
+    
+       
