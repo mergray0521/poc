@@ -6,7 +6,7 @@ st.title("My Stuff")
 
 css_code = """
     <style>
-        .container {
+        .custom-container {
             border: 2px solid #1f618d;
             padding: 10px;
             border-radius: 5px;
@@ -18,25 +18,24 @@ css_code = """
 """
 
 with st.container():
-    c1, c2 = st.columns(2)
-    c3, c4 = st.columns(2) #just to highlight these are different cols
-    
-    for c in [c1, c2, c3, c4]:
-      with c:
-        st.markdown(css_code, unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    co13, col4 = st.columns(2)
 
-  
-        html_code = """
-            <div class="container">
-                <p>Points</p>
-            </div>
-            <div class="container">
-                <p>Badges</p>
-            </div>
-            <div class="Park Tickets">
-                <p>Badges</p>
-            </div>
-            <div class="Hotel Keys">
-                <p>Badges</p>
-            </div>
-        """
+    for col in [col1, col2, col3, col4]:
+        with col:
+            st.markdown(css_code, unsafe_allow_html=True)
+
+            html_code = """
+                <div class="custom-container">
+                    <p>1,000 points</p>
+                    <button class="custom-button">Purchase My Say</button>
+                </div>
+
+                <div class="custom-container">
+                    <p>2,000 points</p>
+                    <button class="custom-button">Purchase My Way</button>
+                </div>
+
+                
+            """
+            st.markdown(html_code, unsafe_allow_html=True)
