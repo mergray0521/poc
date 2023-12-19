@@ -44,6 +44,9 @@ if st.button("Submit"):
             tokens_df = pd.DataFrame(result, columns=["Token ID"])
 
             # Manually code image URLs for a few tokens
+            img_103="https://t3.ftcdn.net/jpg/03/40/50/48/360_F_340504802_pm6pOI5JAGJhNVLTntkGnX2S9oFe7Ncn.jpg"
+            img_204="https://cdn-icons-png.flaticon.com/512/5169/5169269.png"
+            img_305="https://i.pinimg.com/736x/58/92/f0/5892f0f20598882750a70dda52078ab0.jpg"
             image_urls = {
                 103: "https://t3.ftcdn.net/jpg/03/40/50/48/360_F_340504802_pm6pOI5JAGJhNVLTntkGnX2S9oFe7Ncn.jpg",
                 204: "https://cdn-icons-png.flaticon.com/512/5169/5169269.png",
@@ -60,10 +63,11 @@ if st.button("Submit"):
                         if col == c1:
                             with col:
                                 if f"token{token_id}" in image_urls: 
+                                    url=image_urls[f"token{token_id}"]
                                     c1.markdown(css_code, unsafe_allow_html=True)
                                     html_code_col1 = """
                                         <div class="custom-container">
-                                            <img src=image_urls[f"token{token_id}"] class="custom-image">
+                                            <img src={{ url }} class="custom-image">
                                             <p>f"Token ID: {token_id}"</p>
                                         </div>
                                     """
