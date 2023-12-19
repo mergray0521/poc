@@ -16,7 +16,7 @@ css_code = """
 """
 
 # Use st.columns() without a with statement
-cols = st.columns(5)
+cols = st.columns(2)
 
 # Define html_code outside the loop
 html_code = """
