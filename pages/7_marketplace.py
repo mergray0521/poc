@@ -27,7 +27,7 @@ token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=Img
 
 st.markdown(
     '<div style="border: 2px solid #1f618d; padding: 10px; border-radius: 5px;">'
-    '<img src="your_image_url" alt="My Say Token" style="width: 100%; border-radius: 5px;">'
+    '<img src="https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain" alt="My Say Token" style="width: 100%; border-radius: 5px;">'
     '<p style="text-align: center; margin-top: 10px;">1,000 points</p>'
     '</div>',
     unsafe_allow_html=True
