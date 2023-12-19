@@ -65,21 +65,22 @@ if st.button("Submit"):
                                             <img src=image_urls[f"token{token_id}"] class="custom-image">
                                             <p>f"Token ID: {token_id}"</p>
                                         </div>
-                                        """
-                                        c1.markdown(html_code_col1, unsafe_allow_html=True)
+                                    """
+                                    c1.markdown(html_code_col1, unsafe_allow_html=True)
                                 # image_url = image_urls[f"token{token_id}"]
                                 # caption = f"Token ID: {token_id}"
                                 if col == c2:
                                     with col:
                                         if f"token{token_id}" in image_urls:
                                             c2.markdown(css_code, unsafe_allow_html=True)
-                                            html_code_token2 = """
+                                            html_code_col2 = """
                                                 <div class="custom-container">
                                                     <img src=image_urls[f"token{token_id}"] class="custom-image">
                                                     <p>f"Token ID: {token_id}"</p>
                                                     <button class="custom-button">Purchase My Way</button>
                                                 </div>
                                             """
+                                            c1.markdown(html_code_col2, unsafe_allow_html=True)
                     # with cols[index % 3]:
                     #     st.image(image_url, caption=caption, use_container_width=True)
                 else:
