@@ -53,7 +53,5 @@ with st.container():
                 """
                 st.markdown(html_code, unsafe_allow_html=True)
 
-                    st.markdown(html_code, unsafe_allow_html=True)
-    
     
        
