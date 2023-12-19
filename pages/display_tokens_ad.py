@@ -61,7 +61,7 @@ if st.button("Submit"):
                     for index, row in tokens_df.iterrows():
                         token_id = row["Token ID"]
                         tokenID=f"token{token_id}"
-                        id=tokenID[slice(4, 7)]
+                        id=tokenID[slice(5, 7)]
                         
                         st.text(tokenID)
                         st.text(id)
