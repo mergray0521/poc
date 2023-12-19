@@ -67,6 +67,7 @@ if st.button("Submit"):
                         st.text(id)
                         if id in image_urls:
                             url=image_urls[id] 
+                            st.text(url)
                             if col == c1:
                                 with col:                               
                                     c1.markdown(css_code, unsafe_allow_html=True)
