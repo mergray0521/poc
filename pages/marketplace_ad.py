@@ -26,11 +26,11 @@ css_code = """
 """
 
 # Create 3 columns and two rows
-# c1, c2, c3 = st.columns(3)
+c1, c2, c3 = st.columns(3)
 c4, c5, c6 = st.columns(3) 
 
 with st.container(): 
-    c1, c2, c3 = st.columns(3)
+    # c1, c2, c3 = st.columns(3)
     for col in [c1, c2, c3]: 
         if col == c1:
             with col:
@@ -67,7 +67,7 @@ with st.container():
                 c3.markdown(html_code_token3, unsafe_allow_html=True)
                 
 with st.container(): 
-    c4, c5, c6 = st.columns(3)
+    # c4, c5, c6 = st.columns(3)
     for col in [c4, c5, c6]: 
         if col == c4:
             with col:  
