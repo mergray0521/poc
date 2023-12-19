@@ -16,7 +16,7 @@ css_code = """
         .custom-image {
             width: 100%;
             border-radius: 5px;
-            height: 100px;
+            height: 300px;
         }
 
         .custom-button {
