@@ -8,8 +8,10 @@ with st.container():
   st.text('Reedemables')
     
 
-c1, c2, c3 = st.columns(3)
-c4, c5, c6 = st.columns(3) #just to highlight these are different cols
+c1, c2 = st.columns(2)
+c3, c4 = st.columns(2) #just to highlight these are different cols
 
 c1.write('Points')
 c2.write('Badges')
+c3.write('Park Tickets')
+c4.write('Hotel Keys')
