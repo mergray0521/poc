@@ -17,8 +17,9 @@ css_code = """
 
 with st.container():
     col1, col2 = st.columns(2)
+    col3, col4 = st.columns(2)
 
-    for col in [col1, col2]:
+    for col in [col1, col2, col3, col4]:
         with col:
             st.markdown(css_code, unsafe_allow_html=True)
 
