@@ -23,7 +23,7 @@ st.header("Token Marketplace")
 token_1 = "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain"
 token_1_text = st.text('1,00 points')
 token_1_button = st.button("Purchase My Say", key="purchase_my_say", help="my-button")
-token_1_img = st.image(token_1,  caption="My Say Token", use_column_width=True, width=300)
+# token_1_img = st.image(token_1,  caption="My Say Token", use_column_width=True, width=300)
 token_2 = "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png"
 token_3 = "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain"
 token_4 = "https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain"
