@@ -25,25 +25,31 @@ html_code_row1 = """
 st.markdown(html_code_row1, unsafe_allow_html=True)
 
 # Second row with two boxes, each taking up half the page (2 columns)
-html_code_row2 = """
+cols_row2 = st.columns(2)
+html_code_row2_left = """
     <div class="custom-container">
         Left Box
     </div>
-
+"""
+html_code_row2_right = """
     <div class="custom-container">
         Right Box
     </div>
 """
-st.markdown(html_code_row2, unsafe_allow_html=True)
+cols_row2[0].markdown(html_code_row2_left, unsafe_allow_html=True)
+cols_row2[1].markdown(html_code_row2_right, unsafe_allow_html=True)
 
 # Third row with two boxes, each taking up half the page (2 columns)
-html_code_row3 = """
+cols_row3 = st.columns(2)
+html_code_row3_left = """
     <div class="custom-container">
         Left Box
     </div>
-
+"""
+html_code_row3_right = """
     <div class="custom-container">
         Right Box
     </div>
 """
-st.markdown(html_code_row3, unsafe_allow_html=True)
+cols_row3[0].markdown(html_code_row3_left, unsafe_allow_html=True)
+cols_row3[1].markdown(html_code_row3_right, unsafe_allow_html=True)
