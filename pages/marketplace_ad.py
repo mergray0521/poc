@@ -59,7 +59,6 @@ with st.container():
         c3.markdown(html_code_token3, unsafe_allow_html=True)
 
 with st.container(): 
-token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain"
         c4.markdown(css_code, unsafe_allow_html=True)
         html_code_token4 = """
                 <div class="custom-container">
