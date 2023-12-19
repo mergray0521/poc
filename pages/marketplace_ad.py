@@ -33,7 +33,8 @@ c1, c2, c3 = st.columns(3)
 c4, c5, c6 = st.columns(3) #just to highlight these are different cols
 with st.container():   
     # Column/Token 1
-    c1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
+    c1.markdown("My Say Token")
+    c1.image(token_1, use_column_width=True, width=300)
     c1.text("1,000 points")
     c1.button("Purchase My Say", key="purchase_my_say", help="my-button")
 
