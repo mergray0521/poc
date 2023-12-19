@@ -65,15 +65,15 @@ if st.button("Submit"):
                         
                         st.text(tokenID)
                         st.text(id)
-                        if token in image_urls:
-                            url=image_urls[token] 
+                        if id in image_urls:
+                            url=image_urls[id] 
                             if col == c1:
                                 with col:                               
                                     c1.markdown(css_code, unsafe_allow_html=True)
                                     html_code_col1 = """
                                         <div class="custom-container">
                                             <img src={{url}} class="custom-image">
-                                            <p>Token ID: ' + token+ '</p>
+                                            <p>Token ID: ' + id+ '</p>
                                         </div>
                                     """
                                     c1.markdown(html_code_col1, unsafe_allow_html=True)
@@ -84,7 +84,7 @@ if st.button("Submit"):
                                     html_code_col2 = """
                                         <div class="custom-container">
                                             <img src={{url}} class="custom-image">
-                                            <p>Token ID: ' + token+ '</p>
+                                            <p>Token ID: ' + id+ '</p>
                                         </div>
                                     """
                                     c2.markdown(html_code_col2, unsafe_allow_html=True)
