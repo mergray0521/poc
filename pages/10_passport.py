@@ -19,7 +19,7 @@ css_code = """
 st.markdown(css_code, unsafe_allow_html=True)
 html_code_row1 = """
     <div class="custom-container">
-        <p>Top Box</p>
+        Top Box
     </div>
 """
 st.markdown(html_code_row1, unsafe_allow_html=True)
@@ -27,11 +27,11 @@ st.markdown(html_code_row1, unsafe_allow_html=True)
 # Second row with two boxes, each taking up half the page (2 columns)
 html_code_row2 = """
     <div class="custom-container">
-        <p>Left Box</p>
+        Left Box
     </div>
 
     <div class="custom-container">
-        <p>Right Box</p>
+        Right Box
     </div>
 """
 st.markdown(html_code_row2, unsafe_allow_html=True)
@@ -39,11 +39,11 @@ st.markdown(html_code_row2, unsafe_allow_html=True)
 # Third row with two boxes, each taking up half the page (2 columns)
 html_code_row3 = """
     <div class="custom-container">
-        <p>Left Box</p>
+        Left Box
     </div>
 
     <div class="custom-container">
-        <p>Right Box</p>
+        Right Box
     </div>
 """
 st.markdown(html_code_row3, unsafe_allow_html=True)
