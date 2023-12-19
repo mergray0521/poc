@@ -31,7 +31,7 @@ token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=Img
 # col1, col2, col3 = st.columns(3)
 c1, c2, c3 = st.columns(3)
 c4, c5, c6 = st.columns(3) #just to highlight these are different cols
-with st.container(border=True):   
+with st.container():   
     # Column/Token 1
     c1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
     c1.text("1,000 points")
@@ -49,7 +49,7 @@ with st.container(border=True):
     c3.button("Purchase My Day", key="purchase_my_day", help="my-button") 
 
 #second row
-with st.container(border=True):     
+with st.container():     
     # Column/Token 4
     c4.image(token_4, caption="Minion Glasses", use_column_width=True, width=300)
     c4.text("2,000 points")
@@ -67,7 +67,7 @@ with st.container(border=True):
 
 # Display images in containers within columns
 # with col1:
-#     with st.container(border=True):
+#     with st.container():
 #         st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
 #         st.image(token_1, caption="My Say Token", use_column_width=True, width=300)
 #         st.text("1,000 points")
