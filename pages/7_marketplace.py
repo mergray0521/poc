@@ -36,12 +36,12 @@ with st.container():
     col1, col2, col3 = st.columns(3)
 
     tokens = [
-        {"token_1": "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain", "name": "My Say Token", "points": "1,000"},
-        {"token_2": "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png", "name": "My Way Token", "points": "2,000"},
-        {"token_3": "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain", "name": "My Day Token", "points": "3,000"},
-        {"token_4": "https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain", "name": "My Day Token", "points": "3,000"},
-        {"token_5": "https://mickeystravel.com/site/universal/files/2016/06/Universal-Orlando-base-Ticket.png", "name": "My Day Token", "points": "3,000"},
-        {"token_6": "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain", "name": "My Day Token", "points": "3,000"},
+        {"image_url": "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain", "name": "My Say Token", "points": "1,000"},
+        {"image_url": "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png", "name": "My Way Token", "points": "2,000"},
+        {"image_url": "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain", "name": "My Day Token", "points": "3,000"},
+        {"image_url": "https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain", "name": "My Day Token", "points": "3,000"},
+        {"image_url": "https://mickeystravel.com/site/universal/files/2016/06/Universal-Orlando-base-Ticket.png", "name": "My Day Token", "points": "3,000"},
+        {"image_url": "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain", "name": "My Day Token", "points": "3,000"},
     ]
 
     for token in tokens:
