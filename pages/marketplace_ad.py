@@ -16,13 +16,36 @@ css_content = response.text
 st.markdown(f'<style>{css_content}</style>', unsafe_allow_html=True)
 
 st.header("Token Marketplace")
+css_code1 = """
+<style>
+        .custom-container {
+            border: 2px solid #1f618d;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+ 
+        .custom-image {
+            width: 100%;
+            border-radius: 5px;
+        }
+</style>
+"""
+ 
+html_code1 = """
+<div class="custom-container">
+<img src="https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain" alt="My Say Token" class="custom-image">
+<p>1,000 points</p>
+<button style="margin-top: 10px;">Purchase My Say</button>
+</div>
+"""
 
 
 
 # Sample image URLs
 token_1 = "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain"
-token_1_text = st.text('1,00 points')
-token_1_button = st.button("Purchase My Say", key="purchase_my_say", help="my-button")
+# token_1_text = st.text('1,00 points')
+# token_1_button = st.button("Purchase My Say", key="purchase_my_say", help="my-button")
 # token_1_img = st.image(token_1,  caption="My Say Token", use_column_width=True, width=300)
 token_2 = "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png"
 token_3 = "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain"
@@ -35,9 +58,11 @@ token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=Img
 c1, c2, c3 = st.columns(3)
 c4, c5, c6 = st.columns(3) #just to highlight these are different cols
 with st.container():   
+    c1.markdown(css_code1, unsafe_allow_html=True)
+    c1.markdown(html_code1, unsafe_allow_html=True)
     # c1Img = c1.image(token_1,  caption="My Say Token", use_column_width=True, width=300)
     # # st.markdown('<div class="css-1r6slb0 e1tzin5v2">', unsafe_allow_html=True)
-    c1.markdown(f'<div style="color:#33ff33;background-color: #EEEEEE;border: 2px solid #CCCCCC;padding: 5% 5% 5% 10%;border-radius: 5px;height: 100px"> {token_1_button} </div>', unsafe_allow_html=True)
+    # c1.markdown(f'<div style="color:#33ff33;background-color: #EEEEEE;border: 2px solid #CCCCCC;padding: 5% 5% 5% 10%;border-radius: 5px;height: 100px"> {token_1_button} </div>', unsafe_allow_html=True)
     # Column/Token 1
     # c1.image(token_1, caption="My Say Token", use_column_width=True, width=300)
     # c1.text("1,000 points")
