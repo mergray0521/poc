@@ -21,6 +21,7 @@ css_code = """
 
         .custom-button {
             margin-top: 10px;
+            border: 2px solid #429DF5;
         }
     </style>
 """
