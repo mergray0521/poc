@@ -19,7 +19,7 @@ css_code = """
 st.markdown(css_code, unsafe_allow_html=True)
 html_code_row1 = """
     <div class="custom-container">
-    <img src= "https://raw.githubusercontent.com/mergray0521/poc/blob/main/QR_CODE.png" alt="QR Code">
+    <img src= "https://github.com/mergray0521/poc/blob/main/QR_Code.png" alt="QR Code">
     Top Box
     </div>
 """
