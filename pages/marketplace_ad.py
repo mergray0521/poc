@@ -58,16 +58,46 @@ with st.container():
         """
         c3.markdown(html_code_token3, unsafe_allow_html=True)
 
+with st.container(): 
+token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain"
+        c4.markdown(css_code, unsafe_allow_html=True)
+        html_code_token4 = """
+                <div class="custom-container">
+                    <img src="https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain" alt="Minion Glasses" class="custom-image">
+                    <p>2,000 points</p>
+                    <button class="custom-button">Purchase Glasses</button>
+                </div>
+        """
+        c4.markdown(html_code_token4, unsafe_allow_html=True)
+        c5.markdown(css_code, unsafe_allow_html=True)
+        html_code_token5 = """
+                <div class="custom-container">
+                    <img src="https://mickeystravel.com/site/universal/files/2016/06/Universal-Orlando-base-Ticket.png" alt="Park Pass" class="custom-image">
+                    <p>4,000 points</p>
+                    <button class="custom-button">Purchase My Way</button>
+                </div>
+        """
+        c5.markdown(html_code_token5, unsafe_allow_html=True)
+        c6.markdown(css_code, unsafe_allow_html=True)
+        html_code_token6 = """
+                <div class="custom-container">
+                    <img src="https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain" alt="Dragon" class="custom-image">
+                    <p>3,000 points</p>
+                    <button class="custom-button">Purchase Dragon</button>
+                </div>
+        """
+        c6.markdown(html_code_token6, unsafe_allow_html=True)
+
 # Sample image URLs
-token_1 = "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain"
+# token_1 = "https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain"
 # token_1_text = st.text('1,00 points')
 # token_1_button = st.button("Purchase My Say", key="purchase_my_say", help="my-button")
 # token_1_img = st.image(token_1,  caption="My Say Token", use_column_width=True, width=300)
-token_2 = "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png"
-token_3 = "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain"
-token_4 = "https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain"
-token_5 = "https://mickeystravel.com/site/universal/files/2016/06/Universal-Orlando-base-Ticket.png"
-token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain"
+# token_2 = "https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png"
+# token_3 = "https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain"
+# token_4 = "https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain"
+# token_5 = "https://mickeystravel.com/site/universal/files/2016/06/Universal-Orlando-base-Ticket.png"
+# token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain"
 
 # Create three columns
 # col1, col2, col3 = st.columns(3)
