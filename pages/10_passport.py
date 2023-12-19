@@ -18,9 +18,6 @@ css_code = """
 """
 
 with st.container():
-  st.text('Reedemables')
-
-with st.container():
     c1, c2 = st.columns(2)
     c3, c4 = st.columns(2) #just to highlight these are different cols
     
