@@ -27,7 +27,12 @@ token_6 = "https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=Img
 
 import streamlit as st
 
-css_code = """
+with st.container():
+    col1, col2, col3 = st.columns(3)
+
+    for col in [col1, col2, col3]:
+        with col:
+            css_code = """
     <style>
         .custom-container {
             border: 2px solid #1f618d;
@@ -47,12 +52,7 @@ css_code = """
         }
     </style>
 """
-
-with st.container():
-    col1, col2, col3 = st.columns(3)
-
-    for col in [col1, col2, col3]:
-        with col:
+            
             st.markdown(css_code, unsafe_allow_html=True)
 
             html_code = """
@@ -74,7 +74,6 @@ with st.container():
                     <button class="custom-button">Purchase My Say</button>
                 </div>
 
-                
             """
             st.markdown(html_code, unsafe_allow_html=True)
 
