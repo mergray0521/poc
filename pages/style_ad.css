@@ -10,6 +10,9 @@ body {
   background-color: lightgoldenrodyellow;
 }
 
-div[data-testid="stHorizontalBlock"] > div:first-of-type {
-  background-color: red;
+div[data-testid="stHorizontalBlock"] > {
+  background-color: #EEEEEE;
+    border: 2px solid #CCCCCC;
+    padding: 5% 5% 5% 10%;
+    border-radius: 5px;
 }
