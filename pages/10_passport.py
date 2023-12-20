@@ -57,7 +57,7 @@ cols_row2[1].markdown(html_code_row2_right, unsafe_allow_html=True)
 # Third row with two boxes, each taking up half the page (2 columns)
 cols_row3 = st.columns(2)
 html_code_row3_left = """
-    <div class="custom-bo">
+    <div class="custom-box">
         Left Box
     </div>
 """
