@@ -37,7 +37,7 @@ css_code = """
         .smaller-image {
             width: 100%;
             border-radius: 5px;
-            height: 150px;
+            height: 100px;
         }
     </style>  
 """
