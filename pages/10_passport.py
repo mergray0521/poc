@@ -22,6 +22,12 @@ css_code = """
             height: 200px;
         }
 
+          .custom-header {
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
         .custom-image {
             width: 100%;
             border-radius: 5px;
@@ -34,7 +40,7 @@ css_code = """
 st.markdown(css_code, unsafe_allow_html=True)
 html_code_row1 = """
     <div class="custom-container">
-    <p> Redeemables </p>
+    <h3 class="custom-header">Redeemables</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/QR_Code.png?raw=true" class="custom-image">
     </div>
 """
