@@ -5,12 +5,19 @@ st.title("My Stuff")
 css_code = """
     <style>
         .custom-container {
-            border: 2px solid #1f618d;
-            padding: 10px;
+            border: 2px solid #DCDCDC;
+            background: #DCDCDC;
+            padding:  5% 5% 5% 10%;
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 200px;
+            height: 350px;
+        }
+
+        .custom-image {
+            width: 100%;
+            border-radius: 5px;
+            height: 150px;
         }
     </style>  
 """
