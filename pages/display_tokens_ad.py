@@ -61,6 +61,7 @@ if st.button("Submit"):
                 tokenID=f"token{token_id}"
                 id=tokenID[slice(5, 8)]
                 list_ids.append(id)
+            st.text(list_ids)
             with st.container():
                 for col in [c1, c2, c3]:
                     st.text(tokenID)
