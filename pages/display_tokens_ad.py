@@ -52,20 +52,21 @@ if st.button("Submit"):
                 204: "https://cdn-icons-png.flaticon.com/512/5169/5169269.png",
                 305: "https://i.pinimg.com/736x/58/92/f0/5892f0f20598882750a70dda52078ab0.jpg"
             }
-
             # Display images and captions in three columns
             c1, c2, c3 = st.columns(3)
             c4, c5, c6 = st.columns(3)
+            list_ids = []
+            for index, row in tokens_df.iterrows():
+                token_id = row["Token ID"]
+                tokenID=f"token{token_id}"
+                id=tokenID[slice(5, 8)]
+                list_ids.append(id)
             with st.container():
                 for col in [c1, c2, c3]:
-                    for index, row in tokens_df.iterrows():
-                        token_id = row["Token ID"]
-                        tokenID=f"token{token_id}"
-                        id=tokenID[slice(5, 8)]
-                        
-                        st.text(tokenID)
-                        st.text(id)
-                        for id in image_urls.keys():
+                    st.text(tokenID)
+                    st.text(id)
+                    for id in list_ids:                        
+                        if id_img in image_urls.keys():
                             url=image_urls[id] 
                             st.text(url)
                             if col == c1:
