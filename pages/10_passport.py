@@ -31,7 +31,7 @@ css_code = """
         .custom-image {
             width: 100%;
             border-radius: 5px;
-            height: 200px;
+            height: 300px;
         }
     </style>  
 """
