@@ -17,7 +17,7 @@ css_code = """
         .custom-image {
             width: 100%;
             border-radius: 5px;
-            height: 50px;
+            height: 150px;
         }
     </style>  
 """
