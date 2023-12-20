@@ -74,7 +74,7 @@ if st.button("Submit"):
                                     html_code_col1 = """
                                         <div class="custom-container">
                                             <img src={{url}} class="custom-image">
-                                            f"<p>Token ID: {id}</p>"
+                                            <p>Token ID: </p> <p> {{id}} </p>
                                         </div>
                                     """
                                     c1.markdown(html_code_col1, unsafe_allow_html=True)
