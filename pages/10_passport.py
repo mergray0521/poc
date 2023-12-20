@@ -26,7 +26,6 @@ st.markdown(css_code, unsafe_allow_html=True)
 html_code_row1 = """
     <div class="custom-container">
     <img src= "https://github.com/mergray0521/poc/blob/main/images/QR_Code.png?raw=true" class="custom-image">
-    Top Box
     </div>
 """
 st.markdown(html_code_row1, unsafe_allow_html=True)
@@ -35,12 +34,12 @@ st.markdown(html_code_row1, unsafe_allow_html=True)
 cols_row2 = st.columns(2)
 html_code_row2_left = """
     <div class="custom-container">
-        Left Box
+    <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true class="custom-image">
     </div>
 """
 html_code_row2_right = """
     <div class="custom-container">
-        Right Box
+    <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true class="custom-image">
     </div>
 """
 cols_row2[0].markdown(html_code_row2_left, unsafe_allow_html=True)
