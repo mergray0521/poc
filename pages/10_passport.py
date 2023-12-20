@@ -13,6 +13,15 @@ css_code = """
             height: 350px;
         }
 
+            .custom-box {
+            border: 2px solid #DCDCDC;
+            padding:  5% 5% 5% 10%;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 10px;
+            height: 200px;
+        }
+
         .custom-image {
             width: 100%;
             border-radius: 5px;
@@ -33,12 +42,12 @@ st.markdown(html_code_row1, unsafe_allow_html=True)
 # Second row with two boxes, each taking up half the page (2 columns)
 cols_row2 = st.columns(2)
 html_code_row2_left = """
-    <div class="custom-container">
+    <div class="custom-box">
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true class="custom-image">
     </div>
 """
 html_code_row2_right = """
-    <div class="custom-container">
+    <div class="custom-box">
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true class="custom-image">
     </div>
 """
@@ -48,12 +57,12 @@ cols_row2[1].markdown(html_code_row2_right, unsafe_allow_html=True)
 # Third row with two boxes, each taking up half the page (2 columns)
 cols_row3 = st.columns(2)
 html_code_row3_left = """
-    <div class="custom-container">
+    <div class="custom-bo">
         Left Box
     </div>
 """
 html_code_row3_right = """
-    <div class="custom-container">
+    <div class="custom-box">
         Right Box
     </div>
 """
