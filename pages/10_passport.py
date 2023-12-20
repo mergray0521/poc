@@ -6,7 +6,6 @@ css_code = """
     <style>
         .custom-container {
             border: 2px solid #DCDCDC;
-            padding:  0% 5% 5% 0%;
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
