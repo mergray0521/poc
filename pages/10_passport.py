@@ -28,10 +28,16 @@ css_code = """
 
         }
 
-        .custom-image {
+        .top-image {
             width: 100%;
             border-radius: 5px;
             height: 300px;
+        }
+
+        .smaller-image {
+            width: 100%;
+            border-radius: 5px;
+            height: 150px;
         }
     </style>  
 """
@@ -41,7 +47,7 @@ st.markdown(css_code, unsafe_allow_html=True)
 html_code_row1 = """
     <div class="custom-container">
     <h3 class="custom-header">Redeemables</h3>
-    <img src= "https://github.com/mergray0521/poc/blob/main/images/QR_Code.png?raw=true" class="custom-image">
+    <img src= "https://github.com/mergray0521/poc/blob/main/images/QR_Code.png?raw=true" class="top-image">
     </div>
 """
 st.markdown(html_code_row1, unsafe_allow_html=True)
@@ -51,13 +57,13 @@ cols_row2 = st.columns(2)
 html_code_row2_left = """
     <div class="custom-box">
     <h3 class="custom-header">Points</h3>
-    <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true class="custom-image">
+    <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true class="smaller-image">
     </div>
 """
 html_code_row2_right = """
     <div class="custom-box">
     <h3 class="custom-header">Badges</h3>
-    <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true class="custom-image">
+    <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true class="smaller-image">
     </div>
 """
 cols_row2[0].markdown(html_code_row2_left, unsafe_allow_html=True)
