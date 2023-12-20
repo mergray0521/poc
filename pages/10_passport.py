@@ -49,11 +49,13 @@ st.markdown(html_code_row1, unsafe_allow_html=True)
 cols_row2 = st.columns(2)
 html_code_row2_left = """
     <div class="custom-box">
+    <h3 class="custom-header">Points</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true class="custom-image">
     </div>
 """
 html_code_row2_right = """
     <div class="custom-box">
+    <h3 class="custom-header">Badges</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true class="custom-image">
     </div>
 """
@@ -64,12 +66,12 @@ cols_row2[1].markdown(html_code_row2_right, unsafe_allow_html=True)
 cols_row3 = st.columns(2)
 html_code_row3_left = """
     <div class="custom-box">
-        Left Box
+    <h3 class="custom-header">Park Tickets</h3>
     </div>
 """
 html_code_row3_right = """
     <div class="custom-box">
-        Right Box
+    <h3 class="custom-header">Hotel Keys</h3>
     </div>
 """
 cols_row3[0].markdown(html_code_row3_left, unsafe_allow_html=True)
