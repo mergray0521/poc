@@ -69,7 +69,7 @@ if st.button("Submit"):
                     for id in list_ids:   
                         st.text(id)
                         if id in image_urls.keys():
-                            url=image_urls[id_img] 
+                            url=image_urls[id] 
                             st.text(url)
                             if col == c1:
                                 with col:                               
