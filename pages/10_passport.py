@@ -7,6 +7,7 @@ css_code = """
         .custom-container {
             border: 2px solid #DCDCDC;
             border-radius: 5px;
+            padding:  0% 0% 0% 5%;
             text-align: center;
             margin-bottom: 10px;
             height: 400px;
@@ -14,7 +15,7 @@ css_code = """
 
             .custom-box {
             border: 2px solid #DCDCDC;
-            padding:  5% 5% 5% 10%;
+            padding:  0% 0% 0% 5%;
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
