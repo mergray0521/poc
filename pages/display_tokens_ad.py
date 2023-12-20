@@ -68,36 +68,35 @@ if st.button("Submit"):
                     st.text(id)
                     for id in list_ids:   
                         st.text(id)
-                        if id in image_urls.keys():
+                        if id in image_urls.keys() and col == c1:
                             url=image_urls[id] 
                             st.text(url)
-                            if col == c1:
-                                with col:                               
-                                    c1.markdown(css_code, unsafe_allow_html=True)
-                                    html_code_col1 = """
-                                        <div class="custom-container">
-                                            <img src={{url}} class="custom-image">
-                                            <p>Token ID: </p> <p> {{id}} </p>
-                                        </div>
-                                    """
-                                    c1.markdown(html_code_col1, unsafe_allow_html=True)
+                            with col:                               
+                                c1.markdown(css_code, unsafe_allow_html=True)
+                                html_code_col1 = """
+                                    <div class="custom-container">
+                                        <img src={{url}} class="custom-image">
+                                        <p>Token ID: </p> <p> {{id}} </p>
+                                    </div>
+                                """
+                                c1.markdown(html_code_col1, unsafe_allow_html=True)
 
-                            if col == c2:
-                                with col:
-                                    c2.markdown(css_code, unsafe_allow_html=True)
-                                    html_code_col2 = """
-                                        <div class="custom-container">
-                                            <img src={{url}} class="custom-image">
-                                            <p>Token ID: ' + id+ '</p>
-                                        </div>
-                                    """
-                                    c2.markdown(html_code_col2, unsafe_allow_html=True)
-                            else:
-                                st.warning(f"No col matching URL found for Token ID: {token_id}")
+                        if id in image_urls.keys() and col == c2:
+                            with col:
+                                c2.markdown(css_code, unsafe_allow_html=True)
+                                html_code_col2 = """
+                                    <div class="custom-container">
+                                        <img src={{url}} class="custom-image">
+                                        <p>Token ID: ' + id+ '</p>
+                                    </div>
+                                """
+                                c2.markdown(html_code_col2, unsafe_allow_html=True)
+                        else:
+                            st.warning(f"No col matching URL found for Token ID: {token_id}")
                     # with cols[index % 3]:
                     #     st.image(image_url, caption=caption, use_container_width=True)
-                        else:
-                            st.warning(f"No image URL found for Token ID: {token_id}")
+                        # else:
+                        #     st.warning(f"No image URL found for Token ID: {token_id}")
 
         # else:
         #     st.warning(f"No tokens found for User ID {user_id}")
