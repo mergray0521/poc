@@ -34,6 +34,7 @@ css_code = """
 st.markdown(css_code, unsafe_allow_html=True)
 html_code_row1 = """
     <div class="custom-container">
+    <p> Redeemables </p>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/QR_Code.png?raw=true" class="custom-image">
     </div>
 """
