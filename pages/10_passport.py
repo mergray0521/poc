@@ -12,7 +12,7 @@ css_code = """
             margin-bottom: 10px;
             height: 200px;
         }
-    </style>
+    </style>  
 """
 
 # First row with one container spanning both columns
