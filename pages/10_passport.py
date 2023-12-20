@@ -87,7 +87,7 @@ html_code_row3_left = """
 html_code_row3_right = """
     <div class="custom-box">
     <h3 class="custom-header">Hotel Keys</h3>
-    <img src= "https://th.bing.com/th/id/R.02023a7862e44b743993fcd7b6095ed2?rik=fcRJUsL91OVAQA&riu=http%3a%2f%2ficons.iconarchive.com%2ficons%2fpaomedia%2fsmall-n-flat%2f1024%2fkey-icon.png&ehk=wJ2fX%2bHE%2f0Xi7FtOUI7tSvW4Z0%2b7m0lonNU61mtdwOM%3d&risl=&pid=ImgRaw&r=0" class="smaller-image">
+    <img src= "https://static.vecteezy.com/system/resources/previews/000/487/492/original/key-icon-design-vector.jpg" class="smaller-image">
     </div>
 """
 cols_row3[0].markdown(html_code_row3_left, unsafe_allow_html=True)
