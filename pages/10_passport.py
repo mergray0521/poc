@@ -44,7 +44,7 @@ css_code = """
          .ticket-image {
             width: 100%;
             border-radius: 5px;
-            height: 10px;
+            height: 1px;
         }
     </style>  
 """
