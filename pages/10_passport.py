@@ -25,7 +25,7 @@ css_code = """
           .custom-header {
             text-align: left;
             font-weight: bold;
-            margin-bottom: 10px;
+
         }
 
         .custom-image {
