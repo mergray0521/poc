@@ -15,7 +15,7 @@ result = my_cur.fetchall()
 
 # Display the result in Streamlit
 if result:
-   st.success(f"Points for User ID {user_id}:" {result})
+   st.success(f"Points for User ID {user_id}: {result}")
    points_df = pd.DataFrame(result, columns=["Point_Quantity"])
    points = points_df[0]
    
