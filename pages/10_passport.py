@@ -51,7 +51,7 @@ css_code = """
         .ticket-image {
             width: 70%;
             border-radius: 5px;
-            height: 100px;
+            height: 150px;
         }
 
          .key-image {
