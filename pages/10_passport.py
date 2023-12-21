@@ -129,6 +129,7 @@ html_code_row2_right = ("""
 """
     f"<p>{token_count}</p>"
     "</div>"
+)
 """
 cols_row2[0].markdown(html_code_row2_left, unsafe_allow_html=True)
 cols_row2[1].markdown(html_code_row2_right, unsafe_allow_html=True)
