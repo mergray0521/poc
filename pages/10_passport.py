@@ -49,9 +49,9 @@ css_code = """
         }
 
         .ticket-image {
-            width: 70%;
+            width: 80%;
             border-radius: 5px;
-            height: 150px;
+            height: 200px;
         }
 
          .key-image {
