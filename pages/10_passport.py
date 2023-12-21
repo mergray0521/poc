@@ -11,7 +11,12 @@ user_id = 3
 query = f"SELECT user_id FROM point_ownership WHERE user_id = '{user_id}'"
 my_cur.execute(query)
 result = my_cur.fetchall()
-console.log("token points:" + result)
+
+   # Display the result in Streamlit
+        if result:
+            st.success(f"Points for User ID {user_id}:")
+            tokens_df = pd.DataFrame(result, columns=["Point_Quantity"])
+# console.log("token points:" + result)
  
 
 
