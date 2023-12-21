@@ -109,7 +109,7 @@ html_code_row2_left = """
     <div class="custom-box">
     <h3 class="custom-header">Points</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true class="smaller-image">
-    <p>{point_quantity_value}</p>
+    f"<p>{point_quantity_value}</p>
     </div>
 """
 html_code_row2_right = """
