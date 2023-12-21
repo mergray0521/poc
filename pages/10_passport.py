@@ -10,21 +10,15 @@ my_cur = my_cnx.cursor()
 user_id = 1
 
 # Query the token_ownership table
-query = f"SELECT user_id FROM point_ownership WHERE user_id = '{user_id}'"
+query = f"SELECT user_id, point_quantity FROM point_ownership WHERE user_id = '{user_id}'"
 my_cur.execute(query)
 result = my_cur.fetchall()
 
 # Display the result in Streamlit
 if result:
    st.success(f"Points for User ID {user_id}:")
-   points_df = pd.DataFrame(result, columns=["Point_Quantity"])
-   
-  # points = points_df[0]['Point_Quantity']
-
-
-   # points = points_df[0]
-   # st.success(f"Points for user 1 {points}:")
-   
+   points_df = pd.DataFrame(result, columns=["User_ID", "Point_Quantity"])
+   st.dataframe(points_df)
 
 
 st.title("My Stuff")
