@@ -48,6 +48,12 @@ css_code = """
             height: 50px;
         }
 
+        .ticket-image {
+            width: 50%;
+            border-radius: 5px;
+            height: 50px;
+        }
+
             .bottom-image {
             width: 500%;
             border-radius: 5px;
@@ -89,7 +95,7 @@ cols_row3 = st.columns(2)
 html_code_row3_left = """
     <div class="custom-box">
     <h3 class="custom-header">Park Tickets</h3>
-    <img src= "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true" class="smaller-image">
+    <img src= "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true" class="ticket-image">
     </div>
 """
 html_code_row3_right = """
