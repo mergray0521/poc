@@ -13,10 +13,11 @@ my_cur.execute(query)
 result = my_cur.fetchall()
 
    # Display the result in Streamlit
-        if result:
-            st.success(f"Points for User ID {user_id}:")
-            tokens_df = pd.DataFrame(result, columns=["Point_Quantity"])
-# console.log("token points:" + result)
+if result:
+   st.success(f"Points for User ID {user_id}:")
+   tokens_df = pd.DataFrame(result, columns=["Point_Quantity"])
+
+# output = st.empty()with st_capture(output.code):     print("token points:" + result)
  
 
 
