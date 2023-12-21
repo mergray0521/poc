@@ -6,7 +6,7 @@ import pandas as pd
 my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
-user_id = 3
+user_id = 1
 
 # Query the token_ownership table
 query = f"SELECT user_id FROM point_ownership WHERE user_id = '{user_id}'"
@@ -17,9 +17,6 @@ result = my_cur.fetchall()
 if result:
    st.success(f"Points for User ID {user_id}:")
    tokens_df = pd.DataFrame(result, columns=["Point_Quantity"])
-
-# output = st.empty()with st_capture(output.code):     print("token points:" + result)
- 
 
 
 st.title("My Stuff")
