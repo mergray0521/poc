@@ -40,6 +40,12 @@ css_code = """
             height: 50px;
         }
 
+            .bottom-image {
+            width: 100%;
+            border-radius: 5px;
+            height: 100px;
+        }
+
     </style>  
 """
 
@@ -86,3 +92,12 @@ html_code_row3_right = """
 """
 cols_row3[0].markdown(html_code_row3_left, unsafe_allow_html=True)
 cols_row3[1].markdown(html_code_row3_right, unsafe_allow_html=True)
+
+# First row with one container spanning both columns
+st.markdown(css_code, unsafe_allow_html=True)
+html_code_row4 = """
+    <div class="custom-container">
+    <img src= "https://github.com/mergray0521/poc/blob/main/images/bottom.png?raw=true" class="bottom-image">
+    </div>
+"""
+st.markdown(html_code_row4, unsafe_allow_html=True)
