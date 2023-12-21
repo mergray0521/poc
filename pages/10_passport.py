@@ -61,7 +61,7 @@ css_code = """
         }
 
             .bottom-image {
-            width: 500%;
+            width: 100%;
             border-radius: 5px;
             height: 100px;
         }
