@@ -1,6 +1,7 @@
 import streamlit as st
-import snowflake.connector
 import pandas as pd
+import snowflake.connector
+
 
 # Your database connection
 my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
