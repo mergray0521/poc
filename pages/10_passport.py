@@ -16,11 +16,8 @@ result = my_cur.fetchall()
 
 # Display the result in Streamlit
 if result:
-   st.success(f"Points for User ID {user_id}:")
    points_df = pd.DataFrame(result, columns=["User_ID", "Point_Quantity"])
-   st.dataframe(points_df)
-
-# Assuming points_df is already defined
+   
 point_quantity_value = points_df["Point_Quantity"].iloc[0] if not points_df.empty else "N/A"
 
 
