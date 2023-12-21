@@ -11,6 +11,8 @@ user_id = 3
 query = f"SELECT user_id FROM point_ownership WHERE user_id = '{user_id}'"
 my_cur.execute(query)
 result = my_cur.fetchall()
+console.log("token points:" + result)
+ 
 
 
 st.title("My Stuff")
