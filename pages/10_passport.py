@@ -141,7 +141,7 @@ cols_row3[1].markdown(html_code_row3_right, unsafe_allow_html=True)
 # First row with one container spanning both columns
 st.markdown(css_code, unsafe_allow_html=True)
 html_code_row4 = """
-    <div class="custom-container">
+    <div class="footer-container">
     <img src= "https://github.com/mergray0521/poc/blob/main/images/bottom.png?raw=true" class="bottom-image">
     </div>
 """
