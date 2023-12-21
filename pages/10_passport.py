@@ -17,6 +17,7 @@ result = my_cur.fetchall()
 if result:
    st.success(f"Points for User ID {user_id}:")
    points_df = pd.DataFrame(result, columns=["Point_Quantity"])
+   points = points_df[0]['Point_Quantity']
    # points = points_df[0]
    # st.success(f"Points for user 1 {points}:")
    
