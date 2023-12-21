@@ -107,7 +107,7 @@ html_code_row3_left = """
 html_code_row3_right = """
     <div class="custom-box">
     <h3 class="custom-header">Hotel Keys</h3>
-    <img src= "https://github.com/mergray0521/poc/blob/main/images/key.png?raw=true class="key-image"">
+    <img src= "https://github.com/mergray0521/poc/blob/main/images/key.png?raw=true" class="key-image">
     </div>
 """
 cols_row3[0].markdown(html_code_row3_left, unsafe_allow_html=True)
