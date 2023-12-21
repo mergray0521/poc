@@ -49,7 +49,7 @@ css_code = """
         }
 
             .bottom-image {
-            width: 100%;
+            width: 500%;
             border-radius: 5px;
             height: 300px;
         }
