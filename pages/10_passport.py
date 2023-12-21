@@ -81,7 +81,7 @@ cols_row3 = st.columns(2)
 html_code_row3_left = """
     <div class="custom-box">
     <h3 class="custom-header">Park Tickets</h3>
-    <img src= "https://th.bing.com/th/id/OIP.uf88vISNWrzqmU40p2Ya4AAAAA?rs=1&pid=ImgDetMain class="ticket-image">
+    <img src= "https://cdn-icons-png.flaticon.com/512/4406/4406665.png" class="ticket-image">
     </div>
 """
 html_code_row3_right = """
