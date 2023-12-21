@@ -1,5 +1,17 @@
 import streamlit as st
-import snowflake-connector
+import snowflake.connector
+
+# Your database connection
+my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
+my_cur = my_cnx.cursor()
+
+user_id = 3
+
+# Query the token_ownership table
+query = f"SELECT user_id FROM point_ownership WHERE user_id = '{user_id}'"
+my_cur.execute(query)
+result = my_cur.fetchall()
+
 
 st.title("My Stuff")
 
@@ -69,18 +81,6 @@ css_code = """
 
     </style>  
 """
-
-user_id = 3
-
-# Query the token_ownership table
-query = f"SELECT user_id FROM point_ownership WHERE user_id = '{user_id}'"
-my_cur.execute(query)
-result = my_cur.fetchall()
-
-
-
-
-
 
 # First row with one container spanning both columns
 st.markdown(css_code, unsafe_allow_html=True)
