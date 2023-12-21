@@ -23,9 +23,9 @@ point_quantity_value = points_df["Point_Quantity"].iloc[0] if not points_df.empt
 
 
 # Query to count the number of tokens for a user
-count_query = f"SELECT COUNT(*) FROM token_ownership WHERE user_id = '{user_id}'"
+count_query = f"SELECT COUNT user_id FROM token_ownership WHERE user_id = '{user_id}'"
 my_cur.execute(count_query)
-token_count_result = my_cur.fetchone()
+token_count_result = my_cur.fetchall()
 
 # Grab the count value
 token_count = token_count_result[0] if token_count_result else 0
