@@ -18,7 +18,10 @@ result = my_cur.fetchall()
 if result:
    st.success(f"Points for User ID {user_id}:")
    points_df = pd.DataFrame(result, columns=["Point_Quantity"])
-   # points = points_df[0]['Point_Quantity']
+   
+   points = points_df[0]['Point_Quantity']
+
+
    # points = points_df[0]
    # st.success(f"Points for user 1 {points}:")
    
@@ -109,7 +112,7 @@ html_code_row2_left = """
     <div class="custom-box">
     <h3 class="custom-header">Points</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true class="smaller-image">
-    <p>{result}</p>
+    <p>{points_df}</p>
     </div>
 """
 html_code_row2_right = """
