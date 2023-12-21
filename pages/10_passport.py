@@ -13,7 +13,7 @@ query = f"SELECT user_id FROM point_ownership WHERE user_id = '{user_id}'"
 my_cur.execute(query)
 result = my_cur.fetchall()
 
-   # Display the result in Streamlit
+# Display the result in Streamlit
 if result:
    st.success(f"Points for User ID {user_id}:")
    tokens_df = pd.DataFrame(result, columns=["Point_Quantity"])
@@ -107,7 +107,7 @@ html_code_row2_left = """
     <div class="custom-box">
     <h3 class="custom-header">Points</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true class="smaller-image">
-    <p> </p>
+    <p>{result}</p>
     </div>
 """
 html_code_row2_right = """
