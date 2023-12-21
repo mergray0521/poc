@@ -110,7 +110,7 @@ html_code_row2_left = ("""
     <h3 class="custom-header">Points</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true class="smaller-image">
 """ 
-    f"<p>{}</p>"
+    f"<p>{point_quantity_value}</p>"
     "</div>"
 )
 
@@ -119,7 +119,7 @@ html_code_row2_right = ("""
     <h3 class="custom-header">Badges</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true class="smaller-image">
 """
-    f"<p>{token_count}</p>"
+    f"<p>{point_quantity_value}</p>"
     "</div>"
 )
 
