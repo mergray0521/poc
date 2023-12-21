@@ -105,13 +105,15 @@ st.markdown(html_code_row1, unsafe_allow_html=True)
 
 # Second row with two boxes, each taking up half the page (2 columns)
 cols_row2 = st.columns(2)
-html_code_row2_left = """
+html_code_row2_left = ("""
     <div class="custom-box">
     <h3 class="custom-header">Points</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true class="smaller-image">
-    f"<p>{point_quantity_value}</p>
-    </div>
-"""
+""" 
+    f"<p>{point_quantity_value}</p>"
+    "</div>"
+)
+
 html_code_row2_right = """
     <div class="custom-box">
     <h3 class="custom-header">Badges</h3>
