@@ -40,12 +40,6 @@ css_code = """
             height: 50px;
         }
 
-
-         .ticket-image {
-            width: 100%;
-            border-radius: 5px;
-            height: 1px;
-        }
     </style>  
 """
 
@@ -81,7 +75,7 @@ cols_row3 = st.columns(2)
 html_code_row3_left = """
     <div class="custom-box">
     <h3 class="custom-header">Park Tickets</h3>
-    <img src= "https://github.com/mergray0521/poc/blob/main/images/QR_Code.png?raw=true" class="ticket-image">
+    <img src= "https://github.com/mergray0521/poc/blob/main/images/QR_Code.png?raw=true" class="smaller-image">
     </div>
 """
 html_code_row3_right = """
