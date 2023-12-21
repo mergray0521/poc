@@ -7,22 +7,32 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
+#Define user
 user_id = 1
 
-# Query the token_ownership table
+# Query the point_ownership table 
 query = f"SELECT user_id, point_quantity FROM point_ownership WHERE user_id = '{user_id}'"
 my_cur.execute(query)
 result = my_cur.fetchall()
 
-# Display the result in Streamlit
+# Grab result to reference as variable in html/ container
 if result:
    points_df = pd.DataFrame(result, columns=["User_ID", "Point_Quantity"])
-   
+
 point_quantity_value = points_df["Point_Quantity"].iloc[0] if not points_df.empty else "N/A"
 
 
+# Query to count the number of tokens for a user
+count_query = f"SELECT COUNT(*) FROM token_ownership WHERE user_id = '{user_id}'"
+my_cur.execute(count_query)
+token_count_result = my_cur.fetchone()
+
+# Grab the count value
+token_count = token_count_result[0] if token_count_result else 0
+
 st.title("My Stuff")
 
+#css styling
 css_code = """
     <style>
         .custom-container {
@@ -90,6 +100,7 @@ css_code = """
     </style>  
 """
 
+#html containers
 # First row with one container spanning both columns
 st.markdown(css_code, unsafe_allow_html=True)
 html_code_row1 = """
@@ -100,7 +111,7 @@ html_code_row1 = """
 """
 st.markdown(html_code_row1, unsafe_allow_html=True)
 
-# Second row with two boxes, each taking up half the page (2 columns)
+# Second row with two boxes/ columns, each taking up half the page
 cols_row2 = st.columns(2)
 html_code_row2_left = ("""
     <div class="custom-box">
@@ -111,11 +122,13 @@ html_code_row2_left = ("""
     "</div>"
 )
 
-html_code_row2_right = """
+html_code_row2_right = ("""
     <div class="custom-box">
     <h3 class="custom-header">Badges</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true class="smaller-image">
-    </div>
+"""
+    f""<p>{token_count}</p>"
+    "</div>"
 """
 cols_row2[0].markdown(html_code_row2_left, unsafe_allow_html=True)
 cols_row2[1].markdown(html_code_row2_right, unsafe_allow_html=True)
