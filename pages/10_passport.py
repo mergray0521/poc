@@ -22,6 +22,14 @@ css_code = """
             height: 300px;
         }
 
+         .footer-container {
+            border-radius: 5px;
+            padding:  0% 0% 0% 5%;
+            text-align: center;
+            margin-bottom: 10px;
+            height: 400px;
+        }
+
           .custom-header {
             text-align: left;
             font-weight: bold;
@@ -43,7 +51,7 @@ css_code = """
             .bottom-image {
             width: 100%;
             border-radius: 5px;
-            height: 100px;
+            height: 300px;
         }
 
     </style>  
@@ -96,7 +104,7 @@ cols_row3[1].markdown(html_code_row3_right, unsafe_allow_html=True)
 # First row with one container spanning both columns
 st.markdown(css_code, unsafe_allow_html=True)
 html_code_row4 = """
-    <div class="custom-container">
+    <div class="footer-container">
     <img src= "https://github.com/mergray0521/poc/blob/main/images/bottom.png?raw=true" class="bottom-image">
     </div>
 """
