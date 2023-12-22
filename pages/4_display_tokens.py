@@ -66,8 +66,7 @@ if st.button("Submit"):
             list_ids = []
             for index, row in tokens_df.iterrows():
                 token_id = row["Token ID"]
-                tokenID = f"token{token_id}"
-                id = tokenID[slice(5, 8)]
+                id = token_id % 1000  # Extract the last three digits of the token_id
                 list_ids.append(id)
 
             for col in cols:
@@ -84,7 +83,7 @@ if st.button("Submit"):
                             """
                             st.markdown(html_code_col, unsafe_allow_html=True)
                     else:
-                        st.warning(f"No image URL found for Token ID: {token_id}")
+                        st.warning(f"No image URL found for Token ID: {id}")
 
         else:
             st.warning(f"No tokens found for User ID {user_id}")
