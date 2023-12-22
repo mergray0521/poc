@@ -22,6 +22,14 @@ if result:
 point_quantity_value = points_df["Point_Quantity"].iloc[0] if not points_df.empty else "N/A"
 
 
+# Query the token_ownership table for token IDs
+token_query = f"SELECT token_id FROM token_ownership WHERE user_id = '{user_id}'"
+my_cur.execute(token_query)
+token_result = my_cur.fetchall()
+
+# Extract token IDs and create a comma-separated list
+token_ids = ", ".join(str(token[0]) for token in token_result) if token_result else "N/A"
+
 st.title("My Stuff")
 
 #css styling
@@ -119,7 +127,7 @@ html_code_row2_right = ("""
     <h3 class="custom-header">Badges</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true class="smaller-image">
 """
-    f"<p>{point_quantity_value}</p>"
+    f"<p>{token_ids}</p>"
     "</div>"
 )
 
