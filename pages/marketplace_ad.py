@@ -39,7 +39,7 @@ with st.container():
                 c1.markdown(css_code, unsafe_allow_html=True)
                 html_code_token1 = """
                     <div class="custom-container">
-                        <img src="https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain" alt="My Say Token" class="custom-image">
+                        <img src="https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true" alt="My Say Token" class="custom-image">
                         <p>1,000 points</p>
                         <button class="custom-button">Purchase My Say</button>
                     </div>
@@ -50,7 +50,7 @@ with st.container():
                 c2.markdown(css_code, unsafe_allow_html=True)
                 html_code_token2 = """
                     <div class="custom-container">
-                        <img src="https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png" alt="My Way Token" class="custom-image">
+                        <img src="https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true" alt="My Way Token" class="custom-image">
                         <p>2,000 points</p>
                         <button class="custom-button">Purchase My Way</button>
                     </div>
@@ -61,7 +61,7 @@ with st.container():
                 c3.markdown(css_code, unsafe_allow_html=True)
                 html_code_token3 = """
                     <div class="custom-container">
-                        <img src="https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain" alt="My Day Token" class="custom-image">
+                        <img src="https://github.com/mergray0521/poc/blob/main/images/key.png?raw=true" alt="My Day Token" class="custom-image">
                         <p>3,000 points</p>
                         <button class="custom-button">Purchase My Day</button>
                     </div>
@@ -76,9 +76,9 @@ with st.container():
                 c4.markdown(css_code, unsafe_allow_html=True)
                 html_code_token4 = """
                     <div class="custom-container">
-                        <img src="https://th.bing.com/th/id/OIP.OLAyoeOOoWuXs2aaZ9FL9QHaKl?rs=1&pid=ImgDetMain" alt="Minion Glasses" class="custom-image">
-                        <p>2,000 points</p>
-                        <button class="custom-button">Purchase Glasses</button>
+                        <img src="https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true" alt="Minion Glasses" class="custom-image">
+                        <p>4,000 points</p>
+                        <button class="custom-button">Purchase Park Ticket</button>
                     </div>
                 """
                 c4.markdown(html_code_token4, unsafe_allow_html=True)
