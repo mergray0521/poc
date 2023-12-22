@@ -71,7 +71,7 @@ for info in hotel_key_result:
     key_info = (
         f"Hotel Name: {info[1]}\n"
         f"Room Number: {room_number}\n"
-        f"Checkout Date: {info[2].strftime('%m/%d/%y')}"  # Assuming checkout date is in the 3rd column
+        f"Checkout Date: {checkout_date}"
     )
     hotel_key_info.append(key_info)
 
