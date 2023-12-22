@@ -11,7 +11,7 @@ css_code = """
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 350px;
+            height: 250px;
         }
 
         .custom-image {
@@ -87,9 +87,9 @@ with st.container():
                 c5.markdown(css_code, unsafe_allow_html=True)
                 html_code_token5 = """
                     <div class="custom-container">
-                        <img src="https://mickeystravel.com/site/universal/files/2016/06/Universal-Orlando-base-Ticket.png" alt="Park Pass" class="custom-image">
+                        <img src="https://shop.universalorlando.com/merchimages/p-despicable-me-minion-orlando-hitchhike-sign-pin-1290914.jpg" alt="Park Pass" class="custom-image">
                         <p>4,000 points</p>
-                        <button class="custom-button">Purchase My Way</button>
+                        <button class="custom-button">Purchase Minion Character</button>
                     </div>
                 """
                 c5.markdown(html_code_token5, unsafe_allow_html=True)
@@ -98,9 +98,9 @@ with st.container():
                 c6.markdown(css_code, unsafe_allow_html=True)
                 html_code_token6 = """
                     <div class="custom-container">
-                        <img src="https://th.bing.com/th/id/OIP.2JqerB2uBGAwciMukwF5ygHaHJ?rs=1&pid=ImgDetMain" alt="Dragon" class="custom-image">
+                        <img src="https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png" alt="Dragon" class="custom-image">
                         <p>3,000 points</p>
-                        <button class="custom-button">Purchase Dragon</button>
+                        <button class="custom-button">Purchase Dragon Egg</button>
                     </div>
                 """
                 c6.markdown(html_code_token6, unsafe_allow_html=True)
