@@ -44,7 +44,7 @@ park_ticket_info = ", ".join(str(info) for info in park_ticket_result) if park_t
 
 # Query the hotel_key table for token_id 1101
 hotel_key_query = "SELECT * FROM hotel_key WHERE token_id = 1101"
-my_cur.execute(hotel_key_query)
+my_cur2.execute(hotel_key_query)
 hotel_key_result = my_cur2.fetchall()
 
 # Extract hotel key information and create a comma-separated list
