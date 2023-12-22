@@ -7,13 +7,28 @@ my_cur = my_cnx.cursor()
 st.header("Earned Points") 
 st.text("You’ve earned 50 Park points for your latest park visit! Redeem your points now for the Park Pro Token!")
 
-image_url = "https://i.pinimg.com/originals/4f/72/64/4f7264966212744a1302d8c960abe398.jpg"
+image_url = "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true"
 st.image(image_url, caption="+50 points", use_column_width=True)
 
+user_id = 1
+
+# Retrieve current point_quantity for user_id = 1
+query_select = f"SELECT point_quantity FROM point_ownership WHERE user_id = '{user_id}'"
+my_cur.execute(query_select)
+current_points = my_cur.fetchone()
+
+current_points = current_points[0] if current_points else 0
+
 if st.button("Collect"):
-    # Insert the form data into Snowflake
-    query = f"INSERT INTO point_ownership (USER_ID, POINT_QUANTITY) VALUES ('{3}','{50}')"
-    my_cur.execute(query)
+    # Calculate new points
+    new_points = current_points + 50
+
+    # Update the row in Snowflake with the new value
+    query_update = f"UPDATE point_ownership SET point_quantity = '{new_points}' WHERE user_id = '{user_id}'"
+    my_cur.execute(query_update)
     my_cnx.commit()
-    st.success(f"50 points added to user {3}'s wallet")
-    st.text("Proceed to marketplace page to redeem") 
+
+    st.success(f"50 points added to user {user_id}'s wallet")
+    st.text(f"Total points now: {new_points}")
+    st.text("Proceed to the marketplace page to redeem") 
+
