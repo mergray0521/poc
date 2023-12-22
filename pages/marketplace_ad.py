@@ -86,9 +86,9 @@ with st.container():
                 c5.markdown(css_code, unsafe_allow_html=True)
                 html_code_token5 = """
                     <div class="custom-container">
-                        <img src="https://static.wikia.nocookie.net/dragon-adventures/images/e/e0/Egg_Icon.png/revision/latest/scale-to-width-down/1200?cb=20211011072304" alt="Park Pass" class="custom-image">
+                        <img src="https://static.wikia.nocookie.net/mycun-the-movie/images/c/c9/Bob_%28Despicable_Me%29.png/revision/latest/thumbnail/width/360/height/360?cb=20230509144510" alt="Park Pass" class="custom-image">
                         <p>4,000 points</p>
-                        <button class="custom-button">Purchase Dragon Egg</button>
+                        <button class="custom-button">Purchase Minion</button>
                     </div>
                 """
                 c5.markdown(html_code_token5, unsafe_allow_html=True)
