@@ -4,6 +4,22 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
+css_code = """
+    <style>
+        .custom-container {
+            border: 2px solid #DCDCDC;
+            border-radius: 5px;
+            padding:  0% 0% 0% 5%;
+            text-align: center;
+            margin-bottom: 10px;
+            height: 400px;
+        }
+
+    </style>  
+"""
+st.markdown(css_code, unsafe_allow_html=True)
+
+
 st.header("Earned Points") 
 st.text("You’ve earned 50 Park points for your latest park visit! Redeem your points now for the Park Pro Token!")
 
