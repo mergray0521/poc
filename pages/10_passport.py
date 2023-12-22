@@ -31,6 +31,7 @@ token_result = my_cur.fetchall()
 token_ids = ", ".join(str(token[0]) for token in token_result) if token_result else "N/A"
 
 st.title("My Stuff")
+st.text("User 1: Micah Uhrlass")
 
 #css styling
 css_code = """
