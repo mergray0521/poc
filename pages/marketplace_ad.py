@@ -5,13 +5,12 @@ st.header("Token Marketplace")
 css_code = """
     <style>
         .custom-container {
-            border: 2px solid #DCDCDC;
-            background: #DCDCDC;
-            padding:  5% 5% 5% 10%;
+            border: 2px solid #1f618d;
+            padding: 10px;
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 250px;
+            height: 350px;
         }
 
         .custom-image {
