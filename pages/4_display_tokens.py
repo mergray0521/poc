@@ -64,4 +64,26 @@ if st.button("Submit"):
             # Display images and captions in three columns
             cols = st.columns(3)
             list_ids = []
-            for index, row in tokens
+            for index, row in tokens_df.iterrows():
+                token_id = row["Token ID"]
+                id = token_id % 1000  # Extract the last three digits of the token_id
+                list_ids.append(id)
+
+            for col, token_id in zip(cols, list_ids):
+                if token_id in image_urls.keys():
+                    url = image_urls[token_id]
+                    with col:
+                        st.markdown(css_code, unsafe_allow_html=True)
+                        html_code_col = f"""
+                            <div class="custom-container">
+                                <img src="{url}" class="custom-image">
+                                <p>Token ID: {token_id}</p>
+                            </div>
+                        """
+                        st.markdown(html_code_col, unsafe_allow_html=True)
+                else:
+                    st.warning(f"No image URL found for Token ID: {token_id}")
+
+        else:
+            st.warning(f"No tokens found for User ID {user_id}")
+
