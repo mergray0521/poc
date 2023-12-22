@@ -30,6 +30,23 @@ token_result = my_cur.fetchall()
 # Extract token IDs and create a comma-separated list
 token_ids = ", ".join(str(token[0]) for token in token_result) if token_result else "N/A"
 
+# Query the park_ticket table for token_id 1001
+park_ticket_query = "SELECT * FROM park_ticket WHERE token_id = 1001"
+my_cur.execute(park_ticket_query)
+park_ticket_result = my_cur.fetchall()
+
+# Extract park ticket information and create a comma-separated list
+park_ticket_info = ", ".join(str(info) for info in park_ticket_result) if park_ticket_result else "N/A"
+
+# Query the hotel_key table for token_id 1101
+hotel_key_query = "SELECT * FROM hotel_key WHERE token_id = 1101"
+my_cur.execute(hotel_key_query)
+hotel_key_result = my_cur.fetchall()
+
+# Extract hotel key information and create a comma-separated list
+hotel_key_info = ", ".join(str(info) for info in hotel_key_result) if hotel_key_result else "N/A"
+
+
 st.title("My Stuff")
 st.text("User 1: Micah Uhrlass")
 
@@ -137,18 +154,23 @@ cols_row2[1].markdown(html_code_row2_right, unsafe_allow_html=True)
 
 # Third row with two boxes, each taking up half the page (2 columns)
 cols_row3 = st.columns(2)
-html_code_row3_left = """
+html_code_row3_left = ("""
     <div class="custom-box">
     <h3 class="custom-header">Park Tickets</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true" class="ticket-image">
-    </div>
 """
-html_code_row3_right = """
+    f"<p>{park_ticket_info}</p>"
+    "</div>"
+)
+
+html_code_row3_right = ("""
     <div class="custom-box">
     <h3 class="custom-header">Hotel Keys</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/key.png?raw=true" class="ticket-image">
-    </div>
 """
+    f"<p>{hotel_key_info}</p>"
+    "</div>"
+)
 cols_row3[0].markdown(html_code_row3_left, unsafe_allow_html=True)
 cols_row3[1].markdown(html_code_row3_right, unsafe_allow_html=True)
 
