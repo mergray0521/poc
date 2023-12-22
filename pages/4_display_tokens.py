@@ -69,21 +69,28 @@ if st.button("Submit"):
                 id = token_id % 1000  # Extract the last three digits of the token_id
                 list_ids.append(id)
 
-            for col, token_id in zip(cols, list_ids):
-                if token_id in image_urls.keys():
-                    url = image_urls[token_id]
-                    with col:
-                        st.markdown(css_code, unsafe_allow_html=True)
-                        html_code_col = f"""
-                            <div class="custom-container">
-                                <img src="{url}" class="custom-image">
-                                <p>Token ID: {token_id}</p>
-                            </div>
-                        """
-                        st.markdown(html_code_col, unsafe_allow_html=True)
-                else:
-                    st.warning(f"No image URL found for Token ID: {token_id}")
+            # Calculate the number of rows needed
+            num_rows = (len(list_ids) + 2) // 3  # Ceiling division
+
+            for row in range(num_rows):
+                with st.container():
+                    for col in cols:
+                        token_index = row * 3 + cols.index(col)
+                        if token_index < len(list_ids):
+                            token_id = list_ids[token_index]
+                            if token_id in image_urls.keys():
+                                url = image_urls[token_id]
+                                with col:
+                                    st.markdown(css_code, unsafe_allow_html=True)
+                                    html_code_col = f"""
+                                        <div class="custom-container">
+                                            <img src="{url}" class="custom-image">
+                                            <p>Token ID: {token_id}</p>
+                                        </div>
+                                    """
+                                    st.markdown(html_code_col, unsafe_allow_html=True)
+                            else:
+                                st.warning(f"No image URL found for Token ID: {token_id}")
 
         else:
             st.warning(f"No tokens found for User ID {user_id}")
-
