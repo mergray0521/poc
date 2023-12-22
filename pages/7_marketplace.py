@@ -1,8 +1,7 @@
 import requests
 import streamlit as st
-
+# color:#33ff33;background-color: #EEEEEE;border: 2px solid #CCCCCC;padding: 5% 5% 5% 10%;border-radius: 5px;
 st.header("Token Marketplace")
-
 css_code = """
     <style>
         .custom-container {
@@ -11,12 +10,13 @@ css_code = """
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 350px;
+            height: 280px;
         }
 
         .custom-image {
             width: 100%;
             border-radius: 5px;
+            height: 150px;
         }
 
         .custom-button {
@@ -26,32 +26,80 @@ css_code = """
     </style>
 """
 
-with st.container():
-    col1, col2, col3 = st.columns(3)
+# Create 3 columns and two rows
+c1, c2, c3 = st.columns(3)
+c4, c5, c6 = st.columns(3) 
 
-    for col in [col1, col2, col3]:
-        with col:
-            st.markdown(css_code, unsafe_allow_html=True)
-
-            html_code = """
-                <div class="custom-container">
-                    <img src="https://th.bing.com/th/id/OIP.Xk44653VMX5ZhgDi0h1oIQHaE8?rs=1&pid=ImgDetMain" alt="My Say Token" class="custom-image">
-                    <p>1,000 points</p>
-                    <button class="custom-button">Purchase My Say</button>
-                </div>
-
-                <div class="custom-container">
-                    <img src="https://cdn4.iconfinder.com/data/icons/slot-machine-icons/200/casino_token-512.png" alt="My Way Token" class="custom-image">
-                    <p>2,000 points</p>
-                    <button class="custom-button">Purchase My Way</button>
-                </div>
-
-                <div class="custom-container">
-                    <img src="https://th.bing.com/th/id/OIP.T2FQy8uhLgynn5M-UTI0ZAHaHa?rs=1&pid=ImgDetMain" alt="My Day Token" class="custom-image">
-                    <p>3,000 points</p>
-                    <button class="custom-button">Purchase My Day</button>
-                </div>
-
+with st.container(): 
+    # c1, c2, c3 = st.columns(3)
+    for col in [c1, c2, c3]: 
+        if col == c1:
+            with col:
+                c1.markdown(css_code, unsafe_allow_html=True)
+                html_code_token1 = """
+                    <div class="custom-container">
+                        <img src="https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true" alt="My Say Token" class="custom-image">
+                        <p>1,000 points</p>
+                        <button class="custom-button">Purchase My Say</button>
+                    </div>
+                """
+                c1.markdown(html_code_token1, unsafe_allow_html=True)
+        if col == c2:
+            with col:        
+                c2.markdown(css_code, unsafe_allow_html=True)
+                html_code_token2 = """
+                    <div class="custom-container">
+                        <img src="https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true" alt="My Way Token" class="custom-image">
+                        <p>2,000 points</p>
+                        <button class="custom-button">Purchase My Way</button>
+                    </div>
+                """
+                c2.markdown(html_code_token2, unsafe_allow_html=True)
+        if col == c3:
+            with col:  
+                c3.markdown(css_code, unsafe_allow_html=True)
+                html_code_token3 = """
+                    <div class="custom-container">
+                        <img src="https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true" alt="My Day Token" class="custom-image">
+                        <p>3,000 points</p>
+                        <button class="custom-button">Purchase My Day</button>
+                    </div>
+                """
+                c3.markdown(html_code_token3, unsafe_allow_html=True)
                 
-            """
-            st.markdown(html_code, unsafe_allow_html=True)
+with st.container(): 
+    # c4, c5, c6 = st.columns(3)
+    for col in [c4, c5, c6]: 
+        if col == c4:
+            with col:  
+                c4.markdown(css_code, unsafe_allow_html=True)
+                html_code_token4 = """
+                    <div class="custom-container">
+                        <img src="https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true" alt="Minion Glasses" class="custom-image">
+                        <p>4,000 points</p>
+                        <button class="custom-button">Purchase Park Ticket</button>
+                    </div>
+                """
+                c4.markdown(html_code_token4, unsafe_allow_html=True)
+        if col == c5:
+            with col: 
+                c5.markdown(css_code, unsafe_allow_html=True)
+                html_code_token5 = """
+                    <div class="custom-container">
+                        <img src="https://static.wikia.nocookie.net/vsbattles/images/d/da/Kisspng-phil-the-minion-birthday-minions-despicable-me-cli-minion-5abb7634ceab95.0695696415222349328465.png/revision/latest/scale-to-width-down/240?cb=20180916000856" alt="Minion" class="custom-image">
+                        <p>4,000 points</p>
+                        <button class="custom-button">Purchase Minion</button>
+                    </div>
+                """
+                c5.markdown(html_code_token5, unsafe_allow_html=True)
+        if col == c6:
+            with col:
+                c6.markdown(css_code, unsafe_allow_html=True)
+                html_code_token6 = """
+                    <div class="custom-container">
+                        <img src="https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png" alt="Dragon" class="custom-image">
+                        <p>3,000 points</p>
+                        <button class="custom-button">Purchase Hatching Egg</button>
+                    </div>
+                """
+                c6.markdown(html_code_token6, unsafe_allow_html=True)
