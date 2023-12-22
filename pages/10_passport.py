@@ -69,12 +69,10 @@ for info in hotel_key_result:
     room_number = info[3]  # Assuming room number is in the 4th column
     checkout_date = info[5]  # Assuming checkout date is in the 6th column
     
-    formatted_checkout_date = checkout_date.strftime('%m/%d/%y') if isinstance(checkout_date, (datetime.date, datetime.datetime)) else "N/A"
-    
     key_info = (
         f"Hotel Name: {info[1]}\n"
         f"Room Number: {room_number}\n"
-        f"Checkout Date: {formatted_checkout_date}"
+        f"Checkout Date: {checkout_date}"
     )
     hotel_key_info.append(key_info)
 
