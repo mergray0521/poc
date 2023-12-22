@@ -138,13 +138,13 @@ css_code = """
         .ticket-image {
             width: 80%;
             border-radius: 5px;
-            height: 200px;
+            height: 250px;
         }
 
          .key-image {
             width: 50%;
             border-radius: 5px;
-            height: 20px;
+            height: 30px;
         }
 
             .bottom-image {
