@@ -62,13 +62,27 @@ hotel_key_result = my_cur2.fetchall()
 # Extract hotel key information and create a comma-separated list
 hotel_key_info = ", ".join(str(info) for info in hotel_key_result) if hotel_key_result else "N/A"
 
+
+It seems like the value at info[3] is an integer, not a datetime object. This could be due to an issue with the data in your database. To handle this situation, you can check the type of the value before attempting to format it. If it's an integer, you can convert it to a datetime object before applying strftime.
+
+Here's an updated version of the code:
+
+python
+Copy code
+# Extract hotel key information and create a formatted list
 hotel_key_info = []
 
 for info in hotel_key_result:
+    checkout_date = (
+        pd.to_datetime(info[3], unit="s").strftime('%m/%d/%y')
+        if isinstance(info[3], (int, float))
+        else info[3].strftime('%m/%d/%y')
+    )
+    
     key_info = (
         f"Hotel Name: {info[1]}\n"
         f"Room #: {info[2]}\n"
-        f"Checkout: {info[3].strftime('%m/%d/%y')}"
+        f"Checkout: {checkout_date}"
     )
     hotel_key_info.append(key_info)
 
