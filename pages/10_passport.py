@@ -66,17 +66,18 @@ hotel_key_info = ", ".join(str(info) for info in hotel_key_result) if hotel_key_
 hotel_key_info = []
 
 for info in hotel_key_result:
-    checkout_date = info[3] if isinstance(info[3], (int, float)) else info[3].strftime('%m/%d/%y')
+    room_number = info[3]  # Assuming room number is in the 4th column
     
     key_info = (
         f"Hotel Name: {info[1]}\n"
-        f"Room Number: {info[2]}\n"
-        f"Checkout Date: {checkout_date}"
+        f"Room Number: {room_number}\n"
+        f"Checkout Date: {info[2].strftime('%m/%d/%y')}"  # Assuming checkout date is in the 3rd column
     )
     hotel_key_info.append(key_info)
 
 # Join the formatted hotel key information into a single string
 formatted_hotel_key_info = "\n\n".join(hotel_key_info) if hotel_key_info else "N/A"
+
 
 
 
