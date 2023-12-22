@@ -15,13 +15,13 @@ css_code = """
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 350px;
+            height: 200px;
         }
 
         .custom-image {
             width: 100%;
             border-radius: 5px;
-            height: 150px;
+            height: 100px;
         }
     </style>
 """
