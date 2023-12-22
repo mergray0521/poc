@@ -46,8 +46,8 @@ park_ticket_info = []
 
 for info in park_ticket_result:
     ticket_info = (
-        f" {info[1]}, {info[2]}\n"
-        f {info[3].strftime('%m/%d/%y')} - {info[4].strftime('%m/%d/%y')}"
+        f"Location: {info[1]}, {info[2]}\n"
+        f"Dates: {info[3].strftime('%m/%d/%y')} - {info[4].strftime('%m/%d/%y')}"
     )
     park_ticket_info.append(ticket_info)
 
