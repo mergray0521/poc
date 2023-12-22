@@ -106,7 +106,7 @@ css_code = """
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 350px;
+            height: 330px;
         }
 
          .footer-container {
