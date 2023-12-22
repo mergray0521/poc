@@ -87,9 +87,9 @@ with st.container():
                 c5.markdown(css_code, unsafe_allow_html=True)
                 html_code_token5 = """
                     <div class="custom-container">
-                        <img src="https://shop.universalorlando.com/merchimages/p-despicable-me-minion-orlando-hitchhike-sign-pin-1290914.jpg" alt="Park Pass" class="custom-image">
+                        <img src="https://static.wikia.nocookie.net/dragon-adventures/images/e/e0/Egg_Icon.png/revision/latest/scale-to-width-down/1200?cb=20211011072304" alt="Park Pass" class="custom-image">
                         <p>4,000 points</p>
-                        <button class="custom-button">Purchase Minion Character</button>
+                        <button class="custom-button">Purchase Dragon Egg</button>
                     </div>
                 """
                 c5.markdown(html_code_token5, unsafe_allow_html=True)
@@ -100,7 +100,7 @@ with st.container():
                     <div class="custom-container">
                         <img src="https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png" alt="Dragon" class="custom-image">
                         <p>3,000 points</p>
-                        <button class="custom-button">Purchase Dragon Egg</button>
+                        <button class="custom-button">Purchase Hatching Egg</button>
                     </div>
                 """
                 c6.markdown(html_code_token6, unsafe_allow_html=True)
