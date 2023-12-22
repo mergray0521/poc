@@ -61,7 +61,7 @@ with st.container():
                 c3.markdown(css_code, unsafe_allow_html=True)
                 html_code_token3 = """
                     <div class="custom-container">
-                        <img src="https://github.com/mergray0521/poc/blob/main/images/key.png?raw=true" alt="My Day Token" class="custom-image">
+                        <img src="https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true" alt="My Day Token" class="custom-image">
                         <p>3,000 points</p>
                         <button class="custom-button">Purchase My Day</button>
                     </div>
