@@ -54,8 +54,6 @@ for info in park_ticket_result:
 # Join the formatted ticket information into a single string
 formatted_park_ticket_info = "\n\n".join(park_ticket_info) if park_ticket_info else "N/A"
 
-
-
 # Query the hotel_key table for token_id 1101
 hotel_key_query = "SELECT * FROM hotel_key WHERE token_id = 1101"
 my_cur2.execute(hotel_key_query)
@@ -63,6 +61,21 @@ hotel_key_result = my_cur2.fetchall()
 
 # Extract hotel key information and create a comma-separated list
 hotel_key_info = ", ".join(str(info) for info in hotel_key_result) if hotel_key_result else "N/A"
+
+hotel_key_info = []
+
+for info in hotel_key_result:
+    key_info = (
+        f"Hotel Name: {info[1]}\n"
+        f"Room #: {info[2]}\n"
+        f"Checkout: {info[3].strftime('%m/%d/%y')}"
+    )
+    hotel_key_info.append(key_info)
+
+# Join the formatted hotel key information into a single string
+formatted_hotel_key_info = "\n\n".join(hotel_key_info) if hotel_key_info else "N/A"
+
+
 
 
 st.title("My Stuff")
@@ -186,7 +199,7 @@ html_code_row3_right = ("""
     <h3 class="custom-header">Hotel Keys</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/key.png?raw=true" class="ticket-image">
 """
-    f"<p>{hotel_key_info}</p>"
+    f"<p>{formatted_hotel_key_info}</p>"
     "</div>"
 )
 cols_row3[0].markdown(html_code_row3_left, unsafe_allow_html=True)
