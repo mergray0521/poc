@@ -23,7 +23,7 @@ point_quantity_value = points_df["Point_Quantity"].iloc[0] if not points_df.empt
 
 
 # Query the token_ownership table for token IDs
-token_query = f"SELECT token_id FROM token_ownership WHERE user_id = '{user_id}'"
+token_query = f"SELECT token_id FROM token_ownership WHERE user_id = '{owner_id}'"
 my_cur.execute(token_query)
 token_result = my_cur.fetchall()
 
