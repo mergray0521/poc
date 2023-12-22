@@ -7,7 +7,7 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
-# Your database connection
+# Inventory db connection
 my_cnx2 = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
 my_cur2 = my_cnx2.cursor()
 
@@ -41,6 +41,20 @@ park_ticket_result = my_cur2.fetchall()
 
 # Extract park ticket information and create a comma-separated list
 park_ticket_info = ", ".join(str(info) for info in park_ticket_result) if park_ticket_result else "N/A"
+
+park_ticket_info = []
+
+for info in park_ticket_result:
+    ticket_info = (
+        f"Location: {info[1]}, {info[2]}\n"
+        f"Date Range: {info[3].strftime('%m/%d/%y')} - {info[4].strftime('%m/%d/%y')}"
+    )
+    park_ticket_info.append(ticket_info)
+
+# Join the formatted ticket information into a single string
+formatted_park_ticket_info = "\n\n".join(park_ticket_info) if park_ticket_info else "N/A"
+
+
 
 # Query the hotel_key table for token_id 1101
 hotel_key_query = "SELECT * FROM hotel_key WHERE token_id = 1101"
@@ -163,7 +177,7 @@ html_code_row3_left = ("""
     <h3 class="custom-header">Park Tickets</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true" class="ticket-image">
 """
-    f"<p>{park_ticket_info}</p>"
+    f"<p>{formatted_park_ticket_info}</p>"
     "</div>"
 )
 
