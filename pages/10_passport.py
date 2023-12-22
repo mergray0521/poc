@@ -7,6 +7,10 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
+# Your database connection
+my_cnx2 = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+my_cur2 = my_cnx2.cursor()
+
 #Define user
 user_id = 1
 
@@ -32,8 +36,8 @@ token_ids = ", ".join(str(token[0]) for token in token_result) if token_result e
 
 # Query the park_ticket table for token_id 1001
 park_ticket_query = "SELECT * FROM park_ticket WHERE token_id = 1001"
-my_cur.execute(park_ticket_query)
-park_ticket_result = my_cur.fetchall()
+my_cur2.execute(park_ticket_query)
+park_ticket_result = my_cur2.fetchall()
 
 # Extract park ticket information and create a comma-separated list
 park_ticket_info = ", ".join(str(info) for info in park_ticket_result) if park_ticket_result else "N/A"
@@ -41,7 +45,7 @@ park_ticket_info = ", ".join(str(info) for info in park_ticket_result) if park_t
 # Query the hotel_key table for token_id 1101
 hotel_key_query = "SELECT * FROM hotel_key WHERE token_id = 1101"
 my_cur.execute(hotel_key_query)
-hotel_key_result = my_cur.fetchall()
+hotel_key_result = my_cur2.fetchall()
 
 # Extract hotel key information and create a comma-separated list
 hotel_key_info = ", ".join(str(info) for info in hotel_key_result) if hotel_key_result else "N/A"
