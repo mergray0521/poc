@@ -86,9 +86,9 @@ with st.container():
                 c5.markdown(css_code, unsafe_allow_html=True)
                 html_code_token5 = """
                     <div class="custom-container">
-                        <img src="https://static.wikia.nocookie.net/vsbattles/images/d/da/Kisspng-phil-the-minion-birthday-minions-despicable-me-cli-minion-5abb7634ceab95.0695696415222349328465.png/revision/latest/scale-to-width-down/240?cb=20180916000856" alt="Minion" class="custom-image">
+                        <img src="https://cdn.dribbble.com/users/1061278/screenshots/14605165/media/f27c0bfd48d70f3aa755d3617b287f3e.png?resize=400x300&vertical=center" alt="Dragon" class="custom-image">
                         <p>4,000 points</p>
-                        <button class="custom-button">Purchase Minion</button>
+                        <button class="custom-button">Purchase Dragon</button>
                     </div>
                 """
                 c5.markdown(html_code_token5, unsafe_allow_html=True)
