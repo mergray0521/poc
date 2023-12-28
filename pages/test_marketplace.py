@@ -33,12 +33,12 @@ css_code = """
 
 # Token details
 tokens = [
-    {"name": "my_say", "token_id": "1201", "token_cost": 1000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true"},
-    {"name": "my_way", "token_id": "1301", "token_cost": 2000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true"},
-    {"name": "my_day", "token_id": "1402", "token_cost": 3000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true"},
-    {"name": "park_ticket", "token_id": "1002", "token_cost": 4000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true"},
-    {"name": "trained_dragon", "token_id": "401", "token_cost": 4000, "image_url": "https://cdn.dribbble.com/users/1061278/screenshots/14605165/media/f27c0bfd48d70f3aa755d3617b287f3e.png?resize=400x300&vertical=center"},
-    {"name": "dragon_egg", "token_id": "108", "token_cost": 3000, "image_url": "https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png"},
+    {"name": "My Say", "token_id": "1201", "token_cost": 1000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true"},
+    {"name": "My Way", "token_id": "1301", "token_cost": 2000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true"},
+    {"name": "My Day", "token_id": "1402", "token_cost": 3000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true"},
+    {"name": "Park Ticket", "token_id": "1002", "token_cost": 4000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true"},
+    {"name": "Trained Dragon", "token_id": "401", "token_cost": 4000, "image_url": "https://cdn.dribbble.com/users/1061278/screenshots/14605165/media/f27c0bfd48d70f3aa755d3617b287f3e.png?resize=400x300&vertical=center"},
+    {"name": "Dragon Egg", "token_id": "108", "token_cost": 3000, "image_url": "https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png"},
 ]
 
 user_id = 1
@@ -72,6 +72,6 @@ with st.container():
         with col:
             col.markdown(css_code, unsafe_allow_html=True)
             col.markdown(f'<div class="custom-container"><img src="{token["image_url"]}" alt="{token["name"]}" class="custom-image"><p>{token["name"]} - {token["token_cost"]} points</p><button class="custom-button" onclick="purchaseToken(\'{token["name"]}\', {token["token_cost"]})">Purchase</button></div>', unsafe_allow_html=True)
-            if st.button(f'Purchase {token["name"]} - {token["token_cost"]} points'):
+            if st.button(f'Purchase {token["name"]} - {token["token_cost"]} points', key=f'purchase_button_{token["name"]}'):
                 handle_purchase(token["token_id"], token["token_cost"])
 
