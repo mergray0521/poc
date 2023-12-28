@@ -2,17 +2,17 @@ import streamlit as st
 import snowflake.connector
 
 
-# Token cost dictionary
-token_costs = {
-    "My Say Token": 1000,
-    "My Way Token": 2000,
-    "My Day Token": 3000,
-    "Minion Glasses": 4000,
-    "Dragon": 4000,
-    "Hatching Egg": 3000,
-}
+# Token details
+tokens = [
+    {"name": "My Say Token", "cost": 1000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true"},
+    {"name": "My Way Token", "cost": 2000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true"},
+    {"name": "My Day Token", "cost": 3000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true"},
+    {"name": "Park Ticket", "cost": 4000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true"},
+    {"name": "Dragon", "cost": 4000, "image_url": "https://cdn.dribbble.com/users/1061278/screenshots/14605165/media/f27c0bfd48d70f3aa755d3617b287f3e.png?resize=400x300&vertical=center"},
+    {"name": "Hatching Egg", "cost": 3000, "image_url": "https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png"},
+]
 
-# Assuming you have the user_id (replace with your actual user_id)
+
 user_id = 1
 
 # Function to handle button click
@@ -67,9 +67,10 @@ css_code = """
 # Assuming you have defined st.container somewhere in your code
 with st.container():
     c1, c2, c3 = st.columns(3)
-    for col, token_name in zip([c1, c2, c3], ["My Say Token", "My Way Token", "My Day Token"]):
+    for col, token in zip([c1, c2, c3], tokens):
         with col:
             col.markdown(css_code, unsafe_allow_html=True)
+            col.image(token["image_url"], alt=token["name"], width=200)
             # Use st.button to handle button clicks
-            if st.button(f"Purchase {token_name} - {token_costs[token_name]} points"):
-                handle_purchase(token_name, token_costs[token_name])
+            if st.button(f"Purchase {token['name']} - {token['cost']} points"):
+                handle_purchase(token["name"], token["cost"])
