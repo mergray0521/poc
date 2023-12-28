@@ -5,11 +5,37 @@ import snowflake.connector
 my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
+
+st.header("Token Marketplace")
+css_code = """
+    <style>
+        .custom-container {
+            border: 2px solid #1f618d;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 10px;
+            height: 280px;
+        }
+
+        .custom-image {
+            width: 80%;
+            border-radius: 5px;
+            height: 150px;
+        }
+
+        .custom-button {
+            margin-top: 10px;
+            border: 2px solid #429DF5;
+        }
+    </style>
+"""
+
 # Token details
 tokens = [
     {"name": "My Say Token", "cost": 1000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true"},
     {"name": "My Way Token", "cost": 2000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true"},
-    {"name": "My Day Token", "cost": 3000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true"},
+    {"name": "My Day Token", "cost": 3000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true"},
     {"name": "Park Ticket", "cost": 4000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true"},
     {"name": "Dragon", "cost": 4000, "image_url": "https://cdn.dribbble.com/users/1061278/screenshots/14605165/media/f27c0bfd48d70f3aa755d3617b287f3e.png?resize=400x300&vertical=center"},
     {"name": "Hatching Egg", "cost": 3000, "image_url": "https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png"},
@@ -37,17 +63,15 @@ def handle_purchase(token_name, token_cost):
     else:
         st.error("Insufficient points to purchase this token.")
 
-# UI Code
-st.header("Token Marketplace")
+# Create 3 columns and two rows
+c1, c2, c3 = st.columns(3)
+c4, c5, c6 = st.columns(3)
 
-for token in tokens:
-    st.markdown(
-        f"""
-        <div class="custom-container">
-            <img src="{token['image_url']}" alt="{token['name']}" class="custom-image">
-            <p>{token['name']} - {token['cost']} points</p>
-            <button class="custom-button" onclick="handle_purchase('{token['name']}', {token['cost']})">Purchase {token['name']}</button>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+with st.container(): 
+    for col, token in zip([c1, c2, c3, c4, c5, c6], tokens): 
+        with col:
+            col.markdown(css_code, unsafe_allow_html=True)
+            col.image(token["image_url"], alt=token["name"], width=200)
+            col.markdown(f"<p>{token['name']} - {token['cost']} points</p>", unsafe_allow_html=True)
+            if col.button(f"Purchase {token['name']}"):
+                handle_purchase(token["name"], token["cost"])
