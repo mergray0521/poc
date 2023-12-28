@@ -2,10 +2,6 @@ import requests
 import streamlit as st
 import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
-my_cur = my_cnx.cursor()
-
-
 st.header("Token Marketplace")
 css_code = """
     <style>
