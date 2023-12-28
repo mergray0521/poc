@@ -55,7 +55,7 @@ def handle_purchase(token_id, token_cost):
         # 4. Insert Token Ownership
         insert_token_query = f"INSERT INTO token_ownership (owner_id, token_id, quantity) VALUES ({user_id}, '{token_id}', 1)"
         my_cur.execute(insert_token_query)
-        st.success(f"You have successfully purchased {token_id}!")
+        st.success(f"You have successfully purchased token {token_id}!")
     else:
         st.error("Insufficient points to purchase this token.")
 
