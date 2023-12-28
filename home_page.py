@@ -50,11 +50,6 @@ def main():
     get_session_state()
     home_page()
 
-    # Display pages based on role
-    pages = display_pages()
-    if pages:
-        selected_page = st.sidebar.selectbox("Select Page", pages)
-        st.write(f"You are viewing {selected_page}.")
 
 if __name__ == "__main__":
     main()
