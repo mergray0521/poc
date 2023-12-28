@@ -67,8 +67,10 @@ def handle_purchase(token_name, token_cost):
 c1, c2, c3 = st.columns(3)
 c4, c5, c6 = st.columns(3)
 
-with st.container(): 
-    for col, token in zip([c1, c2, c3, c4, c5, c6], tokens): 
+with st.container():
+    for col, token in zip([c1, c2, c3, c4, c5, c6], tokens):
         with col:
             col.markdown(css_code, unsafe_allow_html=True)
             col.markdown(f'<div class="custom-container"><img src="{token["image_url"]}" alt="{token["name"]}" class="custom-image"><p>{token["name"]} - {token["cost"]} points</p><button class="custom-button" onclick="purchaseToken(\'{token["name"]}\', {token["cost"]})">Purchase</button></div>', unsafe_allow_html=True)
+            if st.button(f'Purchase {token["name"]} - {token["cost"]} points'):
+                handle_purchase(token["name"], token["cost"])
