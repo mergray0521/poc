@@ -1,5 +1,4 @@
 import streamlit as st
-import snowflake.connector
 
 st.set_page_config(
     page_title="Homepage"
@@ -8,8 +7,8 @@ st.set_page_config(
 st.title('My Passport')
 st.sidebar.success("Select a page above.")
 
-admin_pages = ["1_create_token_schema.py", "2_mint_token.py", "3_assign_ownership.py", "4_display_tokens.py", "5_earned_token.py", "6_update_metadata.py"]
-user_pages = ["4_display_tokens.py", "5_earned_token.py", "6_update_metadata.py"]
+admin_pages = ["1_create_token_schema.py", "2_mint_token.py", "3_assign_ownership.py", "4_display_points.py", "5_display_tokens.py", "6_update_metadata.py"]
+user_pages = ["7_passport.py", "8_earn_points.py", "9_earn_tokens.py", "10_marketplace.py"]
 
 # Function to get or create session state
 def get_session_state():
@@ -50,7 +49,5 @@ def main():
     get_session_state()
     home_page()
 
-
 if __name__ == "__main__":
     main()
-
