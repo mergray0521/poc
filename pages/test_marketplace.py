@@ -1,3 +1,4 @@
+import requests
 import streamlit as st
 import snowflake.connector
 
@@ -38,37 +39,15 @@ def handle_purchase(token_name, token_cost):
 
 # UI Code
 st.header("Token Marketplace")
-css_code = """
-    <style>
-        .custom-container {
-            border: 2px solid #1f618d;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            margin-bottom: 10px;
-            height: 280px;
-        }
 
-        .custom-image {
-            width: 80%;
-            border-radius: 5px;
-            height: 150px;
-        }
-
-        .custom-button {
-            margin-top: 10px;
-            border: 2px solid #429DF5;
-        }
-    </style>
-"""
-
-# Assuming you have defined st.container somewhere in your code
-with st.container():
-    c1, c2, c3 = st.columns(3)
-    for col, token in zip([c1, c2, c3], tokens):
-        with col:
-            col.markdown(css_code, unsafe_allow_html=True)
-            col.image(token["image_url"], width=200)
-            # Use st.button to handle button clicks
-            if st.button(f"Purchase {token['name']} - {token['cost']} points"):
-                handle_purchase(token["name"], token["cost"])
+for token in tokens:
+    st.markdown(
+        f"""
+        <div class="custom-container">
+            <img src="{token['image_url']}" alt="{token['name']}" class="custom-image">
+            <p>{token['name']} - {token['cost']} points</p>
+            <button class="custom-button" onclick="handle_purchase('{token['name']}', {token['cost']})">Purchase {token['name']}</button>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
