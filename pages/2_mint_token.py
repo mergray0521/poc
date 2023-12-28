@@ -4,7 +4,7 @@ import snowflake.connector
 st.title("Mint Token")
 with st.form("token_schema"):
     st.header("Select Token Schema")
-    token_schema = st.selectbox('Token Schema', ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons"])
+    token_schema = st.selectbox('Token Schema', ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons", "minion_goggles")
     search = st.form_submit_button(label="Search")
     if not search and not st.session_state.get("Search"):
         st.stop()
