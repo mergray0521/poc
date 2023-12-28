@@ -71,7 +71,11 @@ with st.container():
     for col, token in zip([c1, c2, c3, c4, c5, c6], tokens):
         with col:
             col.markdown(css_code, unsafe_allow_html=True)
-            col.markdown(f'<div class="custom-container"><img src="{token["image_url"]}" alt="{token["name"]}" class="custom-image"><p>{token["name"]} - {token["token_cost"]} points</p><button class="custom-button" onclick="purchaseToken(\'{token["name"]}\', {token["token_cost"]})">Purchase</button></div>', unsafe_allow_html=True)
-            if st.button(f'Purchase {token["name"]} - {token["token_cost"]} points', key=f'purchase_button_{token["name"]}'):
-                handle_purchase(token["token_id"], token["token_cost"])
+            col.markdown(f'<div class="custom-container"><img src="{token["image_url"]}" alt="{token["name"]}" class="custom-image"><p>{token["name"]} - {token["token_cost"]} points</p></div>', unsafe_allow_html=True)
+
+# Move the st.button block outside the container loop
+if st.button("Purchase Selected Token"):
+    # Handle purchase logic here, e.g., you can check which token is selected and perform the purchase
+    selected_token = tokens[0]  # You need to replace this with the logic to determine the selected token
+    handle_purchase(selected_token["token_id"], selected_token["token_cost"])
 
