@@ -2,6 +2,10 @@ import requests
 import streamlit as st
 import snowflake.connector
 
+# Your database connection
+my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
+my_cur = my_cnx.cursor()
+
 st.header("Token Marketplace")
 css_code = """
     <style>
@@ -11,7 +15,7 @@ css_code = """
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 280px;
+            height: 200px;
         }
 
         .custom-image {
@@ -20,87 +24,51 @@ css_code = """
             height: 150px;
         }
 
-        .custom-button {
-            margin-top: 10px;
-            border: 2px solid #429DF5;
-        }
     </style>
 """
 
+# Token details
+tokens = [
+    {"name": "My Say", "token_id": "1201", "token_cost": 1000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true"},
+    {"name": "My Way", "token_id": "1301", "token_cost": 2000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true"},
+    {"name": "My Day", "token_id": "1402", "token_cost": 3000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true"},
+    {"name": "Park Ticket", "token_id": "1002", "token_cost": 4000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true"},
+    {"name": "Trained Dragon", "token_id": "401", "token_cost": 4000, "image_url": "https://cdn.dribbble.com/users/1061278/screenshots/14605165/media/f27c0bfd48d70f3aa755d3617b287f3e.png?resize=400x300&vertical=center"},
+    {"name": "Dragon Egg", "token_id": "108", "token_cost": 3000, "image_url": "https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png"},
+]
+
+user_id = 1
+
+# Function to handle button click
+def handle_purchase(token_id, token_cost):
+    # 1. Get User Points
+    user_points_query = f"SELECT point_quantity FROM point_ownership WHERE user_id = {user_id}"
+    my_cur.execute(user_points_query)
+    user_points = my_cur.fetchone()[0]
+
+    # 2. Check Sufficient Points
+    if user_points >= token_cost:
+        # 3. Update Point Ownership
+        new_points = user_points - token_cost
+        update_points_query = f"UPDATE point_ownership SET point_quantity = {new_points} WHERE user_id = {user_id}"
+        my_cur.execute(update_points_query)
+        # 4. Insert Token Ownership
+        insert_token_query = f"INSERT INTO token_ownership (owner_id, token_id, quantity) VALUES ({user_id}, '{token_id}', 1)"
+        my_cur.execute(insert_token_query)
+        st.success(f"You have successfully purchased {token_id}!")
+    else:
+        st.error("Insufficient points to purchase this token.")
+
 # Create 3 columns and two rows
 c1, c2, c3 = st.columns(3)
-c4, c5, c6 = st.columns(3) 
+c4, c5, c6 = st.columns(3)
 
-with st.container(): 
-    # c1, c2, c3 = st.columns(3)
-    for col in [c1, c2, c3]: 
-        if col == c1:
-            with col:
-                c1.markdown(css_code, unsafe_allow_html=True)
-                html_code_token1 = """
-                    <div class="custom-container">
-                        <img src="https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true" alt="My Say Token" class="custom-image">
-                        <p>1,000 points</p>
-                        <button class="custom-button">Purchase My Say</button>
-                    </div>
-                """
-                c1.markdown(html_code_token1, unsafe_allow_html=True)
-        if col == c2:
-            with col:        
-                c2.markdown(css_code, unsafe_allow_html=True)
-                html_code_token2 = """
-                    <div class="custom-container">
-                        <img src="https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true" alt="My Way Token" class="custom-image">
-                        <p>2,000 points</p>
-                        <button class="custom-button">Purchase My Way</button>
-                    </div>
-                """
-                c2.markdown(html_code_token2, unsafe_allow_html=True)
-        if col == c3:
-            with col:  
-                c3.markdown(css_code, unsafe_allow_html=True)
-                html_code_token3 = """
-                    <div class="custom-container">
-                        <img src="https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true" alt="My Day Token" class="custom-image">
-                        <p>3,000 points</p>
-                        <button class="custom-button">Purchase My Day</button>
-                    </div>
-                """
-                c3.markdown(html_code_token3, unsafe_allow_html=True)
-                
-with st.container(): 
-    # c4, c5, c6 = st.columns(3)
-    for col in [c4, c5, c6]: 
-        if col == c4:
-            with col:  
-                c4.markdown(css_code, unsafe_allow_html=True)
-                html_code_token4 = """
-                    <div class="custom-container">
-                        <img src="https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true" alt="Minion Glasses" class="custom-image">
-                        <p>4,000 points</p>
-                        <button class="custom-button">Purchase Park Ticket</button>
-                    </div>
-                """
-                c4.markdown(html_code_token4, unsafe_allow_html=True)
-        if col == c5:
-            with col: 
-                c5.markdown(css_code, unsafe_allow_html=True)
-                html_code_token5 = """
-                    <div class="custom-container">
-                        <img src="https://cdn.dribbble.com/users/1061278/screenshots/14605165/media/f27c0bfd48d70f3aa755d3617b287f3e.png?resize=400x300&vertical=center" alt="Dragon" class="custom-image">
-                        <p>4,000 points</p>
-                        <button class="custom-button">Purchase Dragon</button>
-                    </div>
-                """
-                c5.markdown(html_code_token5, unsafe_allow_html=True)
-        if col == c6:
-            with col:
-                c6.markdown(css_code, unsafe_allow_html=True)
-                html_code_token6 = """
-                    <div class="custom-container">
-                        <img src="https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png" alt="Dragon" class="custom-image">
-                        <p>3,000 points</p>
-                        <button class="custom-button">Purchase Hatching Egg</button>
-                    </div>
-                """
-                c6.markdown(html_code_token6, unsafe_allow_html=True)
+with st.container():
+    for col, token in zip([c1, c2, c3, c4, c5, c6], tokens):
+        with col:
+            col.markdown(css_code, unsafe_allow_html=True)
+            col.markdown(f'<div class="custom-container"><img src="{token["image_url"]}" alt="{token["name"]}" class="custom-image"><p>{token["name"]} - {token["token_cost"]} points</p></div>', unsafe_allow_html=True)
+            
+            # Move the st.button block inside the container loop
+            if st.button(f'Purchase {token["name"]} - {token["token_cost"]} points', key=f'purchase_button_{token["name"]}'):
+                handle_purchase(token["token_id"], token["token_cost"])
