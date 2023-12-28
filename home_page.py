@@ -4,7 +4,6 @@ st.set_page_config(
     page_title="Homepage"
 )
 
-st.title('My Passport')
 st.sidebar.success("Select a page above.")
 
 admin_pages = ["1_create_token_schema.py", "2_mint_token.py", "3_assign_ownership.py", "4_display_points.py", "5_display_tokens.py", "6_update_metadata.py"]
