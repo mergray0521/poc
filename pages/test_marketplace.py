@@ -1,6 +1,8 @@
 import streamlit as st
 import snowflake.connector
 
+my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
+my_cur = my_cnx.cursor()
 
 # Token details
 tokens = [
@@ -18,21 +20,18 @@ user_id = 1
 def handle_purchase(token_name, token_cost):
     # 1. Get User Points
     user_points_query = f"SELECT point_quantity FROM point_ownership WHERE user_id = {user_id}"
-    with connection.cursor() as cursor:
-        cursor.execute(user_points_query)
-        user_points = cursor.fetchone()[0]
+    my_cur.execute(user_points_query)
+    user_points = my_cur.fetchone()[0]
 
     # 2. Check Sufficient Points
     if user_points >= token_cost:
         # 3. Update Point Ownership
         new_points = user_points - token_cost
         update_points_query = f"UPDATE point_ownership SET point_quantity = {new_points} WHERE user_id = {user_id}"
-        with connection.cursor() as cursor:
-            cursor.execute(update_points_query)
+        my_cur.execute(update_points_query)
         # 4. Insert Token Ownership
         insert_token_query = f"INSERT INTO token_ownership (owner_id, token_id, quantity) VALUES ({user_id}, '{token_name}', 1)"
-        with connection.cursor() as cursor:
-            cursor.execute(insert_token_query)
+        my_cur.execute(insert_token_query)
         st.success(f"You have successfully purchased {token_name}!")
     else:
         st.error("Insufficient points to purchase this token.")
