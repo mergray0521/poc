@@ -67,7 +67,4 @@ with st.container():
     for col, token in zip([c1, c2, c3, c4, c5, c6], tokens): 
         with col:
             col.markdown(css_code, unsafe_allow_html=True)
-            col.image(token["image_url"], width=200)
-            col.markdown(f"<p>{token['name']} - {token['cost']} points</p>", unsafe_allow_html=True)
-            if col.button(f"Purchase {token['name']}"):
-                handle_purchase(token["name"], token["cost"])
+            col.markdown(f'<div class="custom-container"><img src="{token["image_url"]}" alt="{token["name"]}" class="custom-image"><p>{token["name"]} - {token["cost"]} points</p><button class="custom-button" onclick="purchaseToken(\'{token["name"]}\', {token["cost"]})">Purchase</button></div>', unsafe_allow_html=True)
