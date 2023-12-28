@@ -24,10 +24,6 @@ css_code = """
             height: 150px;
         }
 
-        .custom-button {
-            margin-top: 10px;
-            border: 2px solid #1f618d;
-        }
     </style>
 """
 
