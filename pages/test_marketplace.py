@@ -12,7 +12,6 @@ tokens = [
     {"name": "Hatching Egg", "cost": 3000, "image_url": "https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png"},
 ]
 
-
 user_id = 1
 
 # Function to handle button click
@@ -70,7 +69,7 @@ with st.container():
     for col, token in zip([c1, c2, c3], tokens):
         with col:
             col.markdown(css_code, unsafe_allow_html=True)
-            col.image(token["image_url"], alt=token["name"], width=200)
+            col.image(token["image_url"], width=200)
             # Use st.button to handle button clicks
             if st.button(f"Purchase {token['name']} - {token['cost']} points"):
                 handle_purchase(token["name"], token["cost"])
