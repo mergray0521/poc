@@ -6,7 +6,8 @@ my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
 st.header("Earned New Token") 
-st.text("Congrats on collecting a My Way Token! This influence token allows you to vote on Universal polls + topics.")
+st.text("Congrats on collecting a My Way Token!")
+st.text("This influence token allows you to vote on Universal polls + topics.")
 
 image_url = "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true"
 st.image(image_url, caption="Token: My Way", use_column_width=True)
