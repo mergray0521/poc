@@ -1,21 +1,19 @@
 import streamlit as st
 import snowflake.connector
 
-#Connect to Snowflake
+# Connect to Snowflake
 my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
 my_cur = my_cnx.cursor()
-
 
 st.title("Mint Token")
 with st.form("token_schema"):
     st.header("Select Token Schema")
-    token_schema = st.selectbox('Token Schema', ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons", "minion_goggles"]
+    token_schema = st.selectbox('Token Schema', ["avatar wearables", "dragon egg", "egg feathers", "egg nests", "healing herbs", "sketchbook", "star maps", "trained dragon", "weapons", "minion_goggles"])
     search = st.form_submit_button(label="Search")
     if not search and not st.session_state.get("Search"):
         st.stop()
     st.session_state["Search"] = True
     st.success(f"Token schema submitted with: {token_schema}")
-
 
 with st.form("mint_token"):
     st.header("Create New Token")
