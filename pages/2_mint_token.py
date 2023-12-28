@@ -1,9 +1,9 @@
 import streamlit as st
 import snowflake.connector
 
-    #Connect to Snowflake
-    my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
-    my_cur = my_cnx.cursor()
+#Connect to Snowflake
+my_cnx = snowflake.connector.connect(**st.secrets["INVENTORY_DB"])
+my_cur = my_cnx.cursor()
 
 
 st.title("Mint Token")
