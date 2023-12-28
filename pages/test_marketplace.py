@@ -73,14 +73,7 @@ with st.container():
             col.markdown(css_code, unsafe_allow_html=True)
             col.markdown(f'<div class="custom-container"><img src="{token["image_url"]}" alt="{token["name"]}" class="custom-image"><p>{token["name"]} - {token["token_cost"]} points</p></div>', unsafe_allow_html=True)
             
-            # button
-            button_clicked = st.button(f'Purchase {token["name"]} - {token["token_cost"]} points', key=f'purchase_button_{token["name"]}')
-
-            if button_clicked:
-                st.markdown(
-                    f'<button class="custom-button" onclick="purchaseToken(\'{token["name"]}\', {token["token_cost"]})">Purchase</button>',
-                    unsafe_allow_html=True
-                )
+            # Move the st.button block inside the container loop
+            if st.button(f'Purchase {token["name"]} - {token["token_cost"]} points', key=f'purchase_button_{token["name"]}'):
                 handle_purchase(token["token_id"], token["token_cost"])
-
 
