@@ -31,6 +31,10 @@ def home_page():
     if st.button("Continue"):
         st.success(f"You selected {role} role. Proceed to {role} pages.")
 
+        # List accessible pages
+        accessible_pages = display_pages()
+        st.info(f"Accessible Pages for {role}: {', '.join(accessible_pages)}")
+
 # Function to display pages based on role
 def display_pages():
     role = get_session_state().role
