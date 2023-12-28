@@ -15,7 +15,7 @@ css_code = """
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 280px;
+            height: 220px;
         }
 
         .custom-image {
@@ -26,7 +26,7 @@ css_code = """
 
         .custom-button {
             margin-top: 10px;
-            border: 2px solid #429DF5;
+            border: 2px solid #1f618d;
         }
     </style>
 """
