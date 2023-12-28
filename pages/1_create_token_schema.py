@@ -17,7 +17,7 @@ def main():
     token_schema_id = st.number_input("Token Schema ID", min_value=11, max_value=1000, value=11, step=1)
     token_name = st.text_input("Token Name", "")
     fungibility = st.selectbox("Fungibility", ["Fungible", "Non-Fungible", "Semi-Fungible"])
-    ip = st.selectbox("IP", ["HTTYD", "HHN", "CINEPHILE", "TOOTHSOME"])
+    ip = st.selectbox("IP", ["HTTYD", "HHN", "CINEPHILE", "TOOTHSOME", "MINIONS"])
     token_admin = st.selectbox("Token Admin", ["Micah", "Steve", "Mere"])
     metadata = st.text_area("Metadata", "")
 
