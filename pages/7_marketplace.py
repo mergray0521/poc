@@ -1,6 +1,7 @@
 import requests
 import streamlit as st
-# color:#33ff33;background-color: #EEEEEE;border: 2px solid #CCCCCC;padding: 5% 5% 5% 10%;border-radius: 5px;
+import snowflake.connector
+
 st.header("Token Marketplace")
 css_code = """
     <style>
