@@ -23,7 +23,7 @@ def main():
 
     # Submit button
     if st.button("Submit"):
-        # Process the form data (you can replace this with your logic)
+        # Process the form data
         result = {
             "Token Id": token_schema_id,
             "Token Name": token_name,
