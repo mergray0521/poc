@@ -5,7 +5,7 @@ my_cnx = snowflake.connector.connect(**st.secrets["TOKEN_OWNERSHIP"])
 my_cur = my_cnx.cursor()
 
 st.header("Earned Points") 
-st.text("You’ve earned 50 Park points for your latest park visit! Redeem your points now.")
+st.text("You’ve earned 50 points for completing an In-Park AR challenge! Redeem your points now.")
 
 image_url = "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true"
 st.image(image_url, caption="+50 points", use_column_width=True)
