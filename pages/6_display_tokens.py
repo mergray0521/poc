@@ -43,11 +43,10 @@ if st.button("Submit"):
             st.success(f"Tokens for User ID {user_id}:")
             tokens_df = pd.DataFrame(result, columns=["Token ID"])
 
-            # Manually code image URLs for a few tokens
             image_urls = {
-                101: "https://t3.ftcdn.net/jpg/03/40/50/48/360_F_340504802_pm6pOI5JAGJhNVLTntkGnX2S9oFe7Ncn.jpg",
+                101: "https://cdn-icons-png.flaticon.com/512/842/842184.png",
                 107: "https://cdn-icons-png.flaticon.com/512/5169/5169269.png",
-                108: "https://i.pinimg.com/736x/58/92/f0/5892f0f20598882750a70dda52078ab0.jpg",
+                108: "https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png",
                 201: "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true",
                 301: "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true",
                 303: "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true",
@@ -70,7 +69,7 @@ if st.button("Submit"):
                 list_ids.append(id)
 
             # Calculate the number of rows needed
-            num_rows = (len(list_ids) + 2) // 3  # Ceiling division
+            num_rows = (len(list_ids) + 2) // 3 
 
             for row in range(num_rows):
                 with st.container():
