@@ -19,6 +19,7 @@ css_code = """
         }
 
         .custom-image {
+            margin-top: 10px;
             width: 80%;
             border-radius: 5px;
             height: 150px;
