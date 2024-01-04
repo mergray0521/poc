@@ -55,3 +55,6 @@ with st.form("mint_token"):
     st.session_state["Mint"] = True
     st.success(f"New Token Created and saved to Kaleido: {token_id}")
 
+
+
+
