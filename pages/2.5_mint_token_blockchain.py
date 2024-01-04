@@ -8,7 +8,7 @@ USER = "U0a89q50kn"
 PASS = "mSpzLoL2--2IkF4Tne1zgg9geLFl9TYsQR_8lDNZ6mQ"
 RPC_ENDPOINT = "https://u0ujx62qc8-u0elgom1m1-rpc.us0-aws.kaleido.io/"
 
-# Encode the username and password from the app creds into USER:PASS base64 encoded string
+# Encode the app creds into USER:PASS 
 auth = USER + ":" + PASS
 encodedAuth = base64.b64encode(auth.encode('ascii')).decode('ascii')
 
