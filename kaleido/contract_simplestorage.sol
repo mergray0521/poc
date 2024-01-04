@@ -1,30 +1,48 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-contract simplestorage {
-   uint public storedData;
+contract TokenMinter {
+    // Mapping to store token data
+    mapping(uint256 => Token) public tokens;
 
-   event DataStored (
-      uint data
-   );
+    // Event emitted when a new token is minted
+    event TokenMinted(uint256 tokenId, string tokenType, string materials, string color);
 
-   constructor(uint initVal) public {
-      storedData = initVal;
-   }
+    // Struct to represent a token
+    struct Token {
+        string tokenType;
+        string materials;
+        string color;
+        bool minted;
+    }
 
-   function set(uint x) public returns (uint value) {
-      require(x < 100, "Value can not be over 100");
-      storedData = x;
+    // Function to mint a new token
+    function mintToken(
+        uint256 tokenId,
+        string memory tokenType,
+        string memory materials,
+        string memory color
+    ) public {
+        // Ensure the token ID is unique
+        require(!tokens[tokenId].minted, "Token ID already minted");
 
-      emit DataStored(x);
+        // Create a new token
+        Token memory newToken = Token({
+            tokenType: tokenType,
+            materials: materials,
+            color: color,
+            minted: true
+        });
 
-      return storedData;
-   }
+        // Store the new token
+        tokens[tokenId] = newToken;
 
-   function get() public view returns (uint retVal) {
-      return storedData;
-   }
+        // Emit the TokenMinted event
+        emit TokenMinted(tokenId, tokenType, materials, color);
+    }
 
-   function query() public view returns (uint retVal) {
-      return storedData;
-   }
+    // Function to get token details
+    function getTokenDetails(uint256 tokenId) public view returns (Token memory) {
+        return tokens[tokenId];
+    }
 }
