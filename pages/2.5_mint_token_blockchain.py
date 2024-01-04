@@ -1,3 +1,5 @@
+!pip install web3  # Install the 'web3' module
+
 import streamlit as st
 import base64
 from web3 import Web3, HTTPProvider
