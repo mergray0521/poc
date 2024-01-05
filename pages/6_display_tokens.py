@@ -8,18 +8,18 @@ my_cur = my_cnx.cursor()
 
 css_code = """
     <style>
-        .custom-container {
-            border: 2px solid #DCDCDC;
-            background: #DCDCDC;
-            padding: 5% 5% 5% 10%;
+         .custom-container {
+            border: 2px solid #1f618d;
+            padding: 10px;
             border-radius: 5px;
             text-align: center;
             margin-bottom: 10px;
-            height: 200px;
+            height: 220px;
         }
 
         .custom-image {
-            width: 100%;
+            margin-top: 10px;
+            width: 80%;
             border-radius: 5px;
             height: 150px;
         }
