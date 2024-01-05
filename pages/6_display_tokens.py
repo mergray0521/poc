@@ -64,7 +64,7 @@ if st.button("Submit"):
                                 html_code_col = f"""
                                     <div class="custom-container">
                                         <img src="{token['image_url']}" class="custom-image">
-                                        <p>{token['name']} : {token['token_id']}</p>
+                                        <p>{token['name']}: {token['token_id']}</p>
                                     </div>
                                 """
                                 st.markdown(html_code_col, unsafe_allow_html=True)
