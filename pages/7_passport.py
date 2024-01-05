@@ -32,7 +32,7 @@ my_cur.execute(token_query)
 token_result = my_cur.fetchall()
 
 # Extract token IDs and create a comma-separated list
-token_ids = ", ".join(str(token[0]) for token in token_result) if token_result else "N/A"
+token_names = ", ".join(str(token[0]) for token in token_result) if token_result else "N/A"
 
 # Query the park_ticket table for token_id 1001
 park_ticket_query = "SELECT * FROM park_ticket WHERE token_id = 1001"
@@ -183,7 +183,7 @@ html_code_row2_right = ("""
     <h3 class="custom-header">Badges</h3>
     <img src= "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true class="smaller-image">
 """
-    f"<p>{token_ids}</p>"
+    f"<p>{token_names}</p>"
     "</div>"
 )
 
