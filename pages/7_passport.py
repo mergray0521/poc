@@ -97,7 +97,7 @@ css_code = """
         }
 
             .custom-box {
-            border: 2px solid #DCDCDC;
+            border: 2px solid #1f618d;
             padding:  0% 0% 0% 5%;
             border-radius: 5px;
             text-align: center;
