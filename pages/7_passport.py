@@ -88,7 +88,7 @@ st.text("User 1: Micah Uhrlass")
 css_code = """
     <style>
         .custom-container {
-            border: 2px solid #DCDCDC;
+            border: 2px solid #1f618d;
             border-radius: 5px;
             padding:  0% 0% 0% 5%;
             text-align: center;
