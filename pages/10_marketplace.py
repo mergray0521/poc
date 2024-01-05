@@ -31,7 +31,7 @@ css_code = """
 tokens = [
     {"name": "My Say", "token_id": "1201", "token_cost": 1000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true"},
     {"name": "My Way", "token_id": "1301", "token_cost": 2000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true"},
-    {"name": "My Day", "token_id": "1402", "token_cost": 3000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true"},
+    {"name": "my_day", "token_id": "1402", "token_cost": 3000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true"},
     {"name": "Park Ticket", "token_id": "1002", "token_cost": 4000, "image_url": "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true"},
     {"name": "Trained Dragon", "token_id": "401", "token_cost": 4000, "image_url": "https://cdn.dribbble.com/users/1061278/screenshots/14605165/media/f27c0bfd48d70f3aa755d3617b287f3e.png?resize=400x300&vertical=center"},
     {"name": "Dragon Egg", "token_id": "108", "token_cost": 3000, "image_url": "https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png"},
