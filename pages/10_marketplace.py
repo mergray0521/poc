@@ -1,3 +1,4 @@
+import requests
 import streamlit as st
 import snowflake.connector
 
@@ -51,17 +52,11 @@ def handle_purchase(token_id, token_cost):
         new_points = user_points - token_cost
         update_points_query = f"UPDATE point_ownership SET point_quantity = {new_points} WHERE user_id = {user_id}"
         my_cur.execute(update_points_query)
-        
-        # 4. Get token name based on token_id
-        token_name_query = f"SELECT name FROM tokens WHERE token_id = '{token_id}'"
-        my_cur.execute(token_name_query)
-        token_name = my_cur.fetchone()[0]
-        
-        # 5. Insert Token Ownership with owner_id, token_id, quantity, and name
+        # 4. Insert Token Ownership
+        token_name = next((t["name"] for t in tokens if t["token_id"] == token_id), "Unknown")
         insert_token_query = f"INSERT INTO token_ownership (owner_id, token_id, quantity, name) VALUES ({user_id}, '{token_id}', 1, '{token_name}')"
         my_cur.execute(insert_token_query)
-        
-        st.success(f"You have successfully purchased {token_name} - {token_id} for {token_cost} points!")
+        st.success(f"You have successfully purchased token {token_id}!")
     else:
         st.error("Insufficient points to purchase this token.")
 
