@@ -32,7 +32,7 @@ my_cur.execute(token_query)
 token_result = my_cur.fetchall()
 
 # Extract token IDs and create a comma-separated list
-token_names = ", ".join(str(token[0]) for token in token_result) if token_result else "N/A"
+token_names = ", ".join(str(token[4]) for token in token_result) if token_result else "N/A"
 
 # Query the park_ticket table for token_id 1001
 park_ticket_query = "SELECT * FROM park_ticket WHERE token_id = 1001"
