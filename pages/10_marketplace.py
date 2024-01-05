@@ -40,23 +40,22 @@ tokens = [
 user_id = 1
 
 # Function to handle button click
-def handle_purchase(token_id, token_cost):
+def handle_purchase(token):
     # 1. Get User Points
     user_points_query = f"SELECT point_quantity FROM point_ownership WHERE user_id = {user_id}"
     my_cur.execute(user_points_query)
     user_points = my_cur.fetchone()[0]
 
     # 2. Check Sufficient Points
-    if user_points >= token_cost:
+    if user_points >= token["token_cost"]:
         # 3. Update Point Ownership
-        new_points = user_points - token_cost
+        new_points = user_points - token["token_cost"]
         update_points_query = f"UPDATE point_ownership SET point_quantity = {new_points} WHERE user_id = {user_id}"
         my_cur.execute(update_points_query)
         # 4. Insert Token Ownership
-        token_name = next((t["name"] for t in tokens if t["token_id"] == token_id), "Unknown")
-        insert_token_query = f"INSERT INTO token_ownership (owner_id, token_id, quantity, name) VALUES ({user_id}, '{token_id}', 1, '{token_name}')"
+        insert_token_query = f"INSERT INTO token_ownership (owner_id, token_id, quantity, name) VALUES ({user_id}, '{token["token_id"]}', 1, '{token["name"]}')"
         my_cur.execute(insert_token_query)
-        st.success(f"You have successfully purchased token {token_id}!")
+        st.success(f"You have successfully purchased token {token['token_id']}!")
     else:
         st.error("Insufficient points to purchase this token.")
 
@@ -72,4 +71,4 @@ with st.container():
             
             # Move the st.button block inside the container loop
             if st.button(f'Purchase {token["name"]} - {token["token_cost"]} points', key=f'purchase_button_{token["name"]}'):
-                handle_purchase(token["token_id"], token["token_cost"])
+                handle_purchase(token)
