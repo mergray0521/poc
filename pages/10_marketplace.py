@@ -53,7 +53,7 @@ def handle_purchase(token):
         update_points_query = f"UPDATE point_ownership SET point_quantity = {new_points} WHERE user_id = {user_id}"
         my_cur.execute(update_points_query)
         # 4. Insert Token Ownership
-        insert_token_query = f"INSERT INTO token_ownership (owner_id, token_id, quantity, name) VALUES ({user_id}, '{token['token_id']}', 1, '{token['name']}')"
+        insert_token_query = f"INSERT INTO token_ownership (owner_id, token_id, quantity, token_name) VALUES ({user_id}, '{token['token_id']}', 1, '{token['name']}')"
         my_cur.execute(insert_token_query)
         st.success(f"You have successfully purchased token {token['token_id']}!")
     else:
