@@ -41,55 +41,33 @@ if st.button("Submit"):
         # Display the result in Streamlit
         if result:
             st.success(f"Tokens for User ID {user_id}:")
-            tokens_df = pd.DataFrame(result, columns=["Token ID"])
+            tokens_df = pd.DataFrame(result, columns=["token_id"])
 
-            image_urls = {
-                101: "https://cdn-icons-png.flaticon.com/512/842/842184.png",
-                107: "https://cdn-icons-png.flaticon.com/512/5169/5169269.png",
-                108: "https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png",
-                201: "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(15).png?raw=true",
-                301: "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true",
-                303: "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(17).png?raw=true",
-                503: "https://github.com/mergray0521/poc/blob/main/images/key.png?raw=true",
-                504: "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true",
-                701: "https://i.pinimg.com/736x/58/92/f0/5892f0f20598882750a70dda52078ab0.jpg",
-                803: "https://t3.ftcdn.net/jpg/03/40/50/48/360_F_340504802_pm6pOI5JAGJhNVLTntkGnX2S9oFe7Ncn.jpg",
-                600: "https://cdn-icons-png.flaticon.com/512/5169/5169269.png",
-                1001: "https://i.pinimg.com/736x/58/92/f0/5892f0f20598882750a70dda52078ab0.jpg",
-                1101: "https://cdn-icons-png.flaticon.com/512/5169/5169269.png",
-                1102: "https://i.pinimg.com/736x/58/92/f0/5892f0f20598882750a70dda52078ab0.jpg"
-            }
+            tokens = [
+                {"name": "Dragon Egg", "token_id": "101", "image_url": "https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Dragon_Egg-512.png"},
+                {"name": "Healing Herbs", "token_id": "803", "image_url": "https://cdn-icons-png.flaticon.com/512/628/628283.png"},
+                {"name": "Park Ticket", "token_id": "1002", "image_url": "https://github.com/mergray0521/poc/blob/main/images/ticket.png?raw=true"},
+                {"name": "Hotel Key", "token_id": "1101", "image_url": "https://github.com/mergray0521/poc/blob/main/images/key.png?raw=true"},
+                {"name": "My Say", "token_id": "1201", "image_url": "https://github.com/mergray0521/poc/blob/main/images/MicrosoftTeams-image%20(16).png?raw=true"}
+            ]
 
             # Display images and captions in three columns
             cols = st.columns(3)
-            list_ids = []
-            for index, row in tokens_df.iterrows():
-                token_id = row["Token ID"]
-                id = token_id % 1000  # Extract the last three digits of the token_id
-                list_ids.append(id)
-
-            # Calculate the number of rows needed
-            num_rows = (len(list_ids) + 2) // 3 
-
-            for row in range(num_rows):
+            for row in range((len(tokens) + 2) // 3):
                 with st.container():
                     for col in cols:
                         token_index = row * 3 + cols.index(col)
-                        if token_index < len(list_ids):
-                            token_id = list_ids[token_index]
-                            if token_id in image_urls.keys():
-                                url = image_urls[token_id]
-                                with col:
-                                    st.markdown(css_code, unsafe_allow_html=True)
-                                    html_code_col = f"""
-                                        <div class="custom-container">
-                                            <img src="{url}" class="custom-image">
-                                            <p>Token ID: {token_id}</p>
-                                        </div>
-                                    """
-                                    st.markdown(html_code_col, unsafe_allow_html=True)
-                            else:
-                                st.warning(f"No image URL found for Token ID: {token_id}")
+                        if token_index < len(tokens):
+                            token = tokens[token_index]
+                            with col:
+                                st.markdown(css_code, unsafe_allow_html=True)
+                                html_code_col = f"""
+                                    <div class="custom-container">
+                                        <img src="{token['image_url']}" class="custom-image">
+                                        <p>{token['name']} - Token ID: {token['token_id']}</p>
+                                    </div>
+                                """
+                                st.markdown(html_code_col, unsafe_allow_html=True)
 
         else:
             st.warning(f"No tokens found for User ID {user_id}")
